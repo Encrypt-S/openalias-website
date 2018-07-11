@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import SignNewAddress from './views/signNewAddress.vue'
-import verifyNewAddress from './views/verifyNewAddress.vue'
+import VerifyNewAddress from './views/verifyNewAddress.vue'
+import SignPrevAddress from './views/signPrevAddress.vue'
+import VerifyPrevAddress from './views/verifyPrevAddress.vue'
 import createAlias from './views/createAlias.vue'
 import About from './views/About.vue'
 
@@ -23,7 +25,17 @@ export default new Router({
     {
       path: '/verify-new-address/',
       name: 'verifyNewAddress',
-      component: verifyNewAddress,
+      component: VerifyNewAddress,
+    },
+    {
+      path: '/sign-prev-address/',
+      name: 'signPrevAddress',
+      component: SignPrevAddress,
+    },
+    {
+      path: '/verify-prev-address/',
+      name: 'verifyPrevAddress',
+      component: VerifyPrevAddress,
     },
     {
       path: '/create-alias/',

@@ -1,10 +1,9 @@
 <template>
   <div>
-    <h1>Verify your address</h1>
+    <h1>Verifying you are the owner of {{alias}}@nav.community</h1>
     <input type="text" v-model="addressVerification"/>
     <div>
-      <button v-if="!aliasCurrentAddress" @click="clickCreate(addressVerification)">Create alias</button>
-      <button v-if="aliasCurrentAddress" @click="clickNext(addressVerification)">Next</button>
+      <button @click="clickCreate(addressVerification)">Create alias</button>
     </div>
   </div>
 </template>
@@ -13,7 +12,7 @@
 import { mapState, mapMutations } from "vuex";
 
 export default {
-  name: "verifyNewAddress",
+  name: "verifyPrevAddress",
   data: () => ({
     addressVerification: ""
   }),
@@ -26,15 +25,11 @@ export default {
   },
   methods: {
     ...mapMutations({
-      saveAddressVerification: "saveAddressVerification"
+      savePrevAddressVerification: "savePrevAddressVerification"
     }),
     clickCreate: function(verification) {
-      this.saveAddressVerification(verification);
+      this.savePrevAddressVerification(verification);
       this.$router.push({ name: "createAlias" });
-    },
-    clickNext: function(verification) {
-      this.saveAddressVerification(verification);
-      this.$router.push({ name: "signPrevAddress" });
     }
   }
 };

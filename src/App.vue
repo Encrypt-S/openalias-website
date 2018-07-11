@@ -4,7 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <transition name="fade">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -16,5 +18,17 @@
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .40s;
+}
+
+.fade-enter-active {
+  transition-delay: .40s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>

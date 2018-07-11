@@ -1,13 +1,14 @@
 <template>
   <div class="home">
-    <h1>Confirm you are owner of this address</h1>
+    <h1>Confirm you are owner of {{ alias }}@nav.community</h1>
     <h2>Copy this address to the NavCoin console</h2>
-    <pre class="copytext">signmessage {{address}} {{alias}}@nav.community</pre>
+    <pre class="copytext">signmessage {{aliasCurrentAddress}} {{alias}}@nav.community</pre>
+    <br />
     <div>Your address is: {{ address }}</div>
     <div>Your alias is: {{ alias }}@nav.community</div>
     <div>Alias current address is: {{aliasCurrentAddress}}</div>
     <button>Copy</button>
-    <router-link to="/verify-new-address"><button>Next</button></router-link>
+    <router-link to="/verify-prev-address"><button>Next</button></router-link>
   </div>
 </template>
 
@@ -24,6 +25,9 @@ export default {
       aliasCurrentAddress: state => state.aliasCurrentAddress
     })
   },
+  created() {
+    this.incomingData = this.$route.params.incomingData;
+  }
 };
 </script>
 
