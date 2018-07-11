@@ -3,24 +3,35 @@
     <p>
       Look I'm rendering things
     </p>
-    <input  @input="checkAddress" type="text" v-model="msg">
+    <input @input="checkAddress" type="text" v-model="msg">
     <h1>{{ msg }}</h1>
     <p>{{ error }}</p>
+    <p>{{ address }}</p>
+    <button @click="saveAddress(msg)">Update</button>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'OpenAlias',
-  props: {
-    msg: String,
-    error: String
-  },
+  data: () => ({
+    msg: '',
+    error: ''
+  }),
+  computed: mapState({
+    address: state => state.address
+  }),
   methods: {
+    ...mapMutations({
+      saveAddress: 'updateAddress',
+    }),
     checkAddress: function() {
       if (this.msg.length < 25) {
         this.error = 'Address too short'
-      } else 
+      } else
         this.error = ''
     }
   }
