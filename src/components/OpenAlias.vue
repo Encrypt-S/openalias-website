@@ -3,36 +3,46 @@
     <p>
       Look I'm rendering things
     </p>
-    <input @input="checkAddress" type="text" v-model="msg">
-    <h1>{{ msg }}</h1>
-    <p>{{ error }}</p>
-    <p>{{ address }}</p>
-    <button @click="saveAddress(msg)">Update</button>
+    <input @input="checkAddress" type="text" v-model="address">
+    <input @input="checkAlias" type="text" v-model="alias">
+    <h1 v-if="address && alias">{{ address }} -> {{alias}}@nav.community</h1>
+    {{error}}
+    <button @click="saveAddress({address, alias })">Update</button>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'OpenAlias',
   data: () => ({
-    msg: '',
-    error: ''
+    address: '',
+    alias: '',
+    error: '',
   }),
   computed: mapState({
-    address: state => state.address
+    newAddress: state => state.address
   }),
   methods: {
     ...mapMutations({
-      saveAddress: 'updateAddress',
+      saveAlias: 'saveAlias',
     }),
     checkAddress: function() {
-      if (this.msg.length < 25) {
+      if (this.address.length < 25) {
         this.error = 'Address too short'
       } else
         this.error = ''
+    },
+    checkAlias: function() {
+      if (this.alias.length < 2) {
+        this.error = 'Alias too short'
+      } else
+        this.error = ''
+    },
+    saveAddress: function(payload) {
+      this.saveAlias(payload)
+      this.$router.push({ name: "signNewAddress" });
     }
   }
 }

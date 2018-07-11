@@ -1,23 +1,10 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
 
 import App from './App.vue'
 import router from './router'
+import store from './store'
 
 Vue.config.productionTip = false
-
-const store = new Vuex.Store({
-  state: {
-    address: 'hello',
-  },
-  mutations: {
-    updateAddress (state, newAddress) {
-      state.address = newAddress
-    }
-  }
-})
 
 new Vue({
 

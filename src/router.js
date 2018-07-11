@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import StepOne from './views/Step-One.vue'
+import SignNewAddress from './views/signNewAddress.vue'
+import verifyNewAddress from './views/verifyNewAddress.vue'
+import createAlias from './views/createAlias.vue'
 import About from './views/About.vue'
 
 Vue.use(Router)
@@ -11,17 +13,27 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
-      path: '/stepOne/:incomingData',
-      name: 'stepOne',
-      component: StepOne
+      path: '/sign-new-address/',
+      name: 'signNewAddress',
+      component: SignNewAddress,
+    },
+    {
+      path: '/verify-new-address/',
+      name: 'verifyNewAddress',
+      component: verifyNewAddress,
+    },
+    {
+      path: '/create-alias/',
+      name: 'createAlias',
+      component: createAlias,
     },
     {
       path: '/about',
       name: 'about',
-      component: About
+      component: About,
     }
   ]
 })
