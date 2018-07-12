@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <p>
-      Look I'm rendering things
-    </p>
+  <HomeHero>
     <div>
       <label>
         Address
@@ -18,11 +15,12 @@
     <h1>From {{ address || 'NAV Address' }} -> {{alias || 'alias'}}@nav.community</h1>
     {{error}}
     <button @click="saveAddress({address, alias })">Next</button>
-  </div>
+  </HomeHero>
 </template>
 
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
+import HomeHero from '../components/HomeHero'
 
 export default {
   name: "OpenAlias",
@@ -41,21 +39,24 @@ export default {
     ...mapActions({
       checkAlias: "checkAlias"
     }),
-    checkAddressValid: function() {
+    checkAddressValid: function () {
       if (this.address.length < 25) {
         this.error = "Address too short";
       } else this.error = "";
     },
-    checkAliasValid: function() {
+    checkAliasValid: function () {
       if (this.alias.length < 2) {
         this.error = "Alias too short";
       } else this.error = "";
     },
-    saveAddress: function(payload) {
+    saveAddress: function (payload) {
       this.saveAlias(payload);
       this.checkAlias(payload.alias);
       this.$router.push({ name: "signNewAddress" });
     }
+  },
+  components: {
+    HomeHero,
   }
 };
 </script>
