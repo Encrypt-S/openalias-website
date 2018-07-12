@@ -27,6 +27,8 @@
     position: fixed;
     width: 100%;
     top: 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
 
   .topbar > div {
