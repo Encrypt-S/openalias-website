@@ -7,9 +7,11 @@ Vue.use(Vuex)
 const checkGoogleDNS = async (name) => {
   return new Promise(async function(resolve, reject) {
     try {
-      const url = 'nav.community'
+      const oaUrl = 'nav.community'
       const randomPadding = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-      const dnsResponse = await fetch(`https://dns.google.com/resolve?name=${name}.${url}&type=16&cd=0&edns_client_subnet=0.0.0.0/0&random_padding=${randomPadding}`)
+      const dnsUrlWithoutPadding = `https://dns.google.com/resolve?name=${name}.${oaUrl}&type=16&cd=0&edns_client_subnet=0.0.0.0/0&random_padding=`
+      const url = dnsUrlWithoutPadding.padEnd(255, randomPadding)
+      const dnsResponse = await fetch(url)
       const json = await dnsResponse.json()
 
       // Get the previous address from DNS
