@@ -1,5 +1,5 @@
 <template>
-  <div class="template-container"  v-bind:style="{ backgroundColor: bgColor || 'white' }">
+  <div class="template-container">
     <h2 class="title">A memorable NAV address</h2>
     <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. Note: The system won't allow duplicate addresses.</p>
     <div class="address-container">
@@ -25,15 +25,6 @@
 
 export default {
   name: 'MemorableSection',
-  methods: {
-  },
-  props: {
-    bgColor: String,
-  },
-  data: function() {
-    return {
-    }
-  }
 }
 
 </script>
@@ -66,7 +57,6 @@ export default {
     max-width: 775px;
   }
 }
-
 
 .arrow {
   display: inline-block;
@@ -140,6 +130,24 @@ export default {
   grid-area: name-one;
 }
 
+
+.row.two {
+  grid-area: row-two;    
+  grid-template-areas:"addr-two arr-two name-two";
+}
+
+.address.two {
+  grid-area: addr-two;
+}
+
+.arrow.two {
+  grid-area: arr-two;
+}
+
+.name.two {
+  grid-area: name-two;
+}
+
 @media (max-width: 930px ) {
   
   .address-container {
@@ -182,22 +190,5 @@ export default {
   }
 }
 
-
-.row.two {
-  grid-area: row-two;    
-  grid-template-areas:"addr-two arr-two name-two";
-}
-
-.address.two {
-  grid-area: addr-two;
-}
-
-.arrow.two {
-  grid-area: arr-two;
-}
-
-.name.two {
-  grid-area: name-two;
-}
 
 </style>

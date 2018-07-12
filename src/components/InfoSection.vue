@@ -13,15 +13,9 @@ import Icon from "@/components/Icon.vue"
 
 export default {
   name: 'InfoSection',
-  methods: {
-  },
   props: {
     bgColor: String,
   },
-  data: function() {
-    return {
-    }
-  }
 }
 
 </script>
