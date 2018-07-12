@@ -17,19 +17,27 @@
         Update Alias
       </div>
     </div>
-    <div>
-      <label>
-        Address
-        <input @input="checkAddressValid" type="text" v-model="address">
-      </label>
+    <div class="inputs">
+      <input class="textInput" @input="checkAddressValid" type="text" v-model="address"
+        v-bind:placeholder="editAlias ? 'New NavCoin address' : 'Your NavCoin address'"
+      >
+      <div class="arrow">→</div>
+      <div class="placeholder" data-placeholder="@community.nav">
+        <input class="textInput" @input="checkAliasValid" type="text" v-model="alias"
+          v-bind:placeholder="editAlias ? 'Existing Alias' : 'Create Alias'"
+        >
+      </div>
     </div>
-    <div>
-      <label>
-        Alias
-        <input @input="checkAliasValid" type="text" v-model="alias">
-      </label>
+    <div class="intro-text">
+      <p v-if="!editAlias">
+        NAV Open Alias is a little like paypal. It gives you an easy to remember and share 'email style' address that
+        can be used to send you funds.
+      </p>
+      <p v-if="editAlias">
+        If you already have an existing alias. You will need access to the wallet that created the original alias.
+        Just enter your updated address and your old alias, and we will automatically confirm you are the correct owner.
+      </p>
     </div>
-    <h1>From {{ address || 'NAV Address' }} -> {{alias || 'alias'}}@nav.community</h1>
     {{error}}
     <button @click="saveAddress({address, alias })">Next</button>
   </HomeHero>
@@ -93,6 +101,44 @@ export default {
 
   h2 {
     color: white;
+    margin: 0 0 20px 0;
+  }
+
+  .inputs {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 50px 0;
+  }
+
+  .textInput {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    min-width: 350px;
+    border-radius: 3px;
+    padding: 10px;
+    border: 0px;
+    outline: none;
+    box-shadow: rgba(141, 76, 191, 0.55) 0 11px 31px;
+  }
+
+  .placeholder {
+    position: relative;
+    display: inline-block;
+  }
+
+  .placeholder::after {
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    content: attr(data-placeholder);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .arrow {
+    color: white;
+    font-size: 30px;
+    margin: 0 20px;
   }
 
   .alias-menu {
@@ -118,5 +164,11 @@ export default {
     height: 20px;
     width: 1px;
     background: white;
+  }
+
+  .intro-text {
+    max-width: 500px;
+    color: white;
+    margin: auto;
   }
 </style>

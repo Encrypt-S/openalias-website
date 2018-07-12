@@ -6,6 +6,7 @@
 
 <style scoped>
   .hero {
+    padding: 50px 0;
     background: linear-gradient(to right, #5eade3 0%,#c340b9 100%);
   }
 </style>
