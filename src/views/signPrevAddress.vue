@@ -7,7 +7,6 @@
     <div>Your address is: {{ address }}</div>
     <div>Your alias is: {{ alias }}@nav.community</div>
     <div>Alias current address is: {{aliasCurrentAddress}}</div>
-    <button>Copy</button>
     <router-link to="/verify-prev-address"><button>Next</button></router-link>
   </div>
 </template>

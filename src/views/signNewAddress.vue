@@ -2,11 +2,10 @@
   <div class="home">
     <h1>Confirm you are owner of this address</h1>
     <h2>Copy this address to the NavCoin console</h2>
-    <pre class="copytext">signmessage {{address}} {{alias}}@nav.community</pre>
+    <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
     <div>Your address is: {{ address }}</div>
     <div>Your alias is: {{ alias }}@nav.community</div>
     <div>Alias current address is: {{aliasCurrentAddress}}</div>
-    <button>Copy</button>
     <router-link to="/verify-new-address"><button>Next</button></router-link>
   </div>
 </template>
@@ -14,6 +13,7 @@
 <script>
 // @ is an alias to /src
 import { mapState, mapMutations } from "vuex";
+import Copybox from '../components/Copybox'
 
 export default {
   name: "signNewAddress",
@@ -24,15 +24,12 @@ export default {
       aliasCurrentAddress: state => state.aliasCurrentAddress
     })
   },
+  components: {
+    Copybox,
+  }
 };
 </script>
 
 <style scoped>
-.copytext {
-  border: 1px solid black;
-  background: lightgrey;
-  font-size: 1.2em;
-  padding: 5px 20px;
-  display: inline-block;
-}
+
 </style>
