@@ -63,4 +63,8 @@
     outline: none;
     box-shadow: rgba(141, 76, 191, 0.55) 0 11px 31px;
   }
+
+  .textInput:focus {
+    box-shadow: rgba(38, 22, 51, 0.85) 10px 10px 31px;
+  }
 </style>

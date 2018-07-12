@@ -39,13 +39,14 @@
       </p>
     </div>
     {{error}}
-    <button @click="saveAddress({address, alias })">Next</button>
+    <Button @click="saveAddress({address, alias })">Create your alias</Button>
   </div>
 </template>
 
 <script>
   import { mapState, mapMutations, mapActions } from "vuex";
   import TextInput from '../components/TextInput'
+  import Button from '../components/Button'
 
   export default {
     name: "OpenAlias",
@@ -92,6 +93,7 @@
     },
     components: {
       TextInput,
+      Button,
     }
   };
 </script>
@@ -122,7 +124,7 @@
 
   .arrow {
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     margin: 0 20px;
   }
 

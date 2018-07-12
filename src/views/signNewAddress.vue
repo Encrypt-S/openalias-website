@@ -12,7 +12,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapState, mapMutations } from "vuex";
+import { mapState } from "vuex";
 import Copybox from '../components/Copybox'
 
 export default {
