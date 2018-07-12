@@ -70,21 +70,25 @@ const store = new Vuex.Store({
     },
     async createAlias (context) {
       console.log('test')
-      const  { alias, address, addressVerification, aliasCurrentAddress, prevAddressVerification } = context.state
-      const res = await fetch('http://localhost:3333/api', {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'post',
-        body: JSON.stringify({
-          name: alias,
-          address: address,
-          addressSig: addressVerification,
-          prevaddress: aliasCurrentAddress,
-          prevaddressSig: prevAddressVerification,
+      try {
+        const  { alias, address, addressVerification, aliasCurrentAddress, prevAddressVerification } = context.state
+        const res = await fetch('http://openalias.nav.community/api', {
+          headers: { 'Content-Type': 'application/json' },
+          method: 'post',
+          body: JSON.stringify({
+            name: alias,
+            address: address,
+            addressSig: addressVerification,
+            prevaddress: aliasCurrentAddress,
+            prevaddressSig: prevAddressVerification,
+          })
         })
-      })
 
-      const json = await res.json()
-      context.commit('saveOpenAliasResponse', json)
+        const json = await res.json()
+        context.commit('saveOpenAliasResponse', json)
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
 })
