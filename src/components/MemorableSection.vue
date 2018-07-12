@@ -6,8 +6,10 @@
       <div class="heading-one">Full NavCoin Wallet Address</div>
       <div class="heading-two">Address converted using OpenAlias</div>
       <div class="row one">
+        <div class="heading-one">Full NavCoin Wallet Address</div>
         <div class="address one">NYRqFrTMULcmK13rz1DAHqgf8PGSrfBduT </div>
         <div class="arrow one">→</div>
+        <div class="heading-two">Address converted using OpenAlias</div>
         <div class="name one"> miguel@nav.community</div>
       </div>
       <div class="row two">
@@ -108,6 +110,7 @@ export default {
 
 .address {
   padding: 0 10px;
+  color: #a8a8a8;
 }
 
 .name {
@@ -119,6 +122,10 @@ export default {
 .row.one {
   grid-area: row-one;
   grid-template-areas:"addr-one arr-one name-one";
+}
+
+.row .heading-one, .row .heading-two {
+  display: none;
 }
 
 .address.one {
@@ -135,14 +142,39 @@ export default {
 
 @media (max-width: 930px ) {
   
+  .address-container {
+    width: 90vw;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "row-one";
+  }
+
+  .heading-one,.heading-two {
+    display: none;
+  }
+
+  .row .heading-one, .row .heading-two {
+    display: initial;
+  }
+
+  .row .heading-one {
+    grid-area: hd-one;
+  }
+
+  .row .heading-two {
+    grid-area: hd-two;
+  }
+
   .arrow {
     transform: rotate(90deg);
   }
 
   .row.one {
+    padding: 25px 0;
+    grid-gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 50px 50px;
-    grid-template-areas:"addr-one" "arr-one" "name-one";
+    grid-template-rows: repeat(2, auto) 30px repeat(2, auto);
+    grid-template-areas:"hd-one" "addr-one" "arr-one" "hd-two" "name-one";
   }
 
   .row.two {
