@@ -55,9 +55,16 @@ export default {
 }
 
 .subtext {
-  max-width: 775px;
+  min-width: 200px;
+  max-width: 60vw;
   text-align: left;
   margin-bottom: 35px;
+}
+
+@media (min-width: 1290px ) {
+  .subtext {
+    max-width: 775px;
+  }
 }
 
 .icon-container {
