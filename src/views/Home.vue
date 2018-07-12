@@ -1,5 +1,22 @@
 <template>
   <HomeHero>
+    <h2>Give your NavCoin address a name!</h2>
+    <div class="alias-menu">
+      <div
+        v-bind:class="{ 'active-box': !editAlias }"
+        class="alias-box"
+        @click="updateAliasType('create')"
+      >
+        Create Alias
+      </div>
+      <div class="middle-border"></div>
+      <div class="alias-box"
+        v-bind:class="{ 'active-box': editAlias }"
+        @click="updateAliasType('edit')"
+      >
+        Update Alias
+      </div>
+    </div>
     <div>
       <label>
         Address
@@ -27,7 +44,8 @@ export default {
   data: () => ({
     address: "",
     alias: "",
-    error: ""
+    error: "",
+    editAlias: false,
   }),
   computed: mapState({
     newAddress: state => state.address
@@ -39,17 +57,26 @@ export default {
     ...mapActions({
       checkAlias: "checkAlias"
     }),
-    checkAddressValid: function () {
+    updateAliasType: function(type) {
+      if (type === 'create') {
+        this.editAlias = false
+      }
+
+      if (type === 'edit') {
+        this.editAlias = true
+      }
+    },
+    checkAddressValid: function() {
       if (this.address.length < 25) {
         this.error = "Address too short";
       } else this.error = "";
     },
-    checkAliasValid: function () {
+    checkAliasValid: function() {
       if (this.alias.length < 2) {
         this.error = "Alias too short";
       } else this.error = "";
     },
-    saveAddress: function (payload) {
+    saveAddress: function(payload) {
       this.saveAlias(payload);
       this.checkAlias(payload.alias);
       this.$router.push({ name: "signNewAddress" });
@@ -63,18 +90,33 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
+  h2 {
+    color: white;
+  }
+
+  .alias-menu {
+    border-bottom: 1px solid white;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .alias-box {
+    width: 120px;
+    padding: 10px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+
+  .active-box {
+    border-bottom: white 3px solid;
+    color: white;
+  }
+
+  .middle-border {
+    height: 20px;
+    width: 1px;
+    background: white;
+  }
 </style>

@@ -6,6 +6,6 @@
 
 <style scoped>
   .hero {
-    background: lightcoral;
+    background: linear-gradient(to right, #5eade3 0%,#c340b9 100%);
   }
 </style>

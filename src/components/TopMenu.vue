@@ -1,7 +1,7 @@
 <template>
   <div class="topbar">
     <div>
-      <span>NAV Open Alias</span>
+      <router-link to="/">NAV Open Alias</router-link>
     </div>
     <div class="nav">
       <a href="https://navcoin.org">NavCoin.org</a>
