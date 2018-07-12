@@ -17,15 +17,15 @@
       </div>
     </div>
     <div class="inputs">
-      <input class="textInput" @input="checkAddressValid" type="text" v-model="address"
-        v-bind:placeholder="editAlias ? 'New NavCoin address' : 'Your NavCoin address'"
-      >
+      <TextInput v-model="address">
+        <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
+      </TextInput>
       <div class="arrow">→</div>
       <div class="emailMaskContainer">
         <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
-        <input class="textInput" @input="checkAliasValid" type="text" v-model="alias"
-          v-bind:placeholder="editAlias ? 'Existing Alias' : 'Create Alias'"
-        >
+        <TextInput v-model="alias">
+          <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
+        </TextInput>
       </div>
     </div>
     <div class="intro-text">
@@ -34,7 +34,7 @@
         can be used to send you funds.
       </p>
       <p v-if="editAlias">
-        If you already have an existing alias. You will need access to the wallet that created the original alias.
+        If you wish to updated an existing alias, you will need access to the wallet that created the original alias.
         Just enter your updated address and your old alias, and we will automatically confirm you are the correct owner.
       </p>
     </div>
@@ -45,6 +45,7 @@
 
 <script>
   import { mapState, mapMutations, mapActions } from "vuex";
+  import TextInput from '../components/TextInput'
 
   export default {
     name: "OpenAlias",
@@ -89,6 +90,9 @@
         this.$router.push({ name: "signNewAddress" });
       }
     },
+    components: {
+      TextInput,
+    }
   };
 </script>
 
@@ -101,22 +105,17 @@
     margin: 20px 0 50px 0;
   }
 
-  .textInput {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    font-size: 1.2em;
-    min-width: 350px;
-    border-radius: 3px;
-    padding: 10px;
-    border: 0px;
-    outline: none;
-    box-shadow: rgba(141, 76, 191, 0.55) 0 11px 31px;
+  .emailMaskContainer {
+    position: relative;
   }
 
   .emailMask {
     position: absolute;
+    left: 0;
+    bottom: 10px;
+    padding-left: 20px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 1.2em;
-    padding: 10px;
     pointer-events: none;
     color: #757575;
   }
