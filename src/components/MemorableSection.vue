@@ -1,7 +1,7 @@
 <template>
   <div class="template-container"  v-bind:style="{ backgroundColor: bgColor || 'white' }">
     <h2 class="title">A memorable NAV address</h2>
-    <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community Open Alias address by typing your name on the right. Note: The system won't allow duplicate addresses.</p>
+    <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. Note: The system won't allow duplicate addresses.</p>
     <div class="address-container">
       <div class="heading-one">Full NavCoin Wallet Address</div>
       <div class="heading-two">Address converted using OpenAlias</div>
