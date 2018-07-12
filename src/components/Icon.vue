@@ -1,8 +1,8 @@
 <template>
   <div class="icon">
-    <img :src="iconData.src" alt="">
-    <div class="title">{{ iconData.title }}</div>
-    <div class="subtext">{{ iconData.subtext }}</div>
+    <img :src="src" alt="">
+    <slot name="title"></slot>
+    <slot name="text"></slot>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
 export default {
   name: 'Icon',
   props: {
+    src: String,
     iconData: Object
   },
   methods: {

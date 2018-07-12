@@ -1,13 +1,9 @@
 <template>
-  <div class="template-container">
-    <h1 class="title">{{ title }}</h1>
-    <div class="subtext">{{ subtext }}</div>
-    <div class="icon-container">
-      <Icon class="icon" v-for="iconData in iconArr" 
-        :key="iconData.src" :iconData="iconData" />
-    </div>
-
-    <a class="button" v-if="buttonText">{{ buttonText }}</a>
+  <div class="template-container"  v-bind:style="{ backgroundColor: bgColor || 'white' }">
+    <h2 class="title"><slot name="title" /></h2>
+    <p class="subtext"><slot name="text"/></p>
+    <div class="icon-container"><slot name="icons" /></div>
+    <div class="button"><slot name="button"/></div>
   </div>
 </template>
 
@@ -16,18 +12,11 @@
 import Icon from "@/components/Icon.vue"
 
 export default {
-  name: 'IconList',
-  components: {
-    Icon
+  name: 'InfoSection',
+  methods: {
   },
   props: {
-    msg: String,
-    title: String,
-    subtext: String,
-    buttonText: String,
-    iconArr: Array
-  },
-  methods: {
+    bgColor: String,
   },
   data: function() {
     return {
@@ -37,7 +26,6 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 .template-container {
@@ -74,7 +62,7 @@ export default {
   justify-content: center;
 }
 
-.button {
+.button a{
   display: inline-block;
   padding: 12px 40px;
   margin-top: 75px;
