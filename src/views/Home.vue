@@ -22,7 +22,8 @@
         v-bind:placeholder="editAlias ? 'New NavCoin address' : 'Your NavCoin address'"
       >
       <div class="arrow">→</div>
-      <div class="placeholder" data-placeholder="@community.nav">
+      <div class="emailMaskContainer">
+        <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
         <input class="textInput" @input="checkAliasValid" type="text" v-model="alias"
           v-bind:placeholder="editAlias ? 'Existing Alias' : 'Create Alias'"
         >
@@ -45,6 +46,7 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
+
 import HomeHero from '../components/HomeHero'
 
 export default {
@@ -121,18 +123,13 @@ export default {
     box-shadow: rgba(141, 76, 191, 0.55) 0 11px 31px;
   }
 
-  .placeholder {
-    position: relative;
-    display: inline-block;
-  }
-
-  .placeholder::after {
+  .emailMask {
     position: absolute;
-    right: 5px;
-    top: 1px;
-    content: attr(data-placeholder);
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    padding: 10px;
     pointer-events: none;
-    opacity: 0.6;
+    color: #757575;
   }
 
   .arrow {
