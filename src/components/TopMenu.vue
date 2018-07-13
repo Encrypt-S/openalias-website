@@ -3,6 +3,7 @@
     <div>
       <router-link to="/">NAV OpenAlias</router-link>
     </div>
+    <div class="mobile-menu-button">=</div>
     <div class="nav">
       <a href="https://navcoin.org">NavCoin.org</a>
       <a href="https://navhub.org">NavHub.org</a>
@@ -41,4 +42,20 @@
   .nav > a {
     padding: 0 10px;
   }
+
+  .mobile-menu-button {
+    display: none;
+  }
+
+  @media all and (max-width: 699px) {
+    .mobile-menu-button {
+      display: block;
+    }
+    .nav {
+      flex-direction: column;
+      display: none;
+    }
+  }
+
+
 </style>

@@ -56,7 +56,7 @@
   .textInput {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 1.2em;
-    min-width: 350px;
+    max-width: calc(100vw - 100px);
     border-radius: 3px;
     padding: 25px 10px 10px 20px;
     border: 0px;
