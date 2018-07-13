@@ -30,7 +30,7 @@
     </div>
     <div class="intro-text">
       <p v-if="!editAlias">
-        NAV Open Alias is a little like paypal. It gives you an easy to remember and share 'email style' address that
+        NAV OpenAlias is a little like paypal. It gives you an easy to remember and share 'email style' address that
         can be used to send you funds.
       </p>
       <p v-if="editAlias">

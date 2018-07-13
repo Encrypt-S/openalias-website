@@ -15,12 +15,6 @@ export default {
     src: String,
     iconData: Object
   },
-  methods: {
-  },
-  data: function() {
-    return {
-    }
-  }
 }
 
 </script>

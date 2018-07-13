@@ -4,9 +4,10 @@
       <h2>Give your NavCoin address a name!</h2>
       <CreateAlias />
     </HomeHero>
+    <MemorableSection />
     <InfoSection bgColor="#f7f7f7">
       <template slot="title">Why use OpenAlias?</template>
-      <template slot="text">Open Alias was created by contributors to the Monero Cryptocurrency project who wanted to find a way of simplifying cryptocurrency payments by bridging the knowledge gap between cryptographically secure systems and users who aren't sophisticated developers.</template>
+      <template slot="text">OpenAlias was created by contributors to the Monero Cryptocurrency project who wanted to find a way of simplifying cryptocurrency payments by bridging the knowledge gap between cryptographically secure systems and users who aren't sophisticated developers.</template>
       <template slot="icons">
         <Icon src="/images/purple-telegram.png">
           <span slot="title" class="title">Easier</span>
@@ -47,8 +48,10 @@
 
 <script>
 // @ is an alias to /src
+
 import HomeHero from '../components/HomeHero'
 import CreateAlias from '../components/CreateAlias'
+import MemorableSection from "@/components/MemorableSection.vue"
 import Icon from "@/components/Icon.vue"
 import InfoSection from "@/components/InfoSection.vue"
 
@@ -58,6 +61,7 @@ export default {
   components: {
     HomeHero,
     CreateAlias,
+    MemorableSection,
     InfoSection,
     Icon
   },
