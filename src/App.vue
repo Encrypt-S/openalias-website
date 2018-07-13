@@ -30,8 +30,8 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    padding-top: 50px;
   }
+
   .fade-enter-active, .fade-leave-active {
     transition-property: opacity;
     transition-duration: .40s;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-top: 50px">
     <HomeHero>
       <h2>Give your NavCoin address a name!</h2>
       <CreateAlias />
