@@ -59,7 +59,9 @@ export default {
 }
 
 .arrow {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   background-color: #f7f7f7;
   width: 30px;
   height: 30px;
