@@ -23,11 +23,11 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 img {
   width: 14px;
   height: 7px;
+  margin-bottom: 30px;
 }
 
 .text {
