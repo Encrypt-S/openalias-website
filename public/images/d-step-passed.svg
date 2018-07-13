@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.065 61.066">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #34d159;
+        stroke-width: 3px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #fff;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke-width: 4px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="d-step-passed" transform="translate(-1723.221 -1167.398)">
+    <g id="Ellipse_121" data-name="Ellipse 121" class="cls-1" transform="translate(1723.221 1167.398)">
+      <circle class="cls-3" cx="30.533" cy="30.533" r="30.533"/>
+      <circle class="cls-4" cx="30.533" cy="30.533" r="29.033"/>
+    </g>
+    <path id="Path_38" data-name="Path 38" class="cls-2" d="M10611.907,1534.139l5.8,5.8,14.784-14.784" transform="translate(-8867.697 -333.976)"/>
+  </g>
+</svg>
