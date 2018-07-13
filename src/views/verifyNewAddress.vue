@@ -25,7 +25,7 @@
         </DebugStep>
       </template>
     </DebugSection>
-
+    <DownArrow text="Get an error?"/>
   </div>
 </template>
 
@@ -33,12 +33,14 @@
 import { mapState, mapMutations } from "vuex";
 import DebugSection from "@/components/DebugSection.vue"
 import DebugStep from "@/components/DebugStep.vue"
+import DownArrow from "@/components/DownArrow.vue"
 
 export default {
   name: "verifyNewAddress",
   components: {
     DebugSection,
     DebugStep,
+    DownArrow,
   },
   data: () => ({
     addressVerification: "",
