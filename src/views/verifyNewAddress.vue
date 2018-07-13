@@ -7,10 +7,10 @@
       <button v-if="aliasCurrentAddress" @click="clickNext(addressVerification)">Next</button>
     </div>
 
-    <DebugSection bgColor="#f7f7f7" :containerStyle="infoSectionStyle">
+    <InfoSection :containerStyle="infoSectionStyle">
       <template slot="title">How to open the debug window</template>
       <span slot="text" class="subtext hide"></span>
-      <template slot="steps">
+      <template slot="children">
         <DebugStep src="/images/d-console1.png">
           <span slot="title" class="title number">1</span>
           <span slot="text" class="subtext">Open your NavCoin wallet, open the console through Help&nbsp;->&nbsp;Debug Window</span>
@@ -24,21 +24,21 @@
           <span slot="text" class="subtext">Response (verification code) will be created, copy and paste it to the next step.</span>
         </DebugStep>
       </template>
-    </DebugSection>
+    </InfoSection>
     <DownArrow text="Get an error?"/>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import DebugSection from "@/components/DebugSection.vue"
+import InfoSection from "@/components/InfoSection.vue"
 import DebugStep from "@/components/DebugStep.vue"
 import DownArrow from "@/components/DownArrow.vue"
 
 export default {
   name: "verifyNewAddress",
   components: {
-    DebugSection,
+    InfoSection,
     DebugStep,
     DownArrow,
   },

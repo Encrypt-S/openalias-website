@@ -1,21 +1,25 @@
 <template>
-  <div class="template-container"  v-bind:style="{ backgroundColor: bgColor || 'white' }">
+  <div class="template-container"  v-bind:style="containerStyle">
     <h2 class="title"><slot name="title" /></h2>
     <p class="subtext"><slot name="text"/></p>
-    <div class="icon-container"><slot name="icons" /></div>
+    <div class="icon-container"><slot name="children" /></div>
     <div class="button"><slot name="button"/></div>
   </div>
 </template>
 
 <script>
 
-import Icon from "@/components/Icon.vue"
-
 export default {
   name: 'InfoSection',
-  props: {
-    bgColor: String,
+  methods: {
   },
+  props: {
+    containerStyle: Object,
+  },
+  data: function() {
+    return {
+    }
+  }
 }
 
 </script>
@@ -23,7 +27,8 @@ export default {
 <style scoped>
 
 .template-container {
-  padding: 100px 0;
+  padding: 0;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
