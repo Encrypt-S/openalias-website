@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.065 61.066">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ebebeb;
+        stroke: #fff;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+
+      .cls-3 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="d-step-waiting" class="cls-1">
+    <circle class="cls-2" cx="30.533" cy="30.533" r="30.533"/>
+    <circle class="cls-3" cx="30.533" cy="30.533" r="29.033"/>
+  </g>
+</svg>
