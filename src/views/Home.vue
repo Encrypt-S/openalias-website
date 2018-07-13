@@ -52,8 +52,8 @@
 import HomeHero from '../components/HomeHero'
 import CreateAlias from '../components/CreateAlias'
 import MemorableSection from "@/components/MemorableSection.vue"
-import Icon from "@/components/Icon.vue"
 import InfoSection from "@/components/InfoSection.vue"
+import Icon from "@/components/Icon.vue"
 
 
 export default {
