@@ -42,7 +42,7 @@ export default {
 }
 
 .subtext {
-  min-width: 200px;
+  min-width: 440px;
   max-width: 60vw;
   text-align: left;
   margin-bottom: 35px;
