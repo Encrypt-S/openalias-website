@@ -30,7 +30,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  padding-top: 50px;
 }
 
 h1,h2,h3 {
@@ -54,7 +53,7 @@ h2 {
   opacity: 0
 }
 .oa-toast {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', 'Regular', Helvetica, Arial, sans-serif;
   border: 0px;
   box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.50);
   background: #fff;

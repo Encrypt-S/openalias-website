@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="inputs">
-      <TextInput v-model="address">
+      <TextInput v-model="address" class="homepageInputs">
         <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
       </TextInput>
       <div class="arrow">→</div>
@@ -101,10 +101,16 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+  /* Inputs */
   .inputs {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 20px 0 50px 0;
+  }
+
+  .inputs  >>> input {
+    width: 350px;
   }
 
   .emailMaskContainer {
@@ -125,8 +131,20 @@
   .arrow {
     color: white;
     font-size: 40px;
-    margin: 0 20px;
+    margin: 10px 20px;
   }
+
+  @media all and (max-width: 870px) {
+    .inputs {
+      flex-direction: column;
+    }
+
+    .arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  /* Other */
 
   .alias-menu {
     border-bottom: 1px solid white;
