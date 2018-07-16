@@ -24,11 +24,6 @@
 </template>
 
 <script>
-
-  /*
-      menuIcon.classList.toggle('open')
-    menubar.classList.toggle('menuHidden')
-   */
   export default {
     name: 'TopMenu',
     data: () => ({
