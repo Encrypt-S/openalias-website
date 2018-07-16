@@ -19,37 +19,51 @@
 </script>
 
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+}
 
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
+#app {
+  font-family: 'Roboto', 'Regular', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  padding-top: 50px;
+}
 
-  .fade-enter-active, .fade-leave-active {
-    transition-property: opacity;
-    transition-duration: .40s;
-  }
+h1,h2,h3 {
+  font-family: 'Raleway', 'Regular', Helvetica, Arial, sans-serif;
+  color: #707070;
+}
 
-  .fade-enter-active {
-    transition-delay: .40s;
-  }
+h2 {
+  font-size: 45px;
+}
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .40s;
+}
 
-  .fade-enter, .fade-leave-active {
-    opacity: 0
-  }
-  .oa-toast {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    border: 0px;
-    box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.50);
-    background: #fff;
-    border-radius: 17px 17px 17px 17px;
-  }
+.fade-enter-active {
+  transition-delay: .40s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+.oa-toast {
+  font-family: 'Roboto', 'Regular', Helvetica, Arial, sans-serif;
+  border: 0px;
+  box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.50);
+  background: #fff;
+  border-radius: 17px 17px 17px 17px;
+}
+
+.hide {
+  display: none;
+}
+
 
 </style>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.213 23.213">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-1 {
+        opacity: 0.53;
+      }
+
+      .cls-2 {
+        font-size: 13px;
+        font-family: Roboto-Regular, Roboto;
+      }
+    </style>
+  </defs>
+  <g id="d-question-lil" transform="translate(-707 -354)">
+    <circle id="Ellipse_108" data-name="Ellipse 108" class="cls-1" cx="11.606" cy="11.606" r="11.606" transform="translate(707 354)"/>
+    <text id="_" data-name="?" class="cls-2" transform="translate(715.43 370.43)"><tspan x="0" y="0">?</tspan></text>
+  </g>
+</svg>
