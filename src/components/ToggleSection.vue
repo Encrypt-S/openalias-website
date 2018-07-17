@@ -1,9 +1,9 @@
 <template>
   <div class="template-container"  v-bind:style="containerStyle">
-    <a href="#" @click="toggleSection()" class="toggleButton">
+    <div @click="toggleSection()" class="toggleButton">
       <div :class="buttonOneStyle">{{buttonOneText}}</div>
       <div :class="buttonTwoStyle">{{buttonTwoText}}</div>
-    </a>
+    </div>
     <div :class="sectionOneStyle"><slot name="sectionOne" /></div>
     <div :class="sectionTwoStyle"><slot name="sectionTwo" /></div>
   </div>
@@ -60,6 +60,7 @@ export default {
   width: 100%;
   max-width: 500px;
   min-width: 280px;
+  cursor: pointer;
 }
 
 .button {

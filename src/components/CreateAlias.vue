@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="inputs">
-      <TextInput v-model="address" class="homepageInputs">
+      <TextInput v-model="address">
         <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
       </TextInput>
       <div class="arrow">→</div>
@@ -39,7 +39,7 @@
       </p>
     </div>
     {{error}}
-    <Button @click="saveAddress({address, alias })">Create your alias</Button>
+    <Button @click="saveAddress({ address, alias })">Create your alias</Button>
   </div>
 </template>
 
@@ -88,7 +88,7 @@
       saveAddress: function(payload) {
         this.saveAlias(payload);
         this.checkAlias(payload.alias);
-        this.$router.push({ name: "signNewAddress" });
+        this.$router.push({ name: "verifyNewAddress" });
       }
     },
     components: {

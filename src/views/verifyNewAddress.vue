@@ -1,13 +1,24 @@
 <template>
   <div>
-    <h1>Verify your address</h1>
-    <input type="text" v-model="addressVerification"/>
-    <div>
-      <button v-if="!aliasCurrentAddress" @click="clickCreate(addressVerification)">Create alias</button>
-      <button v-if="aliasCurrentAddress" @click="clickNext(addressVerification)">Next</button>
-    </div>
+    <Hero>
+      <h1>Verify your address</h1>
+      <p>For detailed insturctions, see below.</p>
+      <div class="input-container">
+        <p>1) Copy the message below</p>
+        <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
+        <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div>
 
-    <ToggleSection buttonOneText="NavCoin Core" buttonTwoText="NavPi"> 
+        <p>2) Open your NavCoin core wallet, </p>
+        <TextInput v-model="addressVerification">
+          <template slot="label">{{'enter response'}}</template>
+        </TextInput>
+      </div>
+
+      <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
+      <div>Instructions</div>
+    </Hero>
+
+    <ToggleSection buttonOneText="NavCoin Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
         <InfoSection :containerStyle="infoSectionStyle">
           <template slot="title">How to open the debug window</template>
@@ -91,7 +102,7 @@
               <span slot="number" class="number">4</span><span slot="text" class="text">  Type in ‘walletlock’ to lock your wallet again for staking.</span>
             </ListEntry>
           </template>
-        </InfoSection>    
+        </InfoSection>
 
       </div>
     </ToggleSection>
@@ -107,6 +118,11 @@ import DownArrow from "@/components/DownArrow.vue"
 import ListEntry from "@/components/ListEntry.vue"
 import ToggleSection from "@/components/ToggleSection.vue"
 
+import Copybox from '../components/Copybox'
+import Hero from '../components/Hero'
+import Button from '../components/Button'
+import TextInput from '../components/TextInput'
+
 
 export default {
   name: "verifyNewAddress",
@@ -116,10 +132,15 @@ export default {
     DownArrow,
     ListEntry,
     ToggleSection,
+    Copybox,
+    Hero,
+    Button,
+    TextInput
   },
   data: () => ({
     addressVerification: "",
-    infoSectionStyle: { padding: '0' }
+    infoSectionStyle: { padding: '0' },
+    copied: false,
   }),
   computed: {
     ...mapState({
@@ -136,10 +157,42 @@ export default {
       this.saveAddressVerification(verification);
       this.$router.push({ name: "createAlias" });
     },
-    clickNext: function(verification) {
-      this.saveAddressVerification(verification);
-      this.$router.push({ name: "signPrevAddress" });
-    }
+    copyText: function () {
+      this.$copyText(`signmessage ${this.address} ${this.alias}@nav.community`).then((e) => {
+        this.copied = true
+        this.$toasted.show('Copied to clipboard', {
+          position: 'top-center',
+          theme: 'oa-toast',
+          type: '',
+          duration: '1000',
+          className: 'oa-toast',
+          action : {
+            text : '✕',
+            onClick : (e, toastObject) => {
+              toastObject.goAway(0);
+            }
+          },
+        })
+        console.log(e)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
+      })
+    },
   }
 };
 </script>
+
+<style scoped>
+  h1 {
+    color: #7D59B4;
+    size: 52px;
+  }
+
+  .input-container {
+    max-width: 800px;
+    width: calc(100vw - 100px);
+    margin: auto;
+    margin-bottom: 20px;
+  }
+</style>

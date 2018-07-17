@@ -57,12 +57,22 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 1.2em;
     max-width: calc(100vw - 100px);
-    border-radius: 3px;
+    width: 100%;
+    border-radius: 7px;
     padding: 25px 10px 10px 20px;
     border: 0px;
     outline: none;
-    box-shadow: rgba(141, 76, 191, 0.55) 0 11px 31px;
+    /*box-shadow: rgba(141, 76, 191, 0.55) 0 11px 31px;*/
+    box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.30);
+    justify-content: space-between;
   }
+
+  /*.textInput {*/
+    /*box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.30);*/
+    /*border-radius: 7px;*/
+    /*margin-bottom: 20px;*/
+    /*font-size: 1.1em;*/
+  /*}*/
 
   .textInput:focus {
     box-shadow: rgba(38, 22, 51, 0.85) 10px 10px 31px;

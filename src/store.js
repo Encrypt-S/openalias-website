@@ -38,8 +38,8 @@ const checkGoogleDNS = async (name) => {
 
 const store = new Vuex.Store({
   state: {
-    address: '',
-    alias: '',
+    address: 'NRvZGXGWv5r3bU1z9PoAvY5gwLMRBr8yxk',
+    alias: 'rowan',
     aliasCurrentAddress: '',
     addressVerification: '',
     prevAddressVerification: '',
@@ -72,7 +72,7 @@ const store = new Vuex.Store({
       console.log('test')
       try {
         const  { alias, address, addressVerification, aliasCurrentAddress, prevAddressVerification } = context.state
-        const res = await fetch('http://openalias.nav.community/api', {
+        const res = await fetch('https://openalias.nav.community/api', {
           headers: { 'Content-Type': 'application/json' },
           method: 'post',
           body: JSON.stringify({
