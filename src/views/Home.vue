@@ -27,7 +27,7 @@
     <InfoSection>
       <template slot="title">How OpenAlias Works</template>
       <template slot="text">Follow the three easy steps and you'll be all set!</template>
-      <template slot="icons">
+      <template slot="children">
         <Icon src="/images/purple-community.png">
           <span slot="title" class="title">1. Register your name</span>
           <span slot="text" class="subtext">Register a name you like and the suffix \'@nav.community\' will be added to it.</span>

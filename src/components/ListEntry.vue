@@ -16,10 +16,9 @@ export default {
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .entry {
-  width: 100%;  
+  /* width: 100%;   */
   text-align: left;
   display: grid;
   align-items: center;
@@ -28,8 +27,8 @@ export default {
   grid-template-areas: "number text";
   margin-bottom: 40px;
   width: 60vw;
-  max-width: 775px;
-  min-width: 440px;
+  /* max-width: 775px; */
+  /* min-width: 440px; */
 }
 
 .number {
@@ -48,7 +47,7 @@ export default {
 
 .text {
   font-size: 20px;
-  /* max-width: 312px; */
+  max-width: 750px;
   align-self: flex-start;
   justify-self: flex-start;
   text-align: left;
