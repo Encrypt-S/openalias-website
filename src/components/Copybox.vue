@@ -14,7 +14,7 @@
     name: "Copybox",
     methods: {
       copy: function () {
-        this.$copyText(this.$slots.default[0].text).then((e) => {
+        this.$copyText(this.$slots.default[0].text).then(() => {
           this.$toasted.show('Copied to clipboard', {
             position: 'top-center',
             theme: 'oa-toast',
