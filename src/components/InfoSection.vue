@@ -2,7 +2,7 @@
   <div class="template-container"  v-bind:style="containerStyle">
     <h2 class="title"><slot name="title" /></h2>
     <p class="subtext"><slot name="text"/></p>
-    <div class="icon-container"><slot name="children" /></div>
+    <div class="child-container"><slot name="children" /></div>
     <div class="button"><slot name="button"/></div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
   }
 }
 
-.icon-container {
+.child-container {
   display: flex;
   flex-flow: wrap;
   align-content: center;

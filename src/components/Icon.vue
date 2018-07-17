@@ -2,7 +2,7 @@
   <div class="icon">
     <img :src="src" alt="">
     <slot name="title"></slot>
-    <slot name="text"></slot>
+    <slot name="subtext"></slot>
   </div>
 </template>
 
