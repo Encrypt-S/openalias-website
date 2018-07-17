@@ -11,15 +11,15 @@
       <template slot="children">
         <Icon src="/images/purple-telegram.png">
           <span slot="title" class="title">Easier</span>
-          <span slot="text" class="subtext">You can transform long alphanumeric codes into an easily memorisable address.</span>
+          <span slot="subtext" class="subtext">You can transform long alphanumeric codes into an easily memorisable address.</span>
         </Icon>
         <Icon src="/images/purple-safe.png">
           <span slot="title" class="title">Security</span>
-          <span slot="text" class="subtext">NavCoin OpenAlias leverages DNSSEC to prevent MITM attacks on the alias.</span>
+          <span slot="subtext" class="subtext">NavCoin OpenAlias leverages DNSSEC to prevent MITM attacks on the alias.</span>
         </Icon>
         <Icon src="/images/purple-telegram.png">
           <span slot="title" class="title">Easier</span>
-          <span slot="text" class="subtext">You can transform long alphanumeric codes into an easily memorisable address.</span>
+          <span slot="subtext" class="subtext">You can transform long alphanumeric codes into an easily memorisable address.</span>
         </Icon>
       </template>
     </InfoSection>
@@ -27,18 +27,18 @@
     <InfoSection>
       <template slot="title">How OpenAlias Works</template>
       <template slot="text">Follow the three easy steps and you'll be all set!</template>
-      <template slot="icons">
+      <template slot="children">
         <Icon src="/images/purple-community.png">
           <span slot="title" class="title">1. Register your name</span>
           <span slot="text" class="subtext">Register a name you like and the suffix \'@nav.community\' will be added to it.</span>
         </Icon>
         <Icon src="/images/purple-message.png">
           <span slot="title" class="title">2. Copy the message to console</span>
-          <span slot="text" class="subtext">A line of code will be generated to verify your alias. Follow the instruction to copy it to your console.</span>
+          <span slot="subtext" class="subtext">A line of code will be generated to verify your alias. Follow the instruction to copy it to your console.</span>
         </Icon>
         <Icon src="/images/purple-greentick.png">
           <span slot="title" class="title">3. Verify</span>
-          <span slot="text" class="subtext">The final step will involve pasting your verification code back into the OpenAlias website.</span>
+          <span slot="subtext" class="subtext">The final step will involve pasting your verification code back into the OpenAlias website.</span>
         </Icon>
       </template>
       <template slot="button"><a >Create your Alias</a></template>

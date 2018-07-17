@@ -7,19 +7,14 @@
 
 <script>
 
-
 export default {
   name: 'ListEntry',
-  props: {
-  },
 }
 
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .entry {
-  width: 100%;  
   text-align: left;
   display: grid;
   align-items: center;
@@ -28,32 +23,30 @@ export default {
   grid-template-areas: "number text";
   margin-bottom: 40px;
   width: 60vw;
-  max-width: 775px;
-  min-width: 440px;
 }
 
 .number {
-  font-size: 18px;
-  background-color: #7D59B4;
+  display: inline-flex;
+  grid-area: number;
   width: 35px;
   height: 35px;
   border-radius: 30px;
-  color: #fff;
-  display: inline-flex;
   justify-content: center;
   align-items: center;
+  font-size: 18px;
+  color: #fff;
+  background-color: #7D59B4;
   box-shadow: #7E5AB5 0px 6px 12px;
-  grid-area: number;
 }
 
 .text {
-  font-size: 20px;
-  /* max-width: 312px; */
-  align-self: flex-start;
-  justify-self: flex-start;
-  text-align: left;
   grid-area: text;
+  max-width: 750px;
+  justify-self: flex-start;
+  align-self: flex-start;
   padding-left: 30px;
+  font-size: 20px;
+  text-align: left;
 }
 
 </style>
