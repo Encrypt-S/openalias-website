@@ -1,7 +1,11 @@
 <template>
   <div class="copybox">
-    <slot></slot>
-    <img @click="copy()" class="copy-icon" src="../assets/copy.svg">
+    <div class="text-container">
+      <slot></slot>
+    </div>
+    <div>
+      <img @click="copy()" class="copy-icon" src="../assets/copy.svg">
+    </div>
   </div>
 </template>
 
@@ -24,9 +28,8 @@
               }
             },
           })
-          console.log(e)
         }, function (e) {
-          alert('Can not copy')
+          alert('Copy is disabled by your browser. Please copy manually.')
           console.log(e)
         })
       },
@@ -40,19 +43,26 @@
     box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.30);
     border-radius: 7px;
     margin-bottom: 20px;
-    font-size: 2em;
+    font-size: 1.1em;
     padding: 10px 20px;
     display: inline-flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .copy-icon {
-    height: 40px;
-    margin-left: 10px;
+    height: 30px;
     cursor: pointer;
   }
 
   .copy-icon:hover {
     opacity: 0.5;
+  }
+
+  .text-container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
   }
 </style>
