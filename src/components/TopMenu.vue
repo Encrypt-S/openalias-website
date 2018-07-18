@@ -15,9 +15,8 @@
     <div class="menu">
       <ul id="menulinks" class="fadeIn-hidden">
         <li><a href="https://navcoin.org">NavCoin.org</a></li>
-        <li><a href="https://navhub.org">NavHub.org</a></li>
         <li><router-link to="/help">Help</router-link></li>
-        <li><a href="https://navcoin.org/navcoin-core/">Download Wallet</a></li>
+        <li><a href="https://navcoin.org/navcoin-core/" class="download">Download&nbsp;Wallet</a></li>
       </ul>
     </div>
   </div>
@@ -41,7 +40,7 @@
   /* MENU */
   .menubar {
     position: fixed;
-    height: 50px;
+    height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -51,25 +50,21 @@
     background: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
-
   #logo {
     height: 30px;
   }
-
   .logo-text {
     min-width: 110px;
     font-size: 1.3em;
     color: rgba(196, 88, 200, 1);
     text-decoration: none;
   }
-
   .logo-container {
     display: flex;
     align-items: center;
     margin-left: 40px;
     text-decoration: none;
   }
-
   .menu ul {
     list-style: none;
     display: flex;
@@ -77,35 +72,33 @@
     transition: opacity 2000ms;
     margin: 0 50px 0 0;
   }
-
   .menu ul li {
-    margin-right: 15px;
-    margin-left: 15px;
+    margin-right: 30px;
+    margin-left: 30px;
     cursor: pointer;
+    font-size: 15px;
   }
-
   .menu ul li a {
-    color: black;
+    color: #707070;
     text-decoration: none;
   }
-
+  .download {
+    padding: 16px 18px;
+    border-radius: 7px;
+    border: 1px solid #707070;
+  }
   .menu-icon {
     display: none;
   }
-
   .menu ul li:hover {
     color: red;
   }
-
   .menu #menulinks.menu-pink li {
     color: #d04f54;
   }
-
   .menu #menulinks.menu-pink li:hover {
     color: black;
   }
-
-
   @media only screen and (max-width: 800px) {
     .menubar {
       width: 100%;
@@ -118,28 +111,23 @@
       transition: background-color 1000ms;
       pointer-events: none;
     }
-
     .menuHidden {
       transition: background-color 1000ms;
       background-color: rgba(0,0,0,0) !important;
     }
-
     .menu ul li a {
       color: white;
     }
-
     .menuHidden .menu {
       transition: opacity 1000ms;
       opacity: 0;
       pointer-events: none;
     }
-
     .menuHidden .menu ul li {
       color: rgba(255, 255, 255, 0) !important;
       transition: color 1000ms;
       pointer-events: none;
     }
-
     .logo-and-menu {
       width: 100%;
       display: flex;
@@ -147,7 +135,6 @@
       pointer-events: auto;
       height: 50px;
     }
-
     .menu {
       width: 100%;
       height: 100%;
@@ -156,13 +143,11 @@
       justify-content: center;
       pointer-events: auto;
     }
-
     .menu ul {
       flex-direction: column;
       font-size: 25px;
       padding-bottom: 100px;
     }
-
     .menu ul li {
       margin: 3vh 0;
       opacity: 1;
@@ -170,14 +155,11 @@
       color: rgba(255, 255, 255, 1);
       pointer-events: auto;
     }
-
     .menu ul li a:hover {
       color: #c042ba;
     }
-
     /* Awesome menu icon */
     /* Credit Jess Couch - https://codepen.io/designcouch/pen/Atyop */
-
     #menu-icon {
       display: block;
       width: 30px;
@@ -188,7 +170,6 @@
       transition: .5s ease-in-out;
       cursor: pointer;
     }
-
     #menu-icon span {
       display: block;
       position: absolute;
@@ -201,47 +182,36 @@
       transform: rotate(0deg);
       transition: .25s ease-in-out;
     }
-
     #menu-icon.menu-button-pink span {
       background: #c042ba;
     }
-
     #menu-icon.open span {
       background: #c042ba;
     }
-
     #menu-icon span:nth-child(1) {
       top: 0px;
     }
-
     #menu-icon span:nth-child(2), #menu-icon  span:nth-child(3) {
       top: 12px;
     }
-
     #menu-icon span:nth-child(4) {
       top: 24px;
     }
-
     #menu-icon.open span:nth-child(1) {
       top: 18px;
       width: 0;
       left: 50%;
     }
-
     #menu-icon.open span:nth-child(2) {;
       transform: rotate(45deg);
     }
-
     #menu-icon.open span:nth-child(3) {
       transform: rotate(-45deg);
     }
-
     #menu-icon.open span:nth-child(4) {
       top: 18px;
       width: 0;
       left: 50%;
     }
   }
-
-
 </style>
