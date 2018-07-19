@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 import VerifyNewAddress from './views/verifyNewAddress.vue'
 import VerifyPrevAddress from './views/verifyPrevAddress.vue'
 import createAlias from './views/createAlias.vue'
-import About from './views/About.vue'
+import FAQ from './views/FAQ.vue'
 
 Vue.use(Router)
 
@@ -31,9 +31,9 @@ export default new Router({
       component: createAlias,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      path: '/faq',
+      name: 'faq',
+      component: FAQ,
     }
   ]
 })
