@@ -18,7 +18,7 @@
       <div>Instructions</div>
     </Hero>
 
-    <ToggleSection buttonOneText="NavCoin Core" buttonTwoText="NavPi">
+    <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
         <InfoSection :containerStyle="infoSectionStyle">
           <template slot="title">How to open the debug window</template>
@@ -105,7 +105,7 @@
         </InfoSection>
 
       </div>
-    </ToggleSection>
+    </ToggleSectionButton>
 
   </div>
 </template>
@@ -116,7 +116,7 @@ import InfoSection from "@/components/InfoSection.vue"
 import DebugStep from "@/components/DebugStep.vue"
 import DownArrow from "@/components/DownArrow.vue"
 import ListEntry from "@/components/ListEntry.vue"
-import ToggleSection from "@/components/ToggleSection.vue"
+import ToggleSectionButton from "@/components/ToggleSectionButton.vue"
 
 import Copybox from '../components/Copybox'
 import Hero from '../components/Hero'
@@ -131,7 +131,7 @@ export default {
     DebugStep,
     DownArrow,
     ListEntry,
-    ToggleSection,
+    ToggleSectionButton,
     Copybox,
     Hero,
     Button,
