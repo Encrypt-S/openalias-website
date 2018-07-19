@@ -1,20 +1,35 @@
 <template>
   <div class="template-container">
-    <img src="/images/d-sucess.svg" alt="Tick Icon" class="success-icon">
-    <h1>Success!</h1>
+    <div class="success-display" v-if="!openAliasResponse.error">
+      <img src="/images/d-sucess.svg" alt="Tick Icon" class="status-icon">
+      <h1 class="success">Success!</h1>
 
-    <div class="row">
-      <div class="address">{{address}} </div>
-      <img src="/images/d-right-bk.svg" class="arrow" />
-      <div class="name"> {{alias}}@nav.community</div>
+      <div class="row">
+        <div class="address">{{address}} </div>
+        <img src="/images/d-right-bk.svg" class="arrow" />
+        <div class="name"> {{alias}}@nav.community</div>
+      </div>
+
+      <div class="text">
+        We have successfully registered {{alias}}@nav.community to {{address}}!<br>
+        Please allow up to 10 minutes for the address to become active.
+      </div>
+      <a href="" class="button">Done</a>
     </div>
 
-    <div class="success-text">
-      We have successfully registered {{alias}}@nav.community to {{address}}!<br>
-      Please allow up to 10 minutes for the address to become active.
-    </div>
+    <div class="error-display" v-if="openAliasResponse.error">
+      <img src="/images/d-sorry.svg" alt="Cross Icon" class="status-icon">
+      <h1>Sorry..</h1>
 
-    <a href="" class="button">Done</a>
+      <div class="text">
+        It looks like we encountered an error when registering your address.
+      </div>
+      <div class="text error">
+        Error: {{openAliasResponse.error}}
+      </div>
+      <a href="" class="button">Try again</a>
+    </div>
+    
 
     <div class="debug">
       <h3>Debug data</h3>
@@ -60,7 +75,7 @@ export default {
 
 <style scoped>
 
-.success-icon {
+.status-icon {
   width: 90px;
   height: 90px;
   margin-top: 225px;
@@ -68,7 +83,6 @@ export default {
 
 h1 {
   margin-bottom: 75px;
-  color:#34D159;
 }
 
 .arrow {
@@ -117,10 +131,19 @@ h1 {
   box-shadow: #f7f7f7 5px 5px 5px, #f7f7f7 -5px -5px 5px;
 }
 
-.success-text {
+.text {
   max-width: 932px;
   margin-top: 27px;
   color: #3E3E3E;
+}
+
+.success {
+  color: #34d159;
+}
+
+.error {
+  margin-top: 17px;
+  font-family: monospace;
 }
 
 .button {

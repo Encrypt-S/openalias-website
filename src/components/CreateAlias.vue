@@ -17,13 +17,13 @@
       </div>
     </div>
     <div class="inputs">
-      <TextInput v-model="address">
+      <TextInput v-model="address" @blur="checkAliasValid()">
         <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
       </TextInput>
       <div class="arrow">→</div>
       <div class="emailMaskContainer">
         <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
-        <TextInput v-model="alias">
+        <TextInput v-model="alias" @blur="checkAliasValid()">
           <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
         </TextInput>
       </div>
@@ -53,8 +53,10 @@
     data: () => ({
       address: "",
       alias: "",
-      error: "",
+      aliasError: "",
+      addressError: "",
       editAlias: false,
+      regex: new RegExp(/[N]{1}[1-9A-HJ-NP-Za-km-z]{33}/)
     }),
     computed: mapState({
       newAddress: state => state.address
@@ -76,14 +78,18 @@
         }
       },
       checkAddressValid: function() {
-        if (this.address.length < 25) {
-          this.error = "Address too short";
-        } else this.error = "";
+        if (!this.regex.test(this.address)) {
+          this.addressError = "Invalid NavCoin Wallet Address";
+        } else this.addressError = "";
       },
       checkAliasValid: function() {
-        if (this.alias.length < 2) {
-          this.error = "Alias too short";
-        } else this.error = "";
+        if (this.alias.substr(0,1) === ' ') {
+          this.aliasError = "Address cannot start with a space.";
+        } else if (this.alias.length < 2) {
+          this.aliasError = "Min length is 2 characters";
+        } else if (this.alias.length > 25) {
+          this.aliasError = "Max length is 25 characters";
+        } else this.aliasError = "";
       },
       saveAddress: function(payload) {
         this.saveAlias(payload);
