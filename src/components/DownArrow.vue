@@ -1,5 +1,5 @@
 <template>
-  <div class="DownArrow">
+  <div class="downarrow">
     <div class="text">{{text}}</div>
     <img src="/images/d-down-lil-bk.svg" alt="Downward arrow">
   </div>
