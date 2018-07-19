@@ -1,6 +1,6 @@
 <template>
-  <div class="template-container"  v-bind:style="containerStyle">
-    <div @click="toggleSection()" class="toggleButton">
+  <div class="toggle-button-container"  v-bind:style="containerStyle">
+    <div @click="toggleSections()" class="toggleButton">
       <div :class="buttonOneStyle">{{buttonOneText}}</div>
       <div :class="buttonTwoStyle">{{buttonTwoText}}</div>
     </div>
@@ -12,9 +12,9 @@
 <script>
 
 export default {
-  name: 'ToggleSection',
+  name: 'ToggleSectionButton',
   methods: {
-    toggleSection: function() {
+    toggleSections: function() {
       this.buttonOneStyle = this.updateStyle(this.buttonOneStyle)
       this.sectionOneStyle = this.updateStyle(this.sectionOneStyle)
 
@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 
-.template-container {
+.toggle-button-container {
   padding: 0;
   background-color: #fff;
   display: flex;
@@ -67,7 +67,6 @@ export default {
   display: inline-block;
   width: calc(50% - 82px);
   padding: 12px 35px 12px 24px;
-  margin-top: 75px;
   background-color: #7e5ab5;
   border: 1px solid #7e5ab5;
   color: #fff;
