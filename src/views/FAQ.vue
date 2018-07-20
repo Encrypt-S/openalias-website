@@ -1,23 +1,7 @@
 <template>
   <div>
-    <Hero>
-      <h1>Verify your address</h1>
-      <p>For detailed insturctions, see below.</p>
-      <div class="input-container">
-        <p>1) Copy the message below</p>
-        <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
-        <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div>
-
-        <p>2) Open your NavCoin core wallet, </p>
-        <TextInput v-model="addressVerification">
-          <template slot="label">{{'enter response'}}</template>
-        </TextInput>
-      </div>
-
-      <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
-      <div>Instructions</div>
-    </Hero>
-
+    <h1 class="top-heading">Frequently Asked Questions</h1>
+    <h3>Pick your wallet.</h3>
     <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
         <InfoSection :containerStyle="infoSectionStyle">
@@ -118,81 +102,36 @@ import DownArrow from "@/components/DownArrow.vue"
 import ListEntry from "@/components/ListEntry.vue"
 import ToggleSectionButton from "@/components/ToggleSectionButton.vue"
 
-import Copybox from '../components/Copybox'
-import Hero from '../components/Hero'
-import Button from '../components/Button'
-import TextInput from '../components/TextInput'
-
 
 export default {
-  name: "verifyNewAddress",
+  name: "FAQ",
   components: {
     InfoSection,
     DebugStep,
     DownArrow,
     ListEntry,
     ToggleSectionButton,
-    Copybox,
-    Hero,
-    Button,
-    TextInput
   },
   data: () => ({
-    addressVerification: "",
-    infoSectionStyle: { padding: '0' },
-    copied: false,
   }),
   computed: {
-    ...mapState({
-      address: state => state.address,
-      alias: state => state.alias,
-      aliasCurrentAddress: state => state.aliasCurrentAddress
-    })
   },
   methods: {
-    ...mapMutations({
-      saveAddressVerification: "saveAddressVerification"
-    }),
-    clickCreate: function(verification) {
-      this.saveAddressVerification(verification);
-      this.$router.push({ name: "createAlias" });
-    },
-    copyText: function () {
-      this.$copyText(`signmessage ${this.address} ${this.alias}@nav.community`).then((e) => {
-        this.copied = true
-        this.$toasted.show('Copied to clipboard', {
-          position: 'top-center',
-          theme: 'oa-toast',
-          type: '',
-          duration: '1000',
-          className: 'oa-toast',
-          action : {
-            text : '✕',
-            onClick : (e, toastObject) => {
-              toastObject.goAway(0);
-            }
-          },
-        })
-        console.log(e)
-      }, function (e) {
-        alert('Can not copy')
-        console.log(e)
-      })
-    },
   }
 };
 </script>
 
 <style scoped>
+  .top-heading {
+    padding-top: 200px
+  }
+
   h1 {
     color: #7D59B4;
     size: 52px;
   }
 
-  .input-container {
-    max-width: 800px;
-    width: calc(100vw - 100px);
-    margin: auto;
-    margin-bottom: 20px;
+  .toggle-button-container {
+    margin-top: 30px;
   }
 </style>

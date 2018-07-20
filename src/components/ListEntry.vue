@@ -1,5 +1,5 @@
 <template>
-  <div class="entry">
+  <div class="list-entry">
     <slot name="number"></slot>
     <slot name="text"></slot>
   </div>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style scoped>
-.entry {
+.list-entry {
   text-align: left;
   display: grid;
   align-items: center;
