@@ -1,6 +1,16 @@
 <template>
-  <button class="button" @click="$emit('click')"><slot /></button>
+  <button class="button" @click="$emit('click')" :disabled="isDisabled"><slot /></button>
 </template>
+
+<script>
+export default {
+  name: 'Button',
+  props: {
+    isDisabled: Boolean
+  }
+}
+
+</script>
 
 <style scoped>
   .button {
@@ -21,5 +31,11 @@
   .button:active {
     background: #3f2f5e;
   }
+
+  .button:disabled {
+    filter: contrast(40%);
+    cursor: not-allowed;
+  }
+
 
 </style>

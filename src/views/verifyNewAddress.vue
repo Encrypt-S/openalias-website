@@ -10,11 +10,22 @@
 
         <p>2) Open your NavCoin core wallet, </p>
         <TextInput v-model="addressVerification">
-          <template slot="label">{{'enter response'}}</template>
+          <template slot="label">{{'enter signature'}}</template>
         </TextInput>
+        <InputErrorLabel v-if="addressVerification && !validateSignature(addressVerification)">
+          <template slot="errorIcon">
+            <img src="/images/d-error.svg" alt="">
+          </template>
+          <template slot="errorText">
+            <span class="text">Invalid signature, your signature is {{addressVerification.length}} characters long, a correct signature is 88 characters long.</span>
+          </template>
+          <template slot="infoIcon">
+            <img src="/images/d-error.svg" alt="">
+          </template>
+        </InputErrorLabel>
       </div>
 
-      <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
+      <div><Button @click="clickCreate(addressVerification)" :isDisabled="!validateSignature(addressVerification)">Create Alias</Button></div>
       <div>Instructions</div>
     </Hero>
 
@@ -122,6 +133,7 @@ import Copybox from '../components/Copybox'
 import Hero from '../components/Hero'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
+import InputErrorLabel from '../components/InputErrorLabel'
 
 
 export default {
@@ -135,7 +147,8 @@ export default {
     Copybox,
     Hero,
     Button,
-    TextInput
+    TextInput,
+    InputErrorLabel
   },
   data: () => ({
     addressVerification: "",
@@ -153,6 +166,12 @@ export default {
     ...mapMutations({
       saveAddressVerification: "saveAddressVerification"
     }),
+    validateSignature: function(signature) {
+      if (signature.length < 88 || signature.length > 88) {
+        return false
+      }
+      return true
+    },
     clickCreate: function(verification) {
       this.saveAddressVerification(verification);
       this.$router.push({ name: "createAlias" });
@@ -187,6 +206,7 @@ export default {
   h1 {
     color: #7D59B4;
     size: 52px;
+    margin-top: 120px;
   }
 
   .input-container {

@@ -1,16 +1,20 @@
 <template>
-  <div class="field">
-    <input
-      placeholder=" "
-      class="textInput"
-      :id="randomId"
-      type="text"
-      v-bind:value="value"
-      v-on:input="$emit('input', $event.target.value)"
-    >
-    <label class="floating-placeholder" :for="randomId">
-      <slot name="label"></slot>
-    </label>
+  <div>
+    <div class="field">
+      <input
+        placeholder=" "
+        class="text-input"
+        :id="randomId"
+        type="text"
+        v-bind:value="value"
+        v-on:input="$emit('input', $event.target.value)"
+        @blur="blurEvent()"
+      >
+      <label class="floating-placeholder" :for="randomId">
+        <slot name="label"></slot>
+      </label>
+    </div>
+    <slot name="errorLabel"></slot>
   </div>
 </template>
 
@@ -19,6 +23,7 @@
     name: 'TextInput',
     props: {
       value: String,
+      blurEvent: Function
     },
     data: function() {
       return {
@@ -44,7 +49,7 @@
     transition: all 0.2s;
   }
 
-  .textInput:focus + .floating-placeholder  {
+  .text-input:focus + .floating-placeholder  {
     transform: translate(0, 0) scale(1);
   }
 
@@ -53,7 +58,7 @@
     transform: translate(0, 0) scale(1);
   }
 
-  .textInput {
+  .text-input {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 1.2em;
     max-width: calc(100vw - 100px);
@@ -67,14 +72,15 @@
     justify-content: space-between;
   }
 
-  /*.textInput {*/
+  /*.text-input {*/
     /*box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.30);*/
     /*border-radius: 7px;*/
     /*margin-bottom: 20px;*/
     /*font-size: 1.1em;*/
   /*}*/
 
-  .textInput:focus {
+  .text-input:focus {
     box-shadow: rgba(38, 22, 51, 0.85) 10px 10px 31px;
   }
+
 </style>

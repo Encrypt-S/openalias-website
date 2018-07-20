@@ -17,15 +17,49 @@
       </div>
     </div>
     <div class="inputs">
-      <TextInput v-model="address" @blur="checkAliasValid()">
+      <TextInput v-model="address" :blurEvent="checkAddressValid">
         <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
+        <template slot="errorLabel">
+          <InputErrorLabel v-if="addressError ">
+            <template slot="errorIcon">
+              <img src="/images/d-error.svg" alt="">
+            </template>
+            <template slot="errorText">
+              <span class="text">{{addressError}}</span>
+            </template>
+            <template slot="infoIcon">
+              <img src="/images/d-error.svg" alt="">
+            </template>
+          </InputErrorLabel>
+        </template>
       </TextInput>
+
+
       <div class="arrow">→</div>
       <div class="emailMaskContainer">
         <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
-        <TextInput v-model="alias" @blur="checkAliasValid()">
+        <TextInput v-model="alias" :blurEvent="checkAliasValid">
+
           <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
+
+          <template slot="errorLabel">
+            <InputErrorLabel v-if="aliasError">
+              <template slot="errorIcon">
+                <img src="/images/d-error.svg" alt="">
+              </template>
+              <template slot="errorText">
+                <span class="text">{{aliasError}}</span>
+              </template>
+              <template slot="infoIcon">
+                <img src="/images/d-error.svg" alt="">
+              </template>
+            </InputErrorLabel>
+          </template>
+
         </TextInput>
+
+
+
       </div>
     </div>
     <div class="intro-text">
@@ -38,8 +72,7 @@
         Just enter your updated address and your old alias, and we will automatically confirm you are the correct owner.
       </p>
     </div>
-    {{error}}
-    <Button @click="saveAddress({ address, alias })">Create your alias</Button>
+    <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError || aliasError">Create your alias</Button>
   </div>
 </template>
 
@@ -47,6 +80,7 @@
   import { mapState, mapMutations, mapActions } from "vuex";
   import TextInput from '../components/TextInput'
   import Button from '../components/Button'
+  import InputErrorLabel from '../components/InputErrorLabel'
 
   export default {
     name: "OpenAlias",
@@ -78,28 +112,39 @@
         }
       },
       checkAddressValid: function() {
-        if (!this.regex.test(this.address)) {
-          this.addressError = "Invalid NavCoin Wallet Address";
-        } else this.addressError = "";
+        if (this.address) {
+          if (!this.regex.test(this.address)) {
+            this.addressError = "Invalid NavCoin Wallet Address"
+            return
+          }
+        }
+        this.addressError = undefined
       },
       checkAliasValid: function() {
-        if (this.alias.substr(0,1) === ' ') {
-          this.aliasError = "Address cannot start with a space.";
-        } else if (this.alias.length < 2) {
-          this.aliasError = "Min length is 2 characters";
-        } else if (this.alias.length > 25) {
-          this.aliasError = "Max length is 25 characters";
-        } else this.aliasError = "";
+        if (this.alias) {
+          if (this.alias.substr(0,1) === ' ') {
+            this.aliasError = "Address cannot start with a space."
+            return
+          } else if (this.alias.length < 2) {
+            this.aliasError = "Min length is 2 characters"
+            return
+          } else if (this.alias.length > 25) {
+            this.aliasError = "Max length is 25 characters"
+            return
+          }
+        }
+          this.aliasError = undefined;
       },
       saveAddress: function(payload) {
         this.saveAlias(payload);
         this.checkAlias(payload.alias);
-        this.$router.push({ name: "verifyNewAddress" });
+        this.$router.push({ name: "verifyNewAddress" })
       }
     },
     components: {
       TextInput,
       Button,
+      InputErrorLabel,
     }
   };
 </script>
@@ -111,11 +156,11 @@
   .inputs {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     margin: 20px 0 50px 0;
   }
 
-  .inputs  >>> input {
+  .inputs >>> input {
     width: 350px;
   }
 
@@ -126,7 +171,7 @@
   .emailMask {
     position: absolute;
     left: 0;
-    bottom: 10px;
+    top: 20px;
     padding-left: 20px;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     font-size: 1.2em;
