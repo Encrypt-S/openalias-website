@@ -1,7 +1,7 @@
 <template>
   <div class="downarrow">
     <div class="text">{{text}}</div>
-    <img src="/images/d-down-lil-bk.svg" alt="Downward arrow">
+    <img src="/images/d-down-lil-bk.svg" alt="Downward arrow" />
   </div>
 </template>
 

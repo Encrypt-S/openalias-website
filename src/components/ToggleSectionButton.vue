@@ -1,8 +1,8 @@
 <template>
   <div class="toggle-button-container"  v-bind:style="containerStyle">
     <div @click="toggleSections()" class="toggleButton">
-      <div :class="buttonOneStyle">{{buttonOneText}}</div>
-      <div :class="buttonTwoStyle">{{buttonTwoText}}</div>
+      <button :class="buttonOneStyle">{{buttonOneText}}</button>
+      <button :class="buttonTwoStyle">{{buttonTwoText}}</button>
     </div>
     <div :class="sectionOneStyle"><slot name="sectionOne" /></div>
     <div :class="sectionTwoStyle"><slot name="sectionTwo" /></div>
@@ -78,6 +78,11 @@ export default {
   background-color: #fff;
   color: #7e5ab5;
 }
+
+.button:hover {
+  filter: brightness(50%);
+}
+
 .button.one{
   border-radius: 10px 0 0 10px;
 }

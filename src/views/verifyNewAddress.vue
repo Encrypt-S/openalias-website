@@ -1,22 +1,23 @@
 <template>
   <div>
     <Hero>
-      <h1>Verify your address</h1>
-      <p>For detailed insturctions, see below.</p>
+      <h1>Verify</h1>
       <div class="input-container">
-        <p>1) Copy the message below</p>
+        <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
         <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
         <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div>
 
-        <p>2) Open your NavCoin core wallet, </p>
+        <img src="/images/d-down.svg" alt="Down arrow" class="down-arrow-img">
+
+        <ListEntry><span slot="number" class="number">2</span><span slot="text" class="text small">Now open your NavCoin wallet, open console through Help -> Debug and pastes the message, then hit Enter on your keyboard. An response message (verification code) will be created, copy and paste it here</span></ListEntry>
         <TextInput v-model="addressVerification">
           <template slot="label">{{'enter response'}}</template>
         </TextInput>
       </div>
-      <div>If you need help, please check instruction below ↓</div>
+      <div class="need-help">If you need help, please check instruction below ↓</div>
 
       <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
-      <DownArrow : />
+      <DownArrow text="Instructions" />
     </Hero>
 
     <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
@@ -130,7 +131,7 @@ import TextInput from '../components/TextInput'
 
 
 export default {
-  name: "verifyNewAddress",
+  name: "VerifyNewAddress",
   components: {
     InfoSection,
     DebugStep,
@@ -200,8 +201,30 @@ export default {
     margin: auto;
     margin-bottom: 20px;
   }
+  
+  .input-container > .list-entry.text {
+    font-size: 16px;
+
+  }
 
   .toggle-button-container {
     margin-top: 75px;
+  }
+
+  .downarrow {
+    margin-top: 10px;
+  }
+
+  .need-help {
+    margin: 30px 0 0 0;
+  }
+
+  .button {
+    margin: 30px 0;
+  }
+
+  .down-arrow-img {
+    height: 20px;
+    margin-bottom: 40px;
   }
 </style>

@@ -22,6 +22,7 @@ export default {
     padding: 10px 20px;
     cursor: pointer;
     outline: none;
+    min-width: 200px;
   }
 
   .button:hover {

@@ -53,7 +53,7 @@
 import { mapState, mapActions } from "vuex";
 
 export default {
-  name: "createAlias",
+  name: "CreateAlias",
   beforeMount: function() {
     this.createAlias()
   },

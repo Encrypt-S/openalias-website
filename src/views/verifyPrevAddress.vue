@@ -71,7 +71,7 @@
 
 
   export default {
-    name: "verifyNewAddress",
+    name: "VerifyNewAddress",
     components: {
       InfoSection,
       DebugStep,
@@ -100,7 +100,7 @@
       }),
       clickCreate: function(verification) {
         this.savePrevAddressVerification(verification);
-        this.$router.push({ name: "verifyNewAddress" });
+        this.$router.push({ name: "VerifyNewAddress" });
       },
       copyText: function () {
         this.$copyText(`signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`).then((e) => {
