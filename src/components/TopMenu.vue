@@ -3,7 +3,7 @@
     <div class="logo-and-menu">
       <router-link to="/" class="logo-container">
         <img id="logo" src="../assets/logo.png" />
-        <span class="logo-text">Open Alias</span>
+        <span class="logo-text">OpenAlias</span>
       </router-link>
       <div id="menu-icon" v-bind:class="{ open: menuIsOpen }" @click="toggleMenu()">
         <span></span>
@@ -15,7 +15,7 @@
     <div class="menu">
       <ul id="menulinks" class="fadeIn-hidden">
         <li><a href="https://navcoin.org">NavCoin.org</a></li>
-        <li><router-link to="/help">Help</router-link></li>
+        <li><router-link to="/faq">FAQ</router-link></li>
         <li><a href="https://navcoin.org/navcoin-core/" class="download">Download&nbsp;Wallet</a></li>
       </ul>
     </div>
@@ -40,6 +40,7 @@
   /* MENU */
   .menubar {
     position: fixed;
+    top: 0;
     height: 80px;
     width: 100%;
     display: flex;
