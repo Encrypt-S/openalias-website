@@ -38,7 +38,7 @@
       <div class="arrow">→</div>
       <div class="emailMaskContainer">
         <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
-        <TextInput v-model="alias" :blurEvent="checkAliasValid">
+        <TextInput v-model="alias" :inputEvent="checkAliasValid">
 
           <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
 
@@ -122,8 +122,8 @@
       },
       checkAliasValid: function() {
         if (this.alias) {
-          if (this.alias.substr(0,1) === ' ') {
-            this.aliasError = "Address cannot start with a space."
+          if (this.alias.indexOf(' ') !== -1) {
+            this.aliasError = "Address cannot contain a space."
             return
           } else if (this.alias.length < 2) {
             this.aliasError = "Min length is 2 characters"
@@ -158,6 +158,12 @@
     justify-content: center;
     align-items: baseline;
     margin: 20px 0 50px 0;
+  }
+
+  @media (max-width: 870px) {
+    .inputs {
+      align-items: center;
+    }
   }
 
   .inputs >>> input {

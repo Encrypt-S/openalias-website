@@ -8,7 +8,8 @@
         type="text"
         v-bind:value="value"
         v-on:input="$emit('input', $event.target.value)"
-        @blur="blurEvent()"
+        @blur="blurEvent ? blurEvent() : undefined"
+        @input="inputEvent ? inputEvent() : undefined"
       >
       <label class="floating-placeholder" :for="randomId">
         <slot name="label"></slot>
@@ -23,7 +24,8 @@
     name: 'TextInput',
     props: {
       value: String,
-      blurEvent: Function
+      blurEvent: Function,
+      inputEvent: Function,
     },
     data: function() {
       return {
