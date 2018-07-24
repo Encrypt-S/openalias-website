@@ -43,10 +43,14 @@ export default {
   grid-area: text;
   max-width: 750px;
   justify-self: flex-start;
-  align-self: flex-start;
+  align-self: center;
   padding-left: 30px;
   font-size: 20px;
   text-align: left;
+}
+
+.text.small {
+  font-size: 16px;
 }
 
 </style>

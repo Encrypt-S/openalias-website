@@ -14,7 +14,10 @@ export default {
   methods: {
   },
   props: {
-    containerStyle: Object,
+    containerStyle: {
+      type: Object,
+      default: () => {}
+    },
   },
   data: function() {
     return {
