@@ -138,7 +138,11 @@
       saveAddress: function(payload) {
         this.saveAlias(payload);
         this.checkAlias(payload.alias);
-        this.$router.push({ name: "VerifyNewAddress" })
+        if (this.editAlias) {
+          this.$router.push({ name: "VerifyPrevAddress" })
+        } else {
+          this.$router.push({ name: "VerifyNewAddress" })
+        }
       }
     },
     components: {

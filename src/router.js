@@ -22,7 +22,7 @@ export default new Router({
     },
     {
       path: '/verify-prev-address/',
-      name: 'verifyPrevAddress',
+      name: 'VerifyPrevAddress',
       component: VerifyPrevAddress,
     },
     {

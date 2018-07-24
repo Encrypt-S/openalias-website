@@ -1,5 +1,5 @@
 <template>
-  <div class="toggle-button-container"  v-bind:style="containerStyle">
+  <div class="toggle-button-container">
     <div @click="toggleSections()" class="toggleButton">
       <button :class="buttonOneStyle">{{buttonOneText}}</button>
       <button :class="buttonTwoStyle">{{buttonTwoText}}</button>
@@ -81,6 +81,10 @@ export default {
 
 .button:hover {
   filter: brightness(50%);
+}
+
+.button.active:hover {
+  filter: none;
 }
 
 .button.one{
