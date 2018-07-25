@@ -64,5 +64,8 @@ h2 {
   display: none;
 }
 
+.toasted-container.top-center {
+  top:20%;  
+}
 
 </style>

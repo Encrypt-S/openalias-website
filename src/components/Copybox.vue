@@ -19,7 +19,7 @@
             position: 'top-center',
             theme: 'oa-toast',
             type: '',
-            duration: '1000',
+            duration: '10000',
             className: 'oa-toast',
             action : {
               text : '✕',
