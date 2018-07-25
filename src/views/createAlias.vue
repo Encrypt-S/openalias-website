@@ -46,14 +46,19 @@
         {{(openAliasResponse && JSON.stringify(openAliasResponse))}}
       </pre>
     </div>
+    <FooterMinimal />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
+import FooterMinimal from "@/components/FooterMinimal.vue"
 
 export default {
   name: "CreateAlias",
+  components: {
+    FooterMinimal,
+  },
   beforeMount: function() {
     this.createAlias()
   },
@@ -190,5 +195,9 @@ h1 {
 pre {
   width: 80vw;
   overflow: auto;
+}
+
+.footer-minimal-container {
+  background-color: #f7f7f7;
 }
 </style>

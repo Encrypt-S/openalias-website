@@ -101,7 +101,7 @@
         </InfoSection>
       </div>
     </ToggleSectionButton>
-
+    <FooterMinimal />
   </div>
 </template>
 
@@ -118,6 +118,7 @@ import Hero from '../components/Hero'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import InputErrorLabel from '../components/InputErrorLabel'
+import FooterMinimal from "@/components/FooterMinimal.vue"
 
 
 export default {
@@ -133,6 +134,7 @@ export default {
     Button,
     TextInput,
     InputErrorLabel,
+    FooterMinimal,
   },
   data: () => ({
     addressVerification: '',
@@ -225,5 +227,9 @@ export default {
   .down-arrow-img {
     height: 20px;
     margin-bottom: 40px;
+  }
+
+.footer-minimal-container {
+    background-color: #f7f7f7;
   }
 </style>
