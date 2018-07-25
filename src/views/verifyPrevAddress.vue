@@ -101,129 +101,135 @@
         </InfoSection>
       </div>
     </ToggleSectionButton>
-
+    <FooterMinimal />
   </div>
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex';
-  import InfoSection from '@/components/InfoSection.vue'
-  import DebugStep from '@/components/DebugStep.vue'
-  import DownArrow from '@/components/DownArrow.vue'
-  import ListEntry from '@/components/ListEntry.vue'
-  import ToggleSectionButton from '@/components/ToggleSectionButton.vue'
+import { mapState, mapMutations } from 'vuex';
+import InfoSection from '@/components/InfoSection.vue'
+import DebugStep from '@/components/DebugStep.vue'
+import DownArrow from '@/components/DownArrow.vue'
+import ListEntry from '@/components/ListEntry.vue'
+import ToggleSectionButton from '@/components/ToggleSectionButton.vue'
+import FooterMinimal from "@/components/FooterMinimal.vue"
 
-  import Copybox from '../components/Copybox'
-  import Hero from '../components/Hero'
-  import Button from '../components/Button'
-  import TextInput from '../components/TextInput'
-  import InputErrorLabel from '../components/InputErrorLabel'
+import Copybox from '../components/Copybox'
+import Hero from '../components/Hero'
+import Button from '../components/Button'
+import TextInput from '../components/TextInput'
+import InputErrorLabel from '../components/InputErrorLabel'
 
 
-  export default {
-    name: 'VerifyNewAddress',
-    components: {
-      InfoSection,
-      DebugStep,
-      DownArrow,
-      ListEntry,
-      ToggleSectionButton,
-      Copybox,
-      Hero,
-      Button,
-      TextInput,
-      InputErrorLabel,
-    },
-    data: () => ({
-      addressVerification: '',
-      addressVerificationError: '',
-      infoSectionStyle: { padding: '0' },
-      copied: false,
+export default {
+  name: 'VerifyNewAddress',
+  components: {
+    InfoSection,
+    DebugStep,
+    DownArrow,
+    ListEntry,
+    ToggleSectionButton,
+    Copybox,
+    Hero,
+    Button,
+    TextInput,
+    InputErrorLabel,
+    FooterMinimal,
+  },
+  data: () => ({
+    addressVerification: '',
+    addressVerificationError: '',
+    infoSectionStyle: { padding: '0' },
+    copied: false,
+  }),
+  computed: {
+    ...mapState({
+      address: state => state.address,
+      alias: state => state.alias,
+      aliasCurrentAddress: state => state.aliasCurrentAddress
+    })
+  },
+  methods: {
+    ...mapMutations({
+      savePrevAddressVerification: 'savePrevAddressVerification'
     }),
-    computed: {
-      ...mapState({
-        address: state => state.address,
-        alias: state => state.alias,
-        aliasCurrentAddress: state => state.aliasCurrentAddress
+    clickCreate: function(verification) {
+      this.savePrevAddressVerification(verification);
+      this.$router.push({ name: 'VerifyNewAddress' });
+    },
+    copyText: function () {
+      this.$copyText(`signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`).then((e) => {
+        this.copied = true
+        this.$toasted.show('Copied to clipboard', {
+          position: 'top-center',
+          theme: 'oa-toast',
+          type: '',
+          duration: '1000',
+          className: 'oa-toast',
+          action : {
+            text : '✕',
+            onClick : (e, toastObject) => {
+              toastObject.goAway(0);
+            }
+          },
+        })
+        console.log(e)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
       })
     },
-    methods: {
-      ...mapMutations({
-        savePrevAddressVerification: 'savePrevAddressVerification'
-      }),
-      clickCreate: function(verification) {
-        this.savePrevAddressVerification(verification);
-        this.$router.push({ name: 'VerifyNewAddress' });
-      },
-      copyText: function () {
-        this.$copyText(`signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`).then((e) => {
-          this.copied = true
-          this.$toasted.show('Copied to clipboard', {
-            position: 'top-center',
-            theme: 'oa-toast',
-            type: '',
-            duration: '1000',
-            className: 'oa-toast',
-            action : {
-              text : '✕',
-              onClick : (e, toastObject) => {
-                toastObject.goAway(0);
-              }
-            },
-          })
-          console.log(e)
-        }, function (e) {
-          alert('Can not copy')
-          console.log(e)
-        })
-      },
-      verifySignature: function() {
-        if (this.addressVerification.length !== 88 ) {
-          this.addressVerificationError = 'A signed message length should be 88 characters long, current length is: ' + this.addressVerification.length
-          return
-        }
-        this.addressVerificationError = ''
-      },
-    }
-  };
+    verifySignature: function() {
+      if (this.addressVerification.length !== 88 ) {
+        this.addressVerificationError = 'A signed message length should be 88 characters long, current length is: ' + this.addressVerification.length
+        return
+      }
+      this.addressVerificationError = ''
+    },
+  }
+};
 </script>
 
 <style scoped>
-  h1 {
-    color: #7D59B4;
-    size: 52px;
-  }
+h1 {
+  color: #7D59B4;
+  size: 52px;
+}
 
-  .input-container {
-    max-width: 800px;
-    width: calc(100vw - 100px);
-    margin: auto;
-    margin-bottom: 20px;
-  }
-  
-  .input-container > .list-entry.text {
-    font-size: 16px;
+.input-container {
+  max-width: 800px;
+  width: calc(100vw - 100px);
+  margin: auto;
+  margin-bottom: 20px;
+}
 
-  }
+.input-container > .list-entry.text {
+  font-size: 16px;
 
-  .toggle-button-container {
-    margin-top: 75px;
-  }
+}
 
-  .downarrow {
-    margin-top: 10px;
-  }
+.toggle-button-container {
+  margin-top: 75px;
+}
 
-  .need-help {
-    margin: 30px 0 0 0;
-  }
+.downarrow {
+  margin-top: 10px;
+}
 
-  .button {
-    margin: 30px 0;
-  }
+.need-help {
+  margin: 30px 0 0 0;
+}
 
-  .down-arrow-img {
-    height: 20px;
-    margin-bottom: 40px;
-  }
+.button {
+  margin: 30px 0;
+}
+
+.down-arrow-img {
+  height: 20px;
+  margin-bottom: 40px;
+}
+
+.footer-minimal-container {
+  background-color: #f7f7f7;
+}
 </style>

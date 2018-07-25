@@ -5,6 +5,8 @@ import VerifyNewAddress from './views/VerifyNewAddress.vue'
 import VerifyPrevAddress from './views/VerifyPrevAddress.vue'
 import CreateAlias from './views/CreateAlias.vue'
 import FAQ from './views/FAQ.vue'
+import PrivacyPolicy from './views/PrivacyPolicy.vue'
+import TermsOfUse from './views/TermsOfUse.vue'
 
 Vue.use(Router)
 
@@ -34,6 +36,16 @@ export default new Router({
       path: '/faq',
       name: 'faq',
       component: FAQ,
+    },
+    {
+      path: '/terms-of-use',
+      name: 'TermsOfUse',
+      component: TermsOfUse,
+    },
+    {
+      path: '/privacy-policy',
+      name: 'PrivacyPolicy',
+      component: PrivacyPolicy,
     }
   ]
 })
