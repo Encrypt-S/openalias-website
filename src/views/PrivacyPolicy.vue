@@ -1,5 +1,5 @@
 <template>
-  <div class="text-container">
+  <div class="policy-container">
     <h1>Privacy Policy</h1>
     <div class="privacy-policy">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum doloribus non, reiciendis sint facere voluptates similique doloremque nisi officia veniam quam accusamus est delectus aspernatur veritatis. Error eligendi natus voluptates.
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style>
-.text-container {
+.policy-container {
   display: flex;
   flex-direction: column;
   justify-items: center;
