@@ -72,7 +72,7 @@
         Just enter your updated address and your old alias, and we will automatically confirm you are the correct owner.
       </p>
     </div>
-    <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError || aliasError">Create your alias</Button>
+    <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError || aliasError">{{!editAlias ? 'Create' : 'Update'}} your alias</Button>
   </div>
 </template>
 
