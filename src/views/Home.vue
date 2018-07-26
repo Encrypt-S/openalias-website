@@ -64,7 +64,6 @@ import FooterFull from "@/components/FooterFull.vue"
 export default {
   name: "Home",
   mounted: function () {
-    console.log('Reset state data')
     this.resetStateData()
   },
   methods: {

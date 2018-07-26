@@ -173,10 +173,8 @@ export default {
             }
           },
         })
-        console.log(e)
       }, function (e) {
-        alert('Can not copy')
-        console.log(e)
+        alert('Copy is disabled by your browser. Please copy manually.')
       })
     },
     verifySignature: function() {

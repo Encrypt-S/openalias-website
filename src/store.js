@@ -16,13 +16,11 @@ const checkGoogleDNS = async (name) => {
       const json = await dnsResponse.json()
 
       // Get the previous address from DNS
-      console.log(json)
       if (json.Status === 0) {
         if (Array.isArray(json.Answer)) {
           for (var i = 0; i < json.Answer.length; i++ ) {
             const oaAddr = json.Answer[i].data
             if (oaAddr.includes('oa1:nav')) {
-              console.log(oaAddr)
               // Found a previous address. Use this to check signature
               resolve(oaAddr.substring(oaAddr.indexOf('recipient_address=') + 18, oaAddr.indexOf(';')))
             }
@@ -32,7 +30,7 @@ const checkGoogleDNS = async (name) => {
 
       resolve('')
     } catch (err) {
-      reject()
+      // reject(err)
     }
   })
 }
@@ -89,9 +87,8 @@ const store = new Vuex.Store({
       context.commit('saveCurrentAddress', address)
     },
     async createAlias (context) {
-      console.log('test')
       try {
-        const  { alias, address, addressVerification, aliasCurrentAddress, prevAddressVerification } = context.state
+        const { alias, address, addressVerification, aliasCurrentAddress, prevAddressVerification } = context.state
         const res = await fetch('https://openalias.nav.community/api', {
           headers: { 'Content-Type': 'application/json' },
           method: 'post',

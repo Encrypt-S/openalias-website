@@ -19,7 +19,7 @@
             position: 'top-center',
             theme: 'oa-toast',
             type: '',
-            duration: '10000',
+            duration: '1000',
             className: 'oa-toast',
             action : {
               text : '✕',
@@ -30,7 +30,6 @@
           })
         }, function (e) {
           alert('Copy is disabled by your browser. Please copy manually.')
-          console.log(e)
         })
       },
     }
