@@ -1,11 +1,11 @@
 <template>
   <div>
     <Hero>
-      <h1>Verify you own {{alias}}@nav.community</h1>
+      <h1>Verify</h1>
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
-        <Copybox>signmessage {{aliasCurrentAddress}} {{alias}}@nav.community</Copybox>
-        <div><Button @click="copyText()">{{copied ? "Copied" : "Copy"}}</Button></div>
+        <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
+        <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div>
 
         <img src="/images/d-down.svg" alt="Down arrow" class="down-arrow-img">
 
@@ -28,7 +28,7 @@
         </TextInput>
       </div>
       <div class="need-help">If you need help, please check instruction below ↓</div>
-      <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
+      <div><Button @click="clickCreate(addressVerification)" :disabled="addressVerificationError || !addressVerification">Create Alias</Button></div>
       <DownArrow text="Instructions" />
     </Hero>
 
@@ -101,91 +101,93 @@
         </InfoSection>
       </div>
     </ToggleSectionButton>
-
+    <FooterMinimal />
   </div>
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex';
-  import InfoSection from '@/components/InfoSection.vue'
-  import DebugStep from '@/components/DebugStep.vue'
-  import DownArrow from '@/components/DownArrow.vue'
-  import ListEntry from '@/components/ListEntry.vue'
-  import ToggleSectionButton from '@/components/ToggleSectionButton.vue'
+import { mapState, mapMutations } from 'vuex';
+import InfoSection from '@/components/InfoSection.vue'
+import DebugStep from '@/components/DebugStep.vue'
+import DownArrow from '@/components/DownArrow.vue'
+import ListEntry from '@/components/ListEntry.vue'
+import ToggleSectionButton from '@/components/ToggleSectionButton.vue'
 
-  import Copybox from '../components/Copybox'
-  import Hero from '../components/Hero'
-  import Button from '../components/Button'
-  import TextInput from '../components/TextInput'
-  import InputErrorLabel from '../components/InputErrorLabel'
+import Copybox from '../components/Copybox'
+import Hero from '../components/Hero'
+import Button from '../components/Button'
+import TextInput from '../components/TextInput'
+import InputErrorLabel from '../components/InputErrorLabel'
+import FooterMinimal from "@/components/FooterMinimal.vue"
 
 
-  export default {
-    name: 'VerifyNewAddress',
-    components: {
-      InfoSection,
-      DebugStep,
-      DownArrow,
-      ListEntry,
-      ToggleSectionButton,
-      Copybox,
-      Hero,
-      Button,
-      TextInput,
-      InputErrorLabel,
-    },
-    data: () => ({
-      addressVerification: '',
-      addressVerificationError: '',
-      infoSectionStyle: { padding: '0' },
-      copied: false,
+export default {
+  name: 'VerifyNewAddress',
+  components: {
+    InfoSection,
+    DebugStep,
+    DownArrow,
+    ListEntry,
+    ToggleSectionButton,
+    Copybox,
+    Hero,
+    Button,
+    TextInput,
+    InputErrorLabel,
+    FooterMinimal,
+  },
+  data: () => ({
+    addressVerification: '',
+    addressVerificationError: '',
+    infoSectionStyle: { padding: '0' },
+    copied: false,
+  }),
+  computed: {
+    ...mapState({
+      address: state => state.address,
+      alias: state => state.alias,
+      aliasCurrentAddress: state => state.aliasCurrentAddress
+    })
+  },
+  methods: {
+    ...mapMutations({
+      saveAddressVerification: 'saveAddressVerification'
     }),
-    computed: {
-      ...mapState({
-        address: state => state.address,
-        alias: state => state.alias,
-        aliasCurrentAddress: state => state.aliasCurrentAddress
+    clickCreate: function(verification) {
+      this.saveAddressVerification(verification);
+      this.$router.push({ name: 'CreateAlias' });
+    },
+    copyText: function () {
+      this.$copyText(`signmessage ${this.address} ${this.alias}@nav.community`).then((e) => {
+        this.copied = true
+        this.$toasted.show('Copied to clipboard', {
+          position: 'top-center',
+          theme: 'oa-toast',
+          type: '',
+          duration: '1000',
+          className: 'oa-toast',
+          action : {
+            text : '✕',
+            onClick : (e, toastObject) => {
+              toastObject.goAway(0);
+            }
+          },
+        })
+        console.log(e)
+      }, function (e) {
+        alert('Can not copy')
+        console.log(e)
       })
     },
-    methods: {
-      ...mapMutations({
-        savePrevAddressVerification: 'savePrevAddressVerification'
-      }),
-      clickCreate: function(verification) {
-        this.savePrevAddressVerification(verification);
-        this.$router.push({ name: 'VerifyNewAddress' });
-      },
-      copyText: function () {
-        this.$copyText(`signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`).then((e) => {
-          this.copied = true
-          this.$toasted.show('Copied to clipboard', {
-            position: 'top-center',
-            theme: 'oa-toast',
-            type: '',
-            duration: '1000',
-            className: 'oa-toast',
-            action : {
-              text : '✕',
-              onClick : (e, toastObject) => {
-                toastObject.goAway(0);
-              }
-            },
-          })
-          console.log(e)
-        }, function (e) {
-          alert('Can not copy')
-          console.log(e)
-        })
-      },
-      verifySignature: function() {
-        if (this.addressVerification.length !== 88 ) {
-          this.addressVerificationError = 'A signed message length should be 88 characters long, current length is: ' + this.addressVerification.length
-          return
-        }
-        this.addressVerificationError = ''
-      },
+    verifySignature: function() {
+      if (this.addressVerification.length !== 88 ) {
+        this.addressVerificationError = 'A signed message length should be 88 characters long, current length is: ' + this.addressVerification.length
+        return
+      }
+      this.addressVerificationError = ''
     }
-  };
+  }
+};
 </script>
 
 <style scoped>
@@ -225,5 +227,9 @@
   .down-arrow-img {
     height: 20px;
     margin-bottom: 40px;
+  }
+
+.footer-minimal-container {
+    background-color: #f7f7f7;
   }
 </style>

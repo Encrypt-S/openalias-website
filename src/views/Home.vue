@@ -43,6 +43,9 @@
       </template>
       <template slot="button"><a >Create your Alias</a></template>
     </InfoSection>
+
+
+    <FooterFull />
   </div>
 </template>
 
@@ -54,6 +57,7 @@ import CreateAlias from '../components/CreateAlias'
 import MemorableSection from "@/components/MemorableSection.vue"
 import InfoSection from "@/components/InfoSection.vue"
 import Icon from "@/components/Icon.vue"
+import FooterFull from "@/components/FooterFull.vue"
 
 
 export default {
@@ -63,7 +67,8 @@ export default {
     CreateAlias,
     MemorableSection,
     InfoSection,
-    Icon
+    Icon,
+    FooterFull,
   },
 };
 </script>

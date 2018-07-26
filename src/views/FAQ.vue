@@ -87,20 +87,19 @@
             </ListEntry>
           </template>
         </InfoSection>
-
       </div>
     </ToggleSectionButton>
-
+    <FooterMinimal/>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
 import InfoSection from "@/components/InfoSection.vue"
 import DebugStep from "@/components/DebugStep.vue"
 import DownArrow from "@/components/DownArrow.vue"
 import ListEntry from "@/components/ListEntry.vue"
 import ToggleSectionButton from "@/components/ToggleSectionButton.vue"
+import FooterMinimal from "@/components/FooterMinimal.vue"
 
 
 export default {
@@ -111,13 +110,8 @@ export default {
     DownArrow,
     ListEntry,
     ToggleSectionButton,
+    FooterMinimal,
   },
-  data: () => ({
-  }),
-  computed: {
-  },
-  methods: {
-  }
 };
 </script>
 
@@ -133,5 +127,9 @@ export default {
 
   .toggle-button-container {
     margin-top: 30px;
+  }
+
+  .footer-minimal-container {
+    background-color: #f7f7f7;
   }
 </style>

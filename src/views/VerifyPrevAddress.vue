@@ -1,11 +1,11 @@
 <template>
   <div>
     <Hero>
-      <h1>Verify</h1>
+      <h1>Verify you own {{alias}}@nav.community</h1>
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
-        <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
-        <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div>
+        <Copybox>signmessage {{aliasCurrentAddress}} {{alias}}@nav.community</Copybox>
+        <div><Button @click="copyText()">{{copied ? "Copied" : "Copy"}}</Button></div>
 
         <img src="/images/d-down.svg" alt="Down arrow" class="down-arrow-img">
 
@@ -28,7 +28,7 @@
         </TextInput>
       </div>
       <div class="need-help">If you need help, please check instruction below ↓</div>
-      <div><Button @click="clickCreate(addressVerification)" :disabled="addressVerificationError || !addressVerification">Create Alias</Button></div>
+      <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
       <DownArrow text="Instructions" />
     </Hero>
 
@@ -101,7 +101,7 @@
         </InfoSection>
       </div>
     </ToggleSectionButton>
-
+    <FooterMinimal />
   </div>
 </template>
 
@@ -112,6 +112,7 @@ import DebugStep from '@/components/DebugStep.vue'
 import DownArrow from '@/components/DownArrow.vue'
 import ListEntry from '@/components/ListEntry.vue'
 import ToggleSectionButton from '@/components/ToggleSectionButton.vue'
+import FooterMinimal from "@/components/FooterMinimal.vue"
 
 import Copybox from '../components/Copybox'
 import Hero from '../components/Hero'
@@ -133,6 +134,7 @@ export default {
     Button,
     TextInput,
     InputErrorLabel,
+    FooterMinimal,
   },
   data: () => ({
     addressVerification: '',
@@ -149,14 +151,14 @@ export default {
   },
   methods: {
     ...mapMutations({
-      saveAddressVerification: 'saveAddressVerification'
+      savePrevAddressVerification: 'savePrevAddressVerification'
     }),
     clickCreate: function(verification) {
-      this.saveAddressVerification(verification);
-      this.$router.push({ name: 'CreateAlias' });
+      this.savePrevAddressVerification(verification);
+      this.$router.push({ name: 'VerifyNewAddress' });
     },
     copyText: function () {
-      this.$copyText(`signmessage ${this.address} ${this.alias}@nav.community`).then((e) => {
+      this.$copyText(`signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`).then((e) => {
         this.copied = true
         this.$toasted.show('Copied to clipboard', {
           position: 'top-center',
@@ -183,47 +185,51 @@ export default {
         return
       }
       this.addressVerificationError = ''
-    }
+    },
   }
 };
 </script>
 
 <style scoped>
-  h1 {
-    color: #7D59B4;
-    size: 52px;
-  }
+h1 {
+  color: #7D59B4;
+  size: 52px;
+}
 
-  .input-container {
-    max-width: 800px;
-    width: calc(100vw - 100px);
-    margin: auto;
-    margin-bottom: 20px;
-  }
-  
-  .input-container > .list-entry.text {
-    font-size: 16px;
+.input-container {
+  max-width: 800px;
+  width: calc(100vw - 100px);
+  margin: auto;
+  margin-bottom: 20px;
+}
 
-  }
+.input-container > .list-entry.text {
+  font-size: 16px;
 
-  .toggle-button-container {
-    margin-top: 75px;
-  }
+}
 
-  .downarrow {
-    margin-top: 10px;
-  }
+.toggle-button-container {
+  margin-top: 75px;
+}
 
-  .need-help {
-    margin: 30px 0 0 0;
-  }
+.downarrow {
+  margin-top: 10px;
+}
 
-  .button {
-    margin: 30px 0;
-  }
+.need-help {
+  margin: 30px 0 0 0;
+}
 
-  .down-arrow-img {
-    height: 20px;
-    margin-bottom: 40px;
-  }
+.button {
+  margin: 30px 0;
+}
+
+.down-arrow-img {
+  height: 20px;
+  margin-bottom: 40px;
+}
+
+.footer-minimal-container {
+  background-color: #f7f7f7;
+}
 </style>
