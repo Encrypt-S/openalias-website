@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import router from './router'
 
 Vue.use(Vuex)
 
@@ -38,11 +39,12 @@ const checkGoogleDNS = async (name) => {
 
 const store = new Vuex.Store({
   state: {
-    address: 'NRvZGXGWv5r3bU1z9PoAvY5gwLMRBr8yxk',
-    alias: 'rowan',
+    address: '',
+    alias: '',
     aliasCurrentAddress: '',
     addressVerification: '',
     prevAddressVerification: '',
+    checkRequestComplete: false,
     openAliasResponse: {},
   },
   mutations: {
@@ -57,15 +59,33 @@ const store = new Vuex.Store({
       state.addressVerification = verification
     },
     savePrevAddressVerification (state, verification) {
-      state.prevAddressVerification = verification
+      state.addressVerification = verification
     },
     saveOpenAliasResponse (state, response) {
       state.openAliasResponse = response
+    },
+    saveCheckRequestComplete (state, status) {
+      state.checkRequestComplete = status
+    },
+    resetStateData (state) {
+      state.address = ''
+      state.alias = ''
+      state.aliasCurrentAddress = ''
+      state.addressVerification = ''
+      state.addressVerification = ''
+      state.openAliasResponse = {}
+      state.checkRequestComplete = false
     },
   },
   actions: {
     async checkAlias (context, alias) {
       const address = await checkGoogleDNS(alias)
+      if (!address) {
+        router.push({ name: 'VerifyNewAddress', params: {
+          message: `${alias}@nav.community was not registered, so you have been redirected here to register it`} 
+        })
+        return 
+      }
       context.commit('saveCurrentAddress', address)
     },
     async createAlias (context) {

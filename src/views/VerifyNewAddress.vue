@@ -1,7 +1,8 @@
 <template>
   <div>
     <Hero>
-      <h1>Verify</h1>
+      <h1>Verify address ownership</h1>
+      <h3 class="unfound-alias-error">{{$route.params.message}}</h3>
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
         <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
@@ -231,5 +232,9 @@ export default {
 
 .footer-minimal-container {
     background-color: #f7f7f7;
-  }
+}
+
+.unfound-alias-error {
+  color: #f00;
+}
 </style>
