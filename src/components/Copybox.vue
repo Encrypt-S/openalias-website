@@ -30,7 +30,6 @@
           })
         }, function (e) {
           alert('Copy is disabled by your browser. Please copy manually.')
-          console.log(e)
         })
       },
     }

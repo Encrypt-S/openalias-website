@@ -51,6 +51,7 @@
 
 <script>
 // @ is an alias to /src
+import { mapState, mapMutations } from 'vuex';
 
 import HomeHero from '../components/HomeHero'
 import CreateAlias from '../components/CreateAlias'
@@ -62,6 +63,15 @@ import FooterFull from "@/components/FooterFull.vue"
 
 export default {
   name: "Home",
+  mounted: function () {
+    this.resetStateData()
+  },
+  methods: {
+  ...mapMutations({
+      savePrevAddressVerification: 'savePrevAddressVerification',
+      resetStateData: 'resetStateData'
+    })
+  },
   components: {
     HomeHero,
     CreateAlias,
