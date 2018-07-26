@@ -15,12 +15,11 @@ export default {
   },
   methods: {
     click: function (event) {
-      console.log(event)
       this.$emit('click')
       this.debounce = true
       setTimeout(() => {
         this.debounce = false
-      }, 50)
+      }, 200)
     }
   }
 }
