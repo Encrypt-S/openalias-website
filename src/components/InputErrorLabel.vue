@@ -1,13 +1,10 @@
 <template>
   <div class="label-container">
       <slot name="errorIcon">
-      Icon
       </slot>
       <slot name="errorText">
-        ErrorText
       </slot>
       <slot name="infoIcon">
-      infoIcon
     </slot>
   </div>
 </template>
@@ -21,15 +18,28 @@
 <style scoped>
   .label-container {
     display: flex;
-    align-items: flex-start;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
+    padding: 15px 0 0 0;
     width: 100%;
   }
 
-  img {
-    width: 15px;
-    height: 15px;
+  img, .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon {
+    background-color: #ccc;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    user-select: none;
+  }
+  
+  .icon.hover:hover {
+    filter: brightness(90%);
+    cursor: help;
   }
 
   .text {

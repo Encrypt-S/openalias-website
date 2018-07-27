@@ -37,6 +37,7 @@ export default {
     cursor: pointer;
     outline: none;
     min-width: 200px;
+    user-select: none;
   }
 
   .button:hover {

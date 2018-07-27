@@ -23,7 +23,7 @@
                 <span class="text">{{addressVerificationError}}</span>
               </template>
               <template slot="infoIcon">
-                <img src="/images/d-error.svg" alt="">
+                <div class="icon hover" title="You generate the signed message using your NavCoin wallet">?</div>
               </template>
             </InputErrorLabel>
           </template>
