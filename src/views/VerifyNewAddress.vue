@@ -1,6 +1,7 @@
 <template>
   <div>
     <Hero>
+      <ProgressBar :nodeData="progressBarData"/>
       <h1>Verify address ownership</h1>
       <h3 class="unfound-alias-error">{{$route.params.message}}</h3>
       <div class="input-container">
@@ -103,6 +104,8 @@
       </div>
     </ToggleSectionButton>
     <FooterMinimal />
+
+    
   </div>
 </template>
 
@@ -120,6 +123,7 @@ import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import InputErrorLabel from '../components/InputErrorLabel'
 import FooterMinimal from "@/components/FooterMinimal.vue"
+import ProgressBar from "@/components/ProgressBar.vue"
 
 
 export default {
@@ -136,13 +140,21 @@ export default {
     TextInput,
     InputErrorLabel,
     FooterMinimal,
+    ProgressBar,
   },
-  data: () => ({
-    addressVerification: '',
-    addressVerificationError: '',
-    infoSectionStyle: { padding: '0' },
-    copied: false,
-  }),
+  data: function () {
+    return {
+      addressVerification: '',
+      addressVerificationError: '',
+      infoSectionStyle: { padding: '0' },
+      copied: false,
+      progressBarData: {
+        subtext: 'Assign address to your alias',
+        currStep: this.aliasCurrentAddress ? 3 : 2,
+        stepTotal: this.aliasCurrentAddress ? 3 : 2,
+      },
+    }
+  },
   computed: {
     ...mapState({
       address: state => state.address,
