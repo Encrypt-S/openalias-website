@@ -1,6 +1,7 @@
 <template>
   <div>
     <Hero>
+      <ProgressBar :nodeData="progressBarData"/>
       <h1>Verify you own {{alias}}@nav.community</h1>
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
@@ -21,7 +22,7 @@
                 <span class="text">{{addressVerificationError}}</span>
               </template>
               <template slot="infoIcon">
-                <img src="/images/d-error.svg" alt="">
+                <div class="icon hover" title="You generate the signed message using your NavCoin wallet">?</div>
               </template>
             </InputErrorLabel>
           </template>
@@ -119,6 +120,8 @@ import Hero from '../components/Hero'
 import Button from '../components/Button'
 import TextInput from '../components/TextInput'
 import InputErrorLabel from '../components/InputErrorLabel'
+import ProgressBar from "@/components/ProgressBar.vue"
+
 
 
 export default {
@@ -135,12 +138,19 @@ export default {
     TextInput,
     InputErrorLabel,
     FooterMinimal,
+    ProgressBar,
   },
   data: () => ({
     addressVerification: '',
     addressVerificationError: '',
     infoSectionStyle: { padding: '0' },
     copied: false,
+    progressBarData: {
+      subtext: 'Prove ownership of alias',
+      currStep: 2,
+      stepTotal: 3,
+    },
+
   }),
   computed: {
     ...mapState({

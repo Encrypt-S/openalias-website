@@ -28,7 +28,7 @@
               <span class="text">{{addressError}}</span>
             </template>
             <template slot="infoIcon">
-              <img src="/images/d-error.svg" alt="">
+              <div class="icon hover" title="Enter a NavCoin public key here. A NavCoin public key address is a alphanumerical string that is 34 characters long">?</div>
             </template>
           </InputErrorLabel>
         </template>
@@ -51,7 +51,7 @@
                 <span class="text">{{aliasError}}</span>
               </template>
               <template slot="infoIcon">
-                <img src="/images/d-error.svg" alt="">
+                <div class="icon hover" title="You generate the signed message using your NavCoin wallet">?</div>
               </template>
             </InputErrorLabel>
           </template>
