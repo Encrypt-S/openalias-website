@@ -2,20 +2,33 @@
   <div class="bar-container">
     <div class="back-button"><a @click="goBack" href=""><img src="/images/d-down-lil-bk.svg" class="back-arrow"/> Back</a></div>
     <div class="progress-bar">
-      <div class="node">
-        <div class="icon">
-          <img src="/images/d-step-passed.svg" alt="Tick Mark">
+      <div class="step">
+        <div class="node">
+          <div class="icon">
+            <img src="/images/d-step-passed.svg" alt="Tick Mark">
+          </div>
+          <div class="node-subtext">Step 1 of {{nodeData.stepTotal}}</div>
         </div>
-        <div class="node-subtext">{{nodeData.subtext}}</div>
       </div>
-      <div class="bar">
-      
-      </div>
-      <div class="node">
-        <div class="icon">
-          <img src="/images/d-step-working.svg" alt="3 dots">
+      <div class="step">
+        <div class="bar">
         </div>
-        <div class="node-subtext-bold">Step {{nodeData.currStep}} of {{nodeData.stepTotal}}</div>
+        <div class="node">
+          <div class="icon">
+            <img src="/images/d-step-working.svg" alt="3 dots">
+          </div>
+          <div class="node-subtext-bold">{{nodeData.subtext}}</div>
+        </div>
+      </div>
+      <div class="step" v-if="nodeData.stepTotal === 3">
+        <div class="bar">
+        </div>
+        <div class="node">
+          <div class="icon">
+            <img src="/images/d-step-next.svg" alt="3 dots">
+          </div>
+          <div class="node-subtext">Step {{nodeData.stepTotal}} of {{nodeData.stepTotal}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -48,14 +61,18 @@
 }
 
 .progress-bar {
-  width: 100%;
-  max-width: 500px;
+  max-width: 650px;
   display: grid;
-  grid-template-columns: 100px 1fr 100px;
+  /* grid-template-columns: 100px 1fr 100px; */
   grid-auto-flow: column;
   align-items: top;
   justify-items: center;
   grid-gap: 5px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
 }
 
 .node {
@@ -63,6 +80,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  margin: 0 20px;
 }
 
 .node .icon {
@@ -75,16 +93,13 @@
 
 .bar {
   background: var(--lime-green);
-  width: 100%;
+  width: 80px;
   height: 16px;
-  margin: -42px 0 0 0;
   padding: 0 20px;
-  align-self: center;
 }
 
 .node-subtext, .node-subtext-bold {
-    font-size: 10px;
-    height: 40px;
+  font-size: 10px;
 }
 
 .node-subtext-bold {
@@ -109,7 +124,7 @@ a:hover {
 
 .back-arrow {
   width: 15px;
-  transform: rotate(90deg) translateX(-2px); 
+  transform: rotate(90deg) translateX(-2px);
 }
 
 </style>

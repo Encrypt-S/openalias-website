@@ -6,10 +6,8 @@
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
         <Copybox>signmessage {{aliasCurrentAddress}} {{alias}}@nav.community</Copybox>
-        <div><Button @click="copyText()">{{copied ? "Copied" : "Copy"}}</Button></div>
-
-        <img src="/images/d-down.svg" alt="Down arrow" class="down-arrow-img">
-
+        <br /> <br />
+        <!-- <div><Button @click="copyText()">{{copied ? "Copied" : "Copy"}}</Button></div> -->
         <ListEntry><span slot="number" class="number">2</span><span slot="text" class="text small">Now open your NavCoin wallet, open console through Help -> Debug and pastes the message, then hit Enter on your keyboard. An response message (verification code) will be created, copy and paste it here</span></ListEntry>
         <TextInput v-model="addressVerification" :inputEvent="verifySignature">
           <template slot="label">{{'enter response'}}</template>
@@ -29,7 +27,7 @@
         </TextInput>
       </div>
       <div class="need-help">If you need help, please check instruction below ↓</div>
-      <div><Button @click="clickCreate(addressVerification)">Create Alias</Button></div>
+      <div><Button @click="clickCreate(addressVerification)">Next</Button></div>
       <DownArrow text="Instructions" />
     </Hero>
 

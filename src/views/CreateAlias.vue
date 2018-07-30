@@ -18,7 +18,7 @@
 
     <div class="error-display" v-if="openAliasResponse.error">
       <img src="/images/d-sorry.svg" alt="Cross Icon" class="status-icon">
-      <h1>Sorry..</h1>
+      <h1>Oops... something went wrong</h1>
 
       <p class="text">
         It looks like we encountered an error when registering your address.
