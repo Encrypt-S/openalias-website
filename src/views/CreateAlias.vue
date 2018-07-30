@@ -10,26 +10,25 @@
         <div class="name"> {{alias}}@nav.community</div>
       </div>
 
-      <div class="text">
+      <p class="text">
         We have successfully registered {{alias}}@nav.community to {{address}}!<br>
         Please allow up to 10 minutes for the address to become active.
-      </div>
-      <a href="" class="button">Done</a>
+      </p>
     </div>
 
     <div class="error-display" v-if="openAliasResponse.error">
       <img src="/images/d-sorry.svg" alt="Cross Icon" class="status-icon">
       <h1>Sorry..</h1>
 
-      <div class="text">
+      <p class="text">
         It looks like we encountered an error when registering your address.
-      </div>
-      <div class="text error">
+      </p>
+      <p class="text error">
         Error: {{openAliasResponse.error}}
-      </div>
+      </p>
       <a href="" class="button">Try again</a>
     </div>
-    
+
 
     <div class="debug">
       <h3>Debug data</h3>
@@ -83,10 +82,11 @@ export default {
 .status-icon {
   width: 90px;
   height: 90px;
-  margin-top: 225px;
+  margin-top: 50px;
 }
 
 h1 {
+  margin-top: 10px;
   margin-bottom: 75px;
 }
 
@@ -137,7 +137,6 @@ h1 {
 }
 
 .text {
-  max-width: 932px;
   margin-top: 27px;
   color: #3E3E3E;
 }

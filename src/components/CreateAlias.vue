@@ -21,7 +21,7 @@
         <TextInput v-model="address" :blurEvent="checkAddressValid">
           <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
           <template slot="errorLabel">
-            <InputErrorLabel v-if="addressError" :msg="addressError" :info="addressInfo" />
+            <InputErrorLabel v-if="addressError" :msg="addressError" :info="addressInfo" color="white" />
           </template>
         </TextInput>
       </div>
@@ -34,7 +34,7 @@
           <TextInput v-model="alias" :inputEvent="checkAliasValid">
             <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
             <template slot="errorLabel">
-              <InputErrorLabel v-if="aliasError" :msg="aliasError" :info="aliasInfo" />
+              <InputErrorLabel v-if="aliasError" :msg="aliasError" :info="aliasInfo" color="white" />
             </template>
           </TextInput>
         </div>

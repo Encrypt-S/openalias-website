@@ -1,7 +1,7 @@
 <template>
   <div class="label-container">
       <img src="/images/d-error.svg" alt="">
-      <span class="text">{{msg}}</span>
+      <span class="text" :style="{ color: color || 'red'}">{{msg}}</span>
       <!-- <div class="icon hover" :title="info">?</div> -->
   </div>
 </template>
@@ -12,6 +12,7 @@
     props: {
       msg: String,
       info: String,
+      color: String,
     }
   }
 </script>
@@ -46,7 +47,6 @@
 
   .text {
     margin: 0 10px;
-    color: white;
     text-align: left;
   }
 
