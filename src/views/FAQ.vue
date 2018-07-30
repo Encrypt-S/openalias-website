@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="top-heading">Frequently Asked Questions</h1>
+    <h1>Frequently Asked Questions</h1>
     <h3>Pick your wallet.</h3>
     <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
@@ -98,10 +98,6 @@ export default {
 </script>
 
 <style scoped>
-  .top-heading {
-    padding-top: 200px
-  }
-
   h1 {
     color: #7D59B4;
     size: 52px;

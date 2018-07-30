@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <TopMenu />
+    <div style="padding-top: 80px">
     <transition name="fade">
       <router-view/>
     </transition>
+    </div>
   </div>
 </template>
 
@@ -19,6 +21,10 @@
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -65,7 +71,7 @@ h2 {
 }
 
 .toasted-container.top-center {
-  top:20%;  
+  top:20%;
 }
 
 </style>

@@ -32,7 +32,7 @@ export default {
 <style scoped>
 
 .template-container {
-  padding: 100px 0;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,7 +134,7 @@ export default {
 
 
 .row.two {
-  grid-area: row-two;    
+  grid-area: row-two;
   grid-template-areas:"addr-two arr-two name-two";
 }
 
@@ -151,7 +151,7 @@ export default {
 }
 
 @media (max-width: 930px ) {
-  
+
   .address-container {
     width: 90vw;
     grid-template-columns: 1fr;

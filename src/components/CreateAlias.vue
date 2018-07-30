@@ -17,25 +17,27 @@
       </div>
     </div>
     <div class="inputs">
-      <TextInput v-model="address" :blurEvent="checkAddressValid">
-        <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
-        <template slot="errorLabel">
-          <InputErrorLabel v-if="addressError" :msg="addressError" :info="addressInfo" />
-        </template>
-      </TextInput>
+      <div class="input">
+        <TextInput v-model="address" :blurEvent="checkAddressValid">
+          <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
+          <template slot="errorLabel">
+            <InputErrorLabel v-if="addressError" :msg="addressError" :info="addressInfo" />
+          </template>
+        </TextInput>
+      </div>
 
 
       <div class="arrow">→</div>
-      <div class="emailMaskContainer">
-        <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
-        <TextInput v-model="alias" :inputEvent="checkAliasValid">
-          <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
-          <template slot="errorLabel">
-            <InputErrorLabel v-if="aliasError" :msg="aliasError" :info="aliasInfo" />
-          </template>
-        </TextInput>
-
-
+      <div class="input">
+        <div class="emailMaskContainer">
+          <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
+          <TextInput v-model="alias" :inputEvent="checkAliasValid">
+            <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
+            <template slot="errorLabel">
+              <InputErrorLabel v-if="aliasError" :msg="aliasError" :info="aliasInfo" />
+            </template>
+          </TextInput>
+        </div>
       </div>
     </div>
     <div class="intro-text">
@@ -47,7 +49,7 @@
         To update an existing alias, you will need access to the wallet that created the original alias.<br />
       </p>
     </div>
-    <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError || aliasError">{{!editAlias ? 'Create' : 'Update'}} your alias</Button>
+    <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError !== '' || aliasError !== ''">{{!editAlias ? 'Create' : 'Update'}} your alias</Button>
   </div>
 </template>
 
@@ -60,10 +62,10 @@
   export default {
     name: "OpenAlias",
     data: () => ({
-      address: "",
       alias: "",
       aliasError: "",
       aliasInfo: "",
+      address: "",
       addressError: "",
       addressInfo: "",
       editAlias: false,
@@ -157,14 +159,14 @@
     margin: 20px 0 50px 0;
   }
 
+  .input {
+    width: 350px;
+  }
+
   @media (max-width: 870px) {
     .inputs {
       align-items: center;
     }
-  }
-
-  .inputs >>> input {
-    width: 350px;
   }
 
   .emailMaskContainer {

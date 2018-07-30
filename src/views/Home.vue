@@ -1,11 +1,11 @@
 <template>
-  <div style="padding-top: 50px">
+  <div>
     <HomeHero>
       <h2>Give your NavCoin address a name!</h2>
       <CreateAlias />
     </HomeHero>
     <MemorableSection />
-    <InfoSection :containerStyle="{ 'background-color': '#f7f7f7', 'padding': '100px 0' }">
+    <InfoSection :containerStyle="{ 'background-color': '#f7f7f7', 'padding': '50px 0' }">
       <template slot="title">Why use OpenAlias?</template>
       <template slot="text">OpenAlias was created by contributors to the Monero Cryptocurrency project who wanted to find a way of simplifying cryptocurrency payments by bridging the knowledge gap between cryptographically secure systems and users who aren't sophisticated developers.</template>
       <template slot="children">
