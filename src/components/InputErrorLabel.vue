@@ -1,17 +1,18 @@
 <template>
   <div class="label-container">
-      <slot name="errorIcon">
-      </slot>
-      <slot name="errorText">
-      </slot>
-      <slot name="infoIcon">
-    </slot>
+      <img src="/images/d-error.svg" alt="">
+      <span class="text">{{msg}}</span>
+      <!-- <div class="icon hover" :title="info">?</div> -->
   </div>
 </template>
 
 <script>
   export default {
-    name: "InputErrorLabel"
+    name: "InputErrorLabel",
+    props: {
+      msg: String,
+      info: String,
+    }
   }
 </script>
 
@@ -30,20 +31,23 @@
   }
 
   .icon {
-    background-color: #ccc;
+    background-color: #6c6c6c;
     border-radius: 10px;
     color: #fff;
     font-size: 16px;
     user-select: none;
+    line-height: 18px;
   }
-  
+
   .icon.hover:hover {
-    filter: brightness(90%);
+    filter: brightness(70%);
     cursor: help;
   }
 
   .text {
     margin: 0 10px;
+    color: white;
+    text-align: left;
   }
 
 </style>

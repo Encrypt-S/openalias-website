@@ -20,17 +20,7 @@
       <TextInput v-model="address" :blurEvent="checkAddressValid">
         <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
         <template slot="errorLabel">
-          <InputErrorLabel v-if="addressError ">
-            <template slot="errorIcon">
-              <img src="/images/d-error.svg" alt="">
-            </template>
-            <template slot="errorText">
-              <span class="text">{{addressError}}</span>
-            </template>
-            <template slot="infoIcon">
-              <div class="icon hover" title="Enter a NavCoin public key here. A NavCoin public key address is a alphanumerical string that is 34 characters long">?</div>
-            </template>
-          </InputErrorLabel>
+          <InputErrorLabel v-if="addressError" :msg="addressError" :info="addressInfo" />
         </template>
       </TextInput>
 
@@ -39,25 +29,11 @@
       <div class="emailMaskContainer">
         <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
         <TextInput v-model="alias" :inputEvent="checkAliasValid">
-
           <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
-
           <template slot="errorLabel">
-            <InputErrorLabel v-if="aliasError">
-              <template slot="errorIcon">
-                <img src="/images/d-error.svg" alt="">
-              </template>
-              <template slot="errorText">
-                <span class="text">{{aliasError}}</span>
-              </template>
-              <template slot="infoIcon">
-                <div class="icon hover" title="You generate the signed message using your NavCoin wallet">?</div>
-              </template>
-            </InputErrorLabel>
+            <InputErrorLabel v-if="aliasError" :msg="aliasError" :info="aliasInfo" />
           </template>
-
         </TextInput>
-
 
 
       </div>
@@ -68,8 +44,7 @@
         can be used to send you funds.
       </p>
       <p v-if="editAlias">
-        If you wish to updated an existing alias, you will need access to the wallet that created the original alias.
-        Just enter your updated address and your old alias, and we will automatically confirm you are the correct owner.
+        To update an existing alias, you will need access to the wallet that created the original alias.<br />
       </p>
     </div>
     <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError || aliasError">{{!editAlias ? 'Create' : 'Update'}} your alias</Button>
@@ -88,9 +63,10 @@
       address: "",
       alias: "",
       aliasError: "",
+      aliasInfo: "",
       addressError: "",
+      addressInfo: "",
       editAlias: false,
-      regex: new RegExp(/[N]{1}[1-9A-HJ-NP-Za-km-z]{33}/)
     }),
     computed: mapState({
       newAddress: state => state.address
@@ -112,28 +88,45 @@
         }
       },
       checkAddressValid: function() {
-        if (this.address) {
-          if (!this.regex.test(this.address)) {
-            this.addressError = "Invalid NavCoin Wallet Address"
-            return
-          }
+        if (!this.address) {
+          return this.addressError = ""
         }
-        this.addressError = undefined
+
+        // Must be 33 characters and start with an N
+        if (!/[N]{1}[1-9A-HJ-NP-Za-km-z]{33}/.test(this.address)) {
+          this.addressInfo = "Enter a NavCoin public key here. A NavCoin public key address is a alphanumerical string that is 34 characters long"
+          return this.addressError = "Invalid NavCoin Wallet Address"
+        }
+
+        this.addressInfo = ""
+        this.addressError = ""
       },
       checkAliasValid: function() {
-        if (this.alias) {
-          if (this.alias.indexOf(' ') !== -1) {
-            this.aliasError = "Address cannot contain a space."
-            return
-          } else if (this.alias.length < 2) {
-            this.aliasError = "Min length is 2 characters"
-            return
-          } else if (this.alias.length > 25) {
-            this.aliasError = "Max length is 25 characters"
-            return
-          }
+        if (!this.alias) {
+          this.aliasInfo = "";
+          return this.aliasError = "";
         }
-          this.aliasError = undefined;
+
+        this.aliasInfo = "Your alias is unique name for your NavCoin address. It can only contain letters, numbers and full stop."
+
+        if (this.alias.indexOf(' ') !== -1) {
+          return this.aliasError = "Address cannot contain a space."
+        }
+
+        // Match only a-z, A-Z, 0-9, and .
+        if (!/^(\w|\.)+$/g.test(this.alias)) {
+          return this.aliasError = "Address can only contain letters, numbers and fullstop (.)"
+        }
+
+        if (this.alias.length < 2) {
+          return this.aliasError = "Must contain atleast 2 characters"
+        }
+
+        if (this.alias.length > 25) {
+          return this.aliasError = "Maximum length is 25 characters"
+        }
+
+        this.aliasError = "";
       },
       saveAddress: function(payload) {
         this.saveAlias(payload);
