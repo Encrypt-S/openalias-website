@@ -45,6 +45,7 @@ const store = new Vuex.Store({
     updatingAddress: false,
     checkRequestComplete: false,
     openAliasResponse: {},
+    homePageError: '',
   },
   mutations: {
     saveAlias (state, payload) {
@@ -58,7 +59,6 @@ const store = new Vuex.Store({
       state.addressVerification = verification
     },
     savePrevAddressVerification (state, verification) {
-      console.log('ran savePrevAddressVerification action')
       state.prevAddressVerification = verification
       state.updatingAddress = true
     },
@@ -67,6 +67,9 @@ const store = new Vuex.Store({
     },
     saveCheckRequestComplete (state, status) {
       state.checkRequestComplete = status
+    },
+    homePageError (state, error) {
+      state.homePageError = error
     },
     resetStateData (state) {
       state.address = ''
@@ -79,15 +82,24 @@ const store = new Vuex.Store({
     },
   },
   actions: {
-    async checkAlias (context, alias) {
+    async checkAliasNew (context, alias) {
+      context.commit('homePageError', '')
       const address = await checkGoogleDNS(alias)
+      console.log('checkAliasNew', address)
+      if (address) {
+        return context.commit('homePageError', 'Alias already taken. If you already own this Alias please select "Update Alias" or else choose a new Alias')
+      }
+      return router.push({ name: 'VerifyNewAddress'})
+    },
+    async checkAliasUpdate (context, alias) {
+      context.commit('homePageError', '')
+      const address = await checkGoogleDNS(alias)
+      console.log('checkAliasNew', address)
       if (!address) {
-        router.push({ name: 'VerifyNewAddress', params: {
-          message: `${alias}@nav.community was not registered, so you have been redirected here to register it`}
-        })
-        return
+        return context.commit('homePageError', 'This alias does not exist. Please select "Create Alias"')
       }
       context.commit('saveCurrentAddress', address)
+      return router.push({ name: 'VerifyPrevAddress'})
     },
     async createAlias (context) {
       try {

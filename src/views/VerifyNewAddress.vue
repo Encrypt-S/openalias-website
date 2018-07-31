@@ -2,7 +2,7 @@
   <div>
     <Hero>
       <ProgressBar :nodeData="progressBarData"/>
-      <h1>Verify address ownership</h1>
+      <h1>Verify NAV address</h1>
       <h3 class="unfound-alias-error">{{$route.params.message}}</h3>
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>

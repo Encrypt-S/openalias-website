@@ -21,7 +21,7 @@
         <TextInput v-model="address" :blurEvent="checkAddressValid">
           <template slot="label">{{editAlias ? 'New NavCoin address' : 'Your NavCoin address'}}</template>
           <template slot="errorLabel">
-            <InputErrorLabel v-if="addressError" :msg="addressError" :info="addressInfo" color="white" />
+            <InputErrorLabel :msg="addressError" :info="addressInfo" color="white" />
           </template>
         </TextInput>
       </div>
@@ -34,7 +34,7 @@
           <TextInput v-model="alias" :inputEvent="checkAliasValid">
             <template slot="label">{{editAlias ? 'Existing Alias' : 'Create Alias'}}</template>
             <template slot="errorLabel">
-              <InputErrorLabel v-if="aliasError" :msg="aliasError" :info="aliasInfo" color="white" />
+              <InputErrorLabel :msg="aliasError" :info="aliasInfo" color="white" />
             </template>
           </TextInput>
         </div>
@@ -50,6 +50,7 @@
       </p>
     </div>
     <Button @click="saveAddress({ address, alias })" :disabled="!address || !alias || addressError !== '' || aliasError !== ''">{{!editAlias ? 'Create' : 'Update'}} your alias</Button>
+    <InputErrorLabel :msg="homePageError" color="white" />
   </div>
 </template>
 
@@ -71,14 +72,17 @@
       editAlias: false,
     }),
     computed: mapState({
-      newAddress: state => state.address
+      newAddress: state => state.address,
+      homePageError: state => state.homePageError
     }),
     methods: {
       ...mapMutations({
         saveAlias: "saveAlias"
       }),
       ...mapActions({
-        checkAlias: "checkAlias"
+        checkAlias: "checkAlias",
+        checkAliasNew: "checkAliasNew",
+        checkAliasUpdate: "checkAliasUpdate",
       }),
       updateAliasType: function(type) {
         if (type === 'create') {
@@ -132,11 +136,11 @@
       },
       saveAddress: function(payload) {
         this.saveAlias(payload);
-        this.checkAlias(payload.alias);
+        // this.checkAlias(payload.alias);
         if (this.editAlias) {
-          this.$router.push({ name: "VerifyPrevAddress" })
+          this.checkAliasUpdate(payload.alias)
         } else {
-          this.$router.push({ name: "VerifyNewAddress" })
+          this.checkAliasNew(payload.alias)
         }
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="label-container">
+  <div class="label-container" v-if="msg">
       <img src="/images/d-error.svg" alt="">
       <span class="text" :style="{ color: color || 'red'}">{{msg}}</span>
       <!-- <div class="icon hover" :title="info">?</div> -->
