@@ -30,7 +30,7 @@ const checkGoogleDNS = async (name) => {
 
       resolve('')
     } catch (err) {
-      // reject(err)
+      reject(err)
     }
   })
 }
@@ -83,23 +83,29 @@ const store = new Vuex.Store({
   },
   actions: {
     async checkAliasNew (context, alias) {
-      context.commit('homePageError', '')
-      const address = await checkGoogleDNS(alias)
-      console.log('checkAliasNew', address)
-      if (address) {
-        return context.commit('homePageError', 'Alias already taken. If you already own this Alias please select "Update Alias" or else choose a new Alias')
+      try {
+        context.commit('homePageError', '')
+        const address = await checkGoogleDNS(alias)
+        if (address) {
+          return context.commit('homePageError', 'Alias already taken. If you already own this Alias please select "Update Alias" or else choose a new Alias')
+        }
+        return router.push({ name: 'VerifyNewAddress'})
+      } catch (err) {
+        return context.commit('homePageError', 'Connection error. Please try again later.')
       }
-      return router.push({ name: 'VerifyNewAddress'})
     },
     async checkAliasUpdate (context, alias) {
-      context.commit('homePageError', '')
-      const address = await checkGoogleDNS(alias)
-      console.log('checkAliasNew', address)
-      if (!address) {
-        return context.commit('homePageError', 'This alias does not exist. Please select "Create Alias"')
+      try {
+        context.commit('homePageError', '')
+        const address = await checkGoogleDNS(alias)
+        if (!address) {
+          return context.commit('homePageError', 'This alias does not exist. Please select "Create Alias"')
+        }
+        context.commit('saveCurrentAddress', address)
+        return router.push({ name: 'VerifyPrevAddress'})
+      } catch (err) {
+        return context.commit('homePageError', 'Connection error. Please try again later.')
       }
-      context.commit('saveCurrentAddress', address)
-      return router.push({ name: 'VerifyPrevAddress'})
     },
     async createAlias (context) {
       try {
