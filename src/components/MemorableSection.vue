@@ -66,6 +66,7 @@ export default {
   width: 30px;
   height: 30px;
   border-radius: 30px;
+  padding-bottom: 5px;
 }
 .address-container {
   display: grid;
