@@ -1,6 +1,11 @@
 <template>
   <div class="template-container">
-    <div class="success-display" v-if="!openAliasResponse.error">
+    <div v-if="!openAliasResponse.openAlias && !openAliasResponse.error">
+
+      <img src="/images/d-loading.svg" alt="Loading" class="status-icon rotate">
+      <h1>Creating Alias. Please wait...</h1>
+    </div>
+    <div class="success-display" v-if="openAliasResponse.openAlias">
       <img src="/images/d-sucess.svg" alt="Tick Icon" class="status-icon">
       <h1 class="success">Success!</h1>
 
@@ -86,8 +91,7 @@ export default {
 }
 
 h1 {
-  margin-top: 10px;
-  margin-bottom: 75px;
+  padding-top: 10px;
 }
 
 .arrow {
@@ -160,6 +164,10 @@ h1 {
   color: #fff;
   font-size: 25px;
   text-decoration: none;
+}
+
+.rotate {
+  animation: spin 2s linear infinite;
 }
 
 @media (max-width: 992px) {

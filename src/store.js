@@ -10,7 +10,7 @@ const checkGoogleDNS = async (name) => {
     try {
       const oaUrl = 'nav.community'
       const randomPadding = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
-      const dnsUrlWithoutPadding = `https://dns.google.com/resolve?name=${name}.${oaUrl}&type=16&cd=0&edns_client_subnet=0.0.0.0/0&random_padding=`
+      const dnsUrlWithoutPadding = `https://dns.google.com/resolve?name=${name.toLowerCase()}.${oaUrl}&type=16&cd=0&edns_client_subnet=0.0.0.0/0&random_padding=`
       const url = dnsUrlWithoutPadding.padEnd(255, randomPadding)
       const dnsResponse = await fetch(url)
       const json = await dnsResponse.json()
@@ -50,7 +50,7 @@ const store = new Vuex.Store({
   mutations: {
     saveAlias (state, payload) {
       state.address = payload.address
-      state.alias = payload.alias
+      state.alias = payload.alias.toLowerCase()
     },
     saveCurrentAddress (state, address) {
       state.aliasCurrentAddress = address
@@ -110,11 +110,11 @@ const store = new Vuex.Store({
     async createAlias (context) {
       try {
         const { alias, address, addressVerification, aliasCurrentAddress, prevAddressVerification } = context.state
-        const res = await fetch('https://openalias.nav.community/api', {
+        const res = await fetch('https://openalias-api.nav.community/', {
           headers: { 'Content-Type': 'application/json' },
           method: 'post',
           body: JSON.stringify({
-            name: alias,
+            name: alias.toLowerCase(),
             address: address,
             addressSig: addressVerification,
             prevaddress: aliasCurrentAddress,
@@ -125,7 +125,7 @@ const store = new Vuex.Store({
         const json = await res.json()
         context.commit('saveOpenAliasResponse', json)
       } catch (err) {
-        console.log(err)
+        context.commit('saveOpenAliasResponse', { error: "Connection error. Please try again later."})
       }
     }
   }
