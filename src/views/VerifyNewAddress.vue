@@ -40,8 +40,8 @@
               <span slot="title" class="title number">3</span>
               <span slot="text" class="subtext">Response (verification code) will be created, copy and paste it to the next step.</span>
             </DebugStep>
-            <DownArrow text="Get an error?"/>
           </template>
+          <DownArrow slot="button" text="Get an error?"/>
         </InfoSection>
         <InfoSection :containerStyle="{ padding: '0', 'background-color': '#f7f7f7'}">
           <template slot="title">Make sure your wallet is unlocked</template>
@@ -191,6 +191,7 @@ export default {
   h1 {
     color: #7D59B4;
     size: 52px;
+    padding-top: 10px;
   }
 
   .input-container {

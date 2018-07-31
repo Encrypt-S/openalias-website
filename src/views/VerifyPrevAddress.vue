@@ -200,6 +200,7 @@ export default {
 h1 {
   color: #7D59B4;
   size: 52px;
+  padding-top: 10px;
 }
 
 .input-container {
