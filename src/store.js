@@ -42,6 +42,7 @@ const store = new Vuex.Store({
     aliasCurrentAddress: '',
     addressVerification: '',
     prevAddressVerification: '',
+    updatingAddress: false,
     checkRequestComplete: false,
     openAliasResponse: {},
   },
@@ -57,7 +58,9 @@ const store = new Vuex.Store({
       state.addressVerification = verification
     },
     savePrevAddressVerification (state, verification) {
-      state.addressVerification = verification
+      console.log('ran savePrevAddressVerification action')
+      state.prevAddressVerification = verification
+      state.updatingAddress = true
     },
     saveOpenAliasResponse (state, response) {
       state.openAliasResponse = response
@@ -70,7 +73,7 @@ const store = new Vuex.Store({
       state.alias = ''
       state.aliasCurrentAddress = ''
       state.addressVerification = ''
-      state.addressVerification = ''
+      state.prevAddressVerification = ''
       state.openAliasResponse = {}
       state.checkRequestComplete = false
     },
@@ -80,9 +83,9 @@ const store = new Vuex.Store({
       const address = await checkGoogleDNS(alias)
       if (!address) {
         router.push({ name: 'VerifyNewAddress', params: {
-          message: `${alias}@nav.community was not registered, so you have been redirected here to register it`} 
+          message: `${alias}@nav.community was not registered, so you have been redirected here to register it`}
         })
-        return 
+        return
       }
       context.commit('saveCurrentAddress', address)
     },

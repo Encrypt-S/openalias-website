@@ -15,9 +15,11 @@
         </div>
         <div class="node">
           <div class="icon">
-            <img src="/images/d-step-working.svg" alt="3 dots">
+            <img src="/images/d-step-working.svg" alt="3 dots" v-if="nodeData.currStep !== 3">
+            <img src="/images/d-step-passed.svg" alt="Tick Mark" v-if="nodeData.currStep === 3">
           </div>
-          <div class="node-subtext-bold">{{nodeData.subtext}}</div>
+          <div class="node-subtext-bold" v-if="nodeData.currStep !== 3">{{nodeData.subtext}}</div>
+          <div class="node-subtext" v-if="nodeData.currStep === 3">Step 2 of {{nodeData.stepTotal}}</div>
         </div>
       </div>
       <div class="step" v-if="nodeData.stepTotal === 3">
@@ -25,9 +27,11 @@
         </div>
         <div class="node">
           <div class="icon">
-            <img src="/images/d-step-next.svg" alt="3 dots">
+            <img src="/images/d-step-working.svg" alt="3 dots" v-if="nodeData.currStep === 3">
+            <img src="/images/d-step-next.svg" alt="3 dots" v-if="nodeData.currStep !== 3">
           </div>
-          <div class="node-subtext">Step {{nodeData.stepTotal}} of {{nodeData.stepTotal}}</div>
+          <div class="node-subtext" v-if="nodeData.currStep === 3">{{nodeData.subtext}}</div>
+          <div class="node-subtext" v-if="nodeData.currStep !== 3">Step {{nodeData.currStep}} of {{nodeData.stepTotal}}</div>
         </div>
       </div>
     </div>
@@ -61,7 +65,7 @@
 }
 
 .progress-bar {
-  max-width: 650px;
+  max-width: 700px;
   display: grid;
   /* grid-template-columns: 100px 1fr 100px; */
   grid-auto-flow: column;
@@ -81,6 +85,7 @@
   justify-content: flex-start;
   align-items: center;
   margin: 0 20px;
+  min-width: 100px;
 }
 
 .node .icon {

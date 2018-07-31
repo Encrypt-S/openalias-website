@@ -27,7 +27,7 @@
         </TextInput>
       </div>
       <div class="need-help">If you need help, please check instruction below ↓</div>
-      <div><Button @click="clickCreate(addressVerification)">Next</Button></div>
+      <div><Button @click="clickNext(addressVerification)">Next</Button></div>
       <DownArrow text="Instructions" />
     </Hero>
 
@@ -161,7 +161,7 @@ export default {
     ...mapMutations({
       savePrevAddressVerification: 'savePrevAddressVerification'
     }),
-    clickCreate: function(verification) {
+    clickNext: function(verification) {
       this.savePrevAddressVerification(verification);
       this.$router.push({ name: 'VerifyNewAddress' });
     },

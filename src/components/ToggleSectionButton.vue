@@ -35,7 +35,7 @@ export default {
   },
   data: function() {
     return {
-      buttonOneStyle: 'button one active',
+      buttonOneStyle: 'button one active activeButton',
       buttonTwoStyle: 'button two ',
       sectionOneStyle: 'section active',
       sectionTwoStyle: 'section '
@@ -60,23 +60,23 @@ export default {
   width: 100%;
   max-width: 500px;
   min-width: 280px;
-  cursor: pointer;
 }
 
 .button {
   display: inline-block;
   width: calc(50% - 82px);
   padding: 12px 35px 12px 24px;
-  background-color: #7e5ab5;
   border: 1px solid #7e5ab5;
-  color: #fff;
   text-align: center;
   font-size: 13px;
-}
-
-.active {
   background-color: #fff;
   color: #7e5ab5;
+  cursor: pointer;
+}
+
+.activeButton {
+  background-color: #7e5ab5;
+  color: #fff;
 }
 
 .button:hover {

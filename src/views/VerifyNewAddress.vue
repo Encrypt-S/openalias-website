@@ -40,11 +40,9 @@
               <span slot="title" class="title number">3</span>
               <span slot="text" class="subtext">Response (verification code) will be created, copy and paste it to the next step.</span>
             </DebugStep>
+            <DownArrow text="Get an error?"/>
           </template>
         </InfoSection>
-
-        <DownArrow text="Get an error?"/>
-
         <InfoSection :containerStyle="{ padding: '0', 'background-color': '#f7f7f7'}">
           <template slot="title">Make sure your wallet is unlocked</template>
           <span slot="text" class="subtext">If you’re staking your NAV or have encrypted your wallet, then the wallet will be locked. You will need to unlock your wallet to be able to register your address.</span>
@@ -92,8 +90,6 @@
       </div>
     </ToggleSectionButton>
     <FooterMinimal />
-
-
   </div>
 </template>
 
@@ -135,18 +131,21 @@ export default {
       addressVerification: '',
       addressVerificationError: '',
       copied: false,
-      progressBarData: {
-        subtext: 'Assign address to your alias',
-        currStep: this.aliasCurrentAddress ? 3 : 2,
-        stepTotal: this.aliasCurrentAddress ? 3 : 2,
-      },
     }
   },
   computed: {
     ...mapState({
       address: state => state.address,
       alias: state => state.alias,
-      aliasCurrentAddress: state => state.aliasCurrentAddress
+      aliasCurrentAddress: state => state.aliasCurrentAddress,
+      updatingAddress: state => state.updatingAddress,
+      progressBarData: state => {
+        return ({
+          subtext: 'Assign address to your alias',
+          currStep: state.updatingAddress ? 3 : 2,
+          stepTotal: state.updatingAddress ? 3 : 2,
+        })
+      },
     })
   },
   methods: {
@@ -228,7 +227,7 @@ export default {
   }
 
 .footer-minimal-container {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
 }
 
 .unfound-alias-error {
