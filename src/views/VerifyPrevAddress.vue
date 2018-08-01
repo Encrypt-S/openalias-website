@@ -27,7 +27,7 @@
         </TextInput>
       </div>
       <div class="need-help">If you need help, please check instruction below ↓</div>
-      <div><Button @click="clickNext(addressVerification)">Next</Button></div>
+      <div><Button @click="clickNext(addressVerification)" :disabled="addressVerificationError || !addressVerification" >Next</Button></div>
       <DownArrow text="Instructions" />
     </Hero>
 
@@ -105,25 +105,23 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex';
-import InfoSection from '@/components/InfoSection.vue'
-import DebugStep from '@/components/DebugStep.vue'
-import DownArrow from '@/components/DownArrow.vue'
-import ListEntry from '@/components/ListEntry.vue'
-import ToggleSectionButton from '@/components/ToggleSectionButton.vue'
-import FooterMinimal from "@/components/FooterMinimal.vue"
+import { mapState, mapMutations } from "vuex";
+import InfoSection from "@/components/InfoSection.vue";
+import DebugStep from "@/components/DebugStep.vue";
+import DownArrow from "@/components/DownArrow.vue";
+import ListEntry from "@/components/ListEntry.vue";
+import ToggleSectionButton from "@/components/ToggleSectionButton.vue";
+import FooterMinimal from "@/components/FooterMinimal.vue";
 
-import Copybox from '../components/Copybox'
-import Hero from '../components/Hero'
-import Button from '../components/Button'
-import TextInput from '../components/TextInput'
-import InputErrorLabel from '../components/InputErrorLabel'
-import ProgressBar from "@/components/ProgressBar.vue"
-
-
+import Copybox from "../components/Copybox";
+import Hero from "../components/Hero";
+import Button from "../components/Button";
+import TextInput from "../components/TextInput";
+import InputErrorLabel from "../components/InputErrorLabel";
+import ProgressBar from "@/components/ProgressBar.vue";
 
 export default {
-  name: 'VerifyNewAddress',
+  name: "VerifyNewAddress",
   components: {
     InfoSection,
     DebugStep,
@@ -136,19 +134,18 @@ export default {
     TextInput,
     InputErrorLabel,
     FooterMinimal,
-    ProgressBar,
+    ProgressBar
   },
   data: () => ({
-    addressVerification: '',
-    addressVerificationError: '',
-    infoSectionStyle: { padding: '0' },
+    addressVerification: "",
+    addressVerificationError: "",
+    infoSectionStyle: { padding: "0" },
     copied: false,
     progressBarData: {
-      subtext: 'Prove ownership of alias',
+      subtext: "Prove ownership of alias",
       currStep: 2,
-      stepTotal: 3,
-    },
-
+      stepTotal: 3
+    }
   }),
   computed: {
     ...mapState({
@@ -159,46 +156,53 @@ export default {
   },
   methods: {
     ...mapMutations({
-      savePrevAddressVerification: 'savePrevAddressVerification'
+      savePrevAddressVerification: "savePrevAddressVerification"
     }),
     clickNext: function(verification) {
       this.savePrevAddressVerification(verification);
-      this.$router.push({ name: 'VerifyNewAddress' });
+      this.$router.push({ name: "VerifyNewAddress" });
     },
-    copyText: function () {
-      this.$copyText(`signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`).then((e) => {
-        this.copied = true
-        this.$toasted.show('Copied to clipboard', {
-          position: 'top-center',
-          theme: 'oa-toast',
-          type: '',
-          duration: '1000',
-          className: 'oa-toast',
-          action : {
-            text : '✕',
-            onClick : (e, toastObject) => {
-              toastObject.goAway(0);
+    copyText: function() {
+      this.$copyText(
+        `signmessage ${this.aliasCurrentAddress} ${this.alias}@nav.community`
+      ).then(
+        e => {
+          this.copied = true;
+          this.$toasted.show("Copied to clipboard", {
+            position: "top-center",
+            theme: "oa-toast",
+            type: "",
+            duration: "1000",
+            className: "oa-toast",
+            action: {
+              text: "✕",
+              onClick: (e, toastObject) => {
+                toastObject.goAway(0);
+              }
             }
-          },
-        })
-      }, function (e) {
-        alert('Copy is disabled by your browser. Please copy manually.')
-      })
+          });
+        },
+        function(e) {
+          alert("Copy is disabled by your browser. Please copy manually.");
+        }
+      );
     },
     verifySignature: function() {
-      if (this.addressVerification.length !== 88 ) {
-        this.addressVerificationError = 'A signed message length should be 88 characters long, current length is: ' + this.addressVerification.length
-        return
+      if (this.addressVerification.length !== 88) {
+        this.addressVerificationError =
+          "A signed message length should be 88 characters long, current length is: " +
+          this.addressVerification.length;
+        return;
       }
-      this.addressVerificationError = ''
-    },
+      this.addressVerificationError = "";
+    }
   }
 };
 </script>
 
 <style scoped>
 h1 {
-  color: #7D59B4;
+  color: #7d59b4;
   size: 52px;
   padding-top: 10px;
 }
@@ -212,7 +216,6 @@ h1 {
 
 .input-container > .list-entry.text {
   font-size: 16px;
-
 }
 
 .toggle-button-container {
