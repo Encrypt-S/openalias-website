@@ -8,7 +8,7 @@
     </div>
     <div class="success-display" v-if="openAliasResponse.openAlias">
       <img src="/images/d-sucess.svg" alt="Tick Icon" class="status-icon">
-      <h1 class="success">Success!</h1>
+      <h1 class="success">{{alias}}@nav.community successful registered</h1>
 
       <div class="row">
         <div class="address">{{address}} </div>
@@ -17,7 +17,7 @@
       </div>
 
       <p class="text">
-        We have successfully registered {{alias}}@nav.community to {{address}}!<br>
+        We have successfully registered <b>{{alias}}@nav.community</b> to <b>{{address}}</b><br />
         Please allow up to 10 minutes for the address to become active.
       </p>
     </div>
@@ -106,15 +106,17 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #f3f3f3;
+  height: calc(100vh - 180px);
+  min-height: 600px;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr minmax(340px, 480px) 18px minmax(340px, 480px) 1fr;
   grid-template-rows: 50px;
-  grid-gap: 5px;
+  grid-gap: 20px;
   align-items: center;
   justify-items: center;
   width: 80vw;
@@ -181,6 +183,7 @@ h1 {
     grid-template-columns: 1fr;
     grid-template-rows: auto 30px auto;
     grid-template-areas: "address" "arrow" "name";
+    margin: auto;
   }
 }
 
