@@ -111,6 +111,7 @@ export default {
     justify-content: center;
     transition: background-color 1000ms;
     pointer-events: none;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
   .menuHidden {
     transition: background-color 1000ms;
