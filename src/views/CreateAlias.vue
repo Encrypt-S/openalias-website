@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="template-container">
     <div v-if="!openAliasResponse.openAlias && !openAliasResponse.error">
 
@@ -31,11 +32,11 @@
       <p class="text error">
         Error: {{openAliasResponse.error}}
       </p>
-      <a href="" class="button">Try again</a>
+      <Button @click="$router.push('/')">Try Again</Button>
     </div>
 
 
-    <div class="debug">
+    <!-- <div class="debug">
       <h3>Debug data</h3>
       <p>Data that was sent</p>
       <pre>
@@ -49,22 +50,25 @@
       <pre>
         {{(openAliasResponse && JSON.stringify(openAliasResponse))}}
       </pre>
-    </div>
-    <FooterMinimal />
+    </div> -->
   </div>
+  <FooterMinimal />
+</div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
-import FooterMinimal from "@/components/FooterMinimal.vue"
+import Button from "../components/Button";
+import FooterMinimal from "@/components/FooterMinimal.vue";
 
 export default {
   name: "CreateAlias",
   components: {
-    FooterMinimal,
+    Button,
+    FooterMinimal
   },
   beforeMount: function() {
-    this.createAlias()
+    this.createAlias();
   },
   computed: mapState([
     "address",
@@ -83,7 +87,6 @@ export default {
 </script>
 
 <style scoped>
-
 .status-icon {
   width: 90px;
   height: 90px;
@@ -104,18 +107,18 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 1fr minmax(340px, 480px) 18px minmax(340px, 480px) 1fr ;
+  grid-template-columns: 1fr minmax(340px, 480px) 18px minmax(340px, 480px) 1fr;
   grid-template-rows: 50px;
   grid-gap: 5px;
   align-items: center;
   justify-items: center;
   width: 80vw;
-  grid-template-areas:". address arrow name . ";
+  grid-template-areas: ". address arrow name . ";
 }
 
 .address {
@@ -142,7 +145,7 @@ h1 {
 
 .text {
   margin-top: 27px;
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 
 .success {
@@ -155,15 +158,7 @@ h1 {
 }
 
 .button {
-  display: inline-block;
-  width: 225px;
-  margin-top: 69px;
-  padding: 14px 0px;
-  border-radius: 30px;
-  background-color: #7e5ab5;
-  color: #fff;
-  font-size: 25px;
-  text-decoration: none;
+  margin: 30px 0;
 }
 
 .rotate {
@@ -171,8 +166,8 @@ h1 {
 }
 
 @media (max-width: 992px) {
-
-  .address, .name {
+  .address,
+  .name {
     padding: 20px 0;
   }
 
@@ -185,7 +180,7 @@ h1 {
     grid-gap: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: auto 30px auto;
-    grid-template-areas:"address" "arrow" "name";
+    grid-template-areas: "address" "arrow" "name";
   }
 }
 
