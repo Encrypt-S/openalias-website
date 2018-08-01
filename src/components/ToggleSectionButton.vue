@@ -10,43 +10,40 @@
 </template>
 
 <script>
-
 export default {
-  name: 'ToggleSectionButton',
+  name: "ToggleSectionButton",
   methods: {
     toggleSections: function() {
-      this.buttonOneStyle = this.updateStyle(this.buttonOneStyle)
-      this.sectionOneStyle = this.updateStyle(this.sectionOneStyle)
+      this.buttonOneStyle = this.updateStyle(this.buttonOneStyle);
+      this.sectionOneStyle = this.updateStyle(this.sectionOneStyle);
 
-      this.buttonTwoStyle = this.updateStyle(this.buttonTwoStyle)
-      this.sectionTwoStyle = this.updateStyle(this.sectionTwoStyle)
+      this.buttonTwoStyle = this.updateStyle(this.buttonTwoStyle);
+      this.sectionTwoStyle = this.updateStyle(this.sectionTwoStyle);
     },
-    updateStyle: (style) => {
-      if(style.indexOf('active') !== -1) {
-        return style.substring(0, style.indexOf('active'))
+    updateStyle: style => {
+      if (style.indexOf("active") !== -1) {
+        return style.substring(0, style.indexOf("active"));
       } else {
-        return style + 'active'
+        return style + "active";
       }
     }
   },
   props: {
     buttonOneText: String,
-    buttonTwoText: String,
+    buttonTwoText: String
   },
   data: function() {
     return {
-      buttonOneStyle: 'button one active activeButton',
-      buttonTwoStyle: 'button two ',
-      sectionOneStyle: 'section active',
-      sectionTwoStyle: 'section '
-    }
+      buttonOneStyle: "button one active",
+      buttonTwoStyle: "button two ",
+      sectionOneStyle: "section active",
+      sectionTwoStyle: "section "
+    };
   }
-}
-
+};
 </script>
 
 <style scoped>
-
 .toggle-button-container {
   padding: 0;
   background-color: #fff;
@@ -74,7 +71,7 @@ export default {
   cursor: pointer;
 }
 
-.activeButton {
+.button.active {
   background-color: #7e5ab5;
   color: #fff;
 }
@@ -87,7 +84,7 @@ export default {
   filter: none;
 }
 
-.button.one{
+.button.one {
   border-radius: 10px 0 0 10px;
 }
 
@@ -102,5 +99,4 @@ export default {
 .section.active {
   display: initial;
 }
-
 </style>
