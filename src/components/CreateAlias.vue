@@ -172,6 +172,9 @@ export default {
   .inputs {
     align-items: center;
   }
+  .input {
+    width: 300px;
+  }
 }
 
 .emailMaskContainer {
