@@ -1,23 +1,26 @@
 <template>
+  <div>
   <div class="policy-container">
     <h1>Privacy Policy</h1>
     <div class="privacy-policy">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum doloribus non, reiciendis sint facere voluptates similique doloremque nisi officia veniam quam accusamus est delectus aspernatur veritatis. Error eligendi natus voluptates.
+        <p>This server is hosted by <a href="https://encrypt-s.com">Encrypt-S.</a></p>
+        <p>We do not collect any information on you except the details entered when creating an alias. This information becomes public and is stored using DNS by Encrypt-S and all other DNS providers worldwide.</p>
+        <p>Please note: Currently there is no way to erase an address or alias once created.</p>
+      </div>
     </div>
     <FooterMinimal />
-  </div>  
+  </div>
 </template>
 
 <script>
-import FooterMinimal from "@/components/FooterMinimal.vue"
-
+import FooterMinimal from "@/components/FooterMinimal.vue";
 
 export default {
-  name: 'PrivacyPolicy',
+  name: "PrivacyPolicy",
   components: {
-    FooterMinimal,
+    FooterMinimal
   }
-}
+};
 </script>
 
 <style>
