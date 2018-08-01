@@ -2,30 +2,18 @@
   <div>
     <Hero>
       <ProgressBar :nodeData="progressBarData"/>
-      <h1>Verify address ownership</h1>
+      <h1>Verify NAV address</h1>
       <h3 class="unfound-alias-error">{{$route.params.message}}</h3>
       <div class="input-container">
         <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
         <Copybox>signmessage {{address}} {{alias}}@nav.community</Copybox>
-        <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div>
-
-        <img src="/images/d-down.svg" alt="Down arrow" class="down-arrow-img">
-
+        <br /><br />
+        <!-- <div><Button @click="copyText({ address, alias })">{{copied ? "Copied" : "Copy"}}</Button></div> -->
         <ListEntry><span slot="number" class="number">2</span><span slot="text" class="text small">Now open your NavCoin wallet, open console through Help -> Debug and pastes the message, then hit Enter on your keyboard. An response message (verification code) will be created, copy and paste it here</span></ListEntry>
         <TextInput v-model="addressVerification" :inputEvent="verifySignature">
-          <template slot="label">{{'enter response'}}</template>
+          <template slot="label">{{'Paste response'}}</template>
           <template slot="errorLabel">
-            <InputErrorLabel v-if="addressVerificationError">
-              <template slot="errorIcon">
-                <img src="/images/d-error.svg" alt="">
-              </template>
-              <template slot="errorText">
-                <span class="text">{{addressVerificationError}}</span>
-              </template>
-              <template slot="infoIcon">
-                <div class="icon hover" title="You generate the signed message using your NavCoin wallet">?</div>
-              </template>
-            </InputErrorLabel>
+            <InputErrorLabel v-if="addressVerificationError" :msg="addressVerificationError" info="Paste the signed message created using your NavCoin wallet" />
           </template>
         </TextInput>
       </div>
@@ -36,7 +24,7 @@
 
     <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
-        <InfoSection :containerStyle="infoSectionStyle">
+        <InfoSection :containerStyle="{ padding: '0' }">
           <template slot="title">How to open the debug window</template>
           <span slot="text" class="subtext hide"></span>
           <template slot="children">
@@ -53,11 +41,9 @@
               <span slot="text" class="subtext">Response (verification code) will be created, copy and paste it to the next step.</span>
             </DebugStep>
           </template>
+          <DownArrow slot="button" text="Get an error?"/>
         </InfoSection>
-
-        <DownArrow text="Get an error?"/>
-
-        <InfoSection :containerStyle="infoSectionStyle">
+        <InfoSection :containerStyle="{ padding: '0', 'background-color': '#f7f7f7'}">
           <template slot="title">Make sure your wallet is unlocked</template>
           <span slot="text" class="subtext">If you’re staking your NAV or have encrypted your wallet, then the wallet will be locked. You will need to unlock your wallet to be able to register your address.</span>
           <template slot="children">
@@ -104,8 +90,6 @@
       </div>
     </ToggleSectionButton>
     <FooterMinimal />
-
-    
   </div>
 </template>
 
@@ -146,20 +130,22 @@ export default {
     return {
       addressVerification: '',
       addressVerificationError: '',
-      infoSectionStyle: { padding: '0' },
       copied: false,
-      progressBarData: {
-        subtext: 'Assign address to your alias',
-        currStep: this.aliasCurrentAddress ? 3 : 2,
-        stepTotal: this.aliasCurrentAddress ? 3 : 2,
-      },
     }
   },
   computed: {
     ...mapState({
       address: state => state.address,
       alias: state => state.alias,
-      aliasCurrentAddress: state => state.aliasCurrentAddress
+      aliasCurrentAddress: state => state.aliasCurrentAddress,
+      updatingAddress: state => state.updatingAddress,
+      progressBarData: state => {
+        return ({
+          subtext: 'Assign address to your alias',
+          currStep: state.updatingAddress ? 3 : 2,
+          stepTotal: state.updatingAddress ? 3 : 2,
+        })
+      },
     })
   },
   methods: {
@@ -205,6 +191,7 @@ export default {
   h1 {
     color: #7D59B4;
     size: 52px;
+    padding-top: 10px;
   }
 
   .input-container {
@@ -213,7 +200,7 @@ export default {
     margin: auto;
     margin-bottom: 20px;
   }
-  
+
   .input-container > .list-entry.text {
     font-size: 16px;
 
@@ -241,7 +228,7 @@ export default {
   }
 
 .footer-minimal-container {
-    background-color: #f7f7f7;
+    background-color: #ffffff;
 }
 
 .unfound-alias-error {

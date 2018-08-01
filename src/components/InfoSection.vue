@@ -8,27 +8,22 @@
 </template>
 
 <script>
-
 export default {
-  name: 'InfoSection',
-  methods: {
-  },
+  name: "InfoSection",
+  methods: {},
   props: {
     containerStyle: {
       type: Object,
       default: () => {}
-    },
+    }
   },
   data: function() {
-    return {
-    }
+    return {};
   }
-}
-
+};
 </script>
 
 <style scoped>
-
 .template-container {
   padding: 0;
   background-color: #fff;
@@ -51,7 +46,7 @@ export default {
   margin-bottom: 35px;
 }
 
-@media (min-width: 1290px ) {
+@media (min-width: 1290px) {
   .subtext {
     max-width: 775px;
   }
@@ -64,7 +59,7 @@ export default {
   justify-content: center;
 }
 
-.button a{
+.button a {
   display: inline-block;
   padding: 12px 40px;
   margin-top: 75px;
@@ -72,6 +67,14 @@ export default {
   background-color: #7e5ab5;
   color: #fff;
   font-size: 18px;
+  text-decoration: none;
 }
 
+.button:hover a {
+  background: #5f448a;
+}
+
+.button:active a {
+  background: #3f2f5e;
+}
 </style>

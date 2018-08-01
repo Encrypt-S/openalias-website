@@ -1,8 +1,14 @@
 <template>
+<div>
   <div class="template-container">
-    <div class="success-display" v-if="!openAliasResponse.error">
+    <div v-if="!openAliasResponse.openAlias && !openAliasResponse.error">
+
+      <img src="/images/d-loading.svg" alt="Loading" class="status-icon rotate">
+      <h1>Creating Alias. Please wait...</h1>
+    </div>
+    <div class="success-display" v-if="openAliasResponse.openAlias">
       <img src="/images/d-sucess.svg" alt="Tick Icon" class="status-icon">
-      <h1 class="success">Success!</h1>
+      <h1 class="success">{{alias}}@nav.community successful registered</h1>
 
       <div class="row">
         <div class="address">{{address}} </div>
@@ -10,28 +16,27 @@
         <div class="name"> {{alias}}@nav.community</div>
       </div>
 
-      <div class="text">
-        We have successfully registered {{alias}}@nav.community to {{address}}!<br>
+      <p class="text">
+        We have successfully registered <b>{{alias}}@nav.community</b> to <b>{{address}}</b><br />
         Please allow up to 10 minutes for the address to become active.
-      </div>
-      <a href="" class="button">Done</a>
+      </p>
     </div>
 
     <div class="error-display" v-if="openAliasResponse.error">
       <img src="/images/d-sorry.svg" alt="Cross Icon" class="status-icon">
-      <h1>Sorry..</h1>
+      <h1>Oops... something went wrong</h1>
 
-      <div class="text">
+      <p class="text">
         It looks like we encountered an error when registering your address.
-      </div>
-      <div class="text error">
+      </p>
+      <p class="text error">
         Error: {{openAliasResponse.error}}
-      </div>
-      <a href="" class="button">Try again</a>
+      </p>
+      <Button @click="$router.push('/')">Try Again</Button>
     </div>
-    
 
-    <div class="debug">
+
+    <!-- <div class="debug">
       <h3>Debug data</h3>
       <p>Data that was sent</p>
       <pre>
@@ -45,22 +50,25 @@
       <pre>
         {{(openAliasResponse && JSON.stringify(openAliasResponse))}}
       </pre>
-    </div>
-    <FooterMinimal />
+    </div> -->
   </div>
+  <FooterMinimal />
+</div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
-import FooterMinimal from "@/components/FooterMinimal.vue"
+import Button from "../components/Button";
+import FooterMinimal from "@/components/FooterMinimal.vue";
 
 export default {
   name: "CreateAlias",
   components: {
-    FooterMinimal,
+    Button,
+    FooterMinimal
   },
   beforeMount: function() {
-    this.createAlias()
+    this.createAlias();
   },
   computed: mapState([
     "address",
@@ -79,15 +87,14 @@ export default {
 </script>
 
 <style scoped>
-
 .status-icon {
   width: 90px;
   height: 90px;
-  margin-top: 225px;
+  margin-top: 50px;
 }
 
 h1 {
-  margin-bottom: 75px;
+  padding-top: 10px;
 }
 
 .arrow {
@@ -99,19 +106,21 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #F3F3F3;
+  justify-content: flex-start;
+  background-color: #f3f3f3;
+  height: calc(100vh - 180px);
+  min-height: 600px;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 1fr minmax(340px, 480px) 18px minmax(340px, 480px) 1fr ;
+  grid-template-columns: 1fr minmax(340px, 480px) 18px minmax(340px, 480px) 1fr;
   grid-template-rows: 50px;
-  grid-gap: 5px;
+  grid-gap: 20px;
   align-items: center;
   justify-items: center;
   width: 80vw;
-  grid-template-areas:". address arrow name . ";
+  grid-template-areas: ". address arrow name . ";
 }
 
 .address {
@@ -137,9 +146,8 @@ h1 {
 }
 
 .text {
-  max-width: 932px;
   margin-top: 27px;
-  color: #3E3E3E;
+  color: #3e3e3e;
 }
 
 .success {
@@ -152,20 +160,16 @@ h1 {
 }
 
 .button {
-  display: inline-block;
-  width: 225px;
-  margin-top: 69px;
-  padding: 14px 0px;
-  border-radius: 30px;
-  background-color: #7e5ab5;
-  color: #fff;
-  font-size: 25px;
-  text-decoration: none;
+  margin: 30px 0;
+}
+
+.rotate {
+  animation: spin 2s linear infinite;
 }
 
 @media (max-width: 992px) {
-
-  .address, .name {
+  .address,
+  .name {
     padding: 20px 0;
   }
 
@@ -178,7 +182,8 @@ h1 {
     grid-gap: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: auto 30px auto;
-    grid-template-areas:"address" "arrow" "name";
+    grid-template-areas: "address" "arrow" "name";
+    margin: auto;
   }
 }
 

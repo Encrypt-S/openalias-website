@@ -8,20 +8,17 @@
         Terms of Use
       </router-link></li>
     </ul>
-    <p>All rights reserved - proudly made by the NavCoin Community!</p>
+    <p>Proudly made by the <a href="http://navhub.org">NavCoin</a> Community!</p>
   </nav>
 </template>
 
 <script>
-
 export default {
-  name: 'FooterMinimal',
-}
-
+  name: "FooterMinimal"
+};
 </script>
 
 <style scoped>
-
 .footer-minimal-container {
   padding: 20px 0 0 0;
   background-color: #ffffff;
@@ -31,7 +28,8 @@ export default {
   justify-content: center;
 }
 
-.footer-container, a {
+.footer-container,
+a {
   color: #808080;
 }
 
@@ -53,8 +51,7 @@ a {
   text-decoration: none;
 }
 
-li a:hover {
+a:hover {
   color: #c042ba;
 }
-
 </style>
