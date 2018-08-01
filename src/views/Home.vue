@@ -25,23 +25,23 @@
     </InfoSection>
 
     <InfoSection>
-      <template slot="title">How OpenAlias Works</template>
-      <template slot="text">Follow the three easy steps and you'll be all set!</template>
+      <template slot="title">How to create your Alias</template>
+      <!-- <template slot="text"><p class="centerText">Follow the three easy steps and you'll be all set!</p></template> -->
       <template slot="children">
         <Icon src="/images/purple-community.png">
-          <span slot="title" class="title">1. Register your name</span>
-          <span slot="text" class="subtext">Register a name you like and the suffix \'@nav.community\' will be added to it.</span>
+          <span slot="title" class="title">1. Register your alias</span>
+          <!-- <span slot="text" class="subtext">Register a name you like and the suffix \'@nav.community\' will be added to it.</span> -->
         </Icon>
         <Icon src="/images/purple-message.png">
           <span slot="title" class="title">2. Copy the message to console</span>
-          <span slot="subtext" class="subtext">A line of code will be generated to verify your alias. Follow the instruction to copy it to your console.</span>
+          <!-- <span slot="subtext" class="subtext">A line of code will be generated to verify your alias. Follow the instruction to copy it to your console.</span> -->
         </Icon>
         <Icon src="/images/purple-greentick.png">
           <span slot="title" class="title">3. Verify</span>
-          <span slot="subtext" class="subtext">The final step will involve pasting your verification code back into the OpenAlias website.</span>
+          <!-- <span slot="subtext" class="subtext">The final step will involve pasting your verification code back into the OpenAlias website.</span> -->
         </Icon>
       </template>
-      <template slot="button"><a >Create your Alias</a></template>
+      <template slot="button"><a href="#">Create your Alias</a></template>
     </InfoSection>
 
 
@@ -51,25 +51,24 @@
 
 <script>
 // @ is an alias to /src
-import { mapState, mapMutations } from 'vuex';
+import { mapState, mapMutations } from "vuex";
 
-import HomeHero from '../components/HomeHero'
-import CreateAlias from '../components/CreateAlias'
-import MemorableSection from "@/components/MemorableSection.vue"
-import InfoSection from "@/components/InfoSection.vue"
-import Icon from "@/components/Icon.vue"
-import FooterFull from "@/components/FooterFull.vue"
-
+import HomeHero from "../components/HomeHero";
+import CreateAlias from "../components/CreateAlias";
+import MemorableSection from "@/components/MemorableSection.vue";
+import InfoSection from "@/components/InfoSection.vue";
+import Icon from "@/components/Icon.vue";
+import FooterFull from "@/components/FooterFull.vue";
 
 export default {
   name: "Home",
-  mounted: function () {
-    this.resetStateData()
+  mounted: function() {
+    this.resetStateData();
   },
   methods: {
-  ...mapMutations({
-      savePrevAddressVerification: 'savePrevAddressVerification',
-      resetStateData: 'resetStateData'
+    ...mapMutations({
+      savePrevAddressVerification: "savePrevAddressVerification",
+      resetStateData: "resetStateData"
     })
   },
   components: {
@@ -78,14 +77,18 @@ export default {
     MemorableSection,
     InfoSection,
     Icon,
-    FooterFull,
-  },
+    FooterFull
+  }
 };
 </script>
 
 <style scoped>
-  h2 {
-    color: white;
-    margin: 0 0 20px 0;
-  }
+h2 {
+  color: white;
+  margin: 0 0 20px 0;
+}
+
+.centerText {
+  text-align: center;
+}
 </style>
