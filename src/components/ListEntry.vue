@@ -22,8 +22,10 @@ export default {
   grid-template-columns: 35px 1fr;
   grid-template-areas: "number text";
   margin-bottom: 40px;
-  width: 60vw;
+  width: 80vw;
+  max-width: 800px;
 }
+
 
 .number {
   display: inline-flex;
