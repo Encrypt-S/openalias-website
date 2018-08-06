@@ -31,7 +31,7 @@
       <DownArrow text="Instructions" />
     </Hero>
 
-    <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
+    <ToggleSectionButton buttonOneText="NavCoin&nbsp;Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
         <InfoSection :containerStyle="infoSectionStyle">
           <template slot="title">How to open the debug window</template>

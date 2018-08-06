@@ -46,10 +46,10 @@ export default {
 }
 
 .subtext {
-  min-width: 200px;
   max-width: 60vw;
-  text-align: left;
+  text-align: justify;
   margin-bottom: 35px;
+  min-width: 280px;
 }
 
 @media (min-width: 1290px ) {
@@ -149,6 +149,12 @@ export default {
 
 .name.two {
   grid-area: name-two;
+}
+
+@media (max-width: 500px) {
+  .address-container {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 930px ) {
