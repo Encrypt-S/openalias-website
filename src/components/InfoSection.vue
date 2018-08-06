@@ -40,10 +40,10 @@ export default {
 }
 
 .subtext {
-  min-width: 440px;
   max-width: 60vw;
-  text-align: left;
+  text-align: justify;
   margin-bottom: 35px;
+  min-width: 280px;
 }
 
 @media (min-width: 1290px) {

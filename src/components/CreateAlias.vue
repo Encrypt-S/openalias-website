@@ -155,7 +155,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 /* Inputs */
 .inputs {
@@ -246,5 +245,12 @@ export default {
   margin: auto;
   font-size: 20px;
   font-weight: 200;
+}
+
+@media (max-width: 625px) {
+  /* At this width we want to start shrinking. 80% of 625 = 500 */
+  .intro-text {
+    max-width: 80vw;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div id="menu-bar" class="menubar" v-bind:class="{ menuHidden: !menuIsOpen }">
     <div class="logo-and-menu">
-      <router-link to="/" class="logo-container">
+      <router-link to="/" @click.native="closeMenu" class="logo-container">
         <img id="logo" src="../assets/logo.png" />
         <span class="logo-text">OpenAlias</span>
       </router-link>
@@ -15,7 +15,7 @@
     <div class="menu">
       <ul id="menulinks" class="fadeIn-hidden">
         <li><a href="https://navcoin.org">NavCoin.org</a></li>
-        <li><router-link to="/faq">FAQ</router-link></li>
+        <li><router-link to="/faq" @click.native="closeMenu">FAQ</router-link></li>
         <li><a href="https://navcoin.org/navcoin-core/" class="download">Download&nbsp;Wallet</a></li>
       </ul>
     </div>
@@ -31,6 +31,9 @@ export default {
   methods: {
     toggleMenu: function() {
       this.menuIsOpen = !this.menuIsOpen;
+    },
+    closeMenu: function() {
+      this.menuIsOpen = false;
     }
   }
 };

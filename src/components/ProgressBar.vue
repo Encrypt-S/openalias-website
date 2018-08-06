@@ -1,6 +1,6 @@
 <template>
   <div class="bar-container">
-    <div class="back-button"><a @click="goBack" href=""><img src="/images/d-down-lil-bk.svg" class="back-arrow"/> Back</a></div>
+    <div class="back-button"><a @click="goBack" href=""><img src="/images/d-down-lil-bk.svg" class="back-arrow"/> <span class="back-text">Back</span></a></div>
     <div class="progress-bar">
       <div class="step">
         <div class="node">
@@ -34,6 +34,9 @@
           <div class="node-subtext" v-if="nodeData.currStep !== 3">Step {{nodeData.currStep}} of {{nodeData.stepTotal}}</div>
         </div>
       </div>
+    </div>
+    <div class="mobile-view">
+      Step {{nodeData.currStep}} of {{nodeData.stepTotal}}
     </div>
   </div>
 </template>
@@ -115,7 +118,29 @@
 .back-button {
   font-size: 20px;
   align-self: center;
-  margin: -20px 100px 0 -100px;
+  margin: -20px 5% 0 -5%;
+}
+
+.mobile-view {
+  display: none;
+}
+
+@media (max-width: 750px) {
+  .mobile-view {
+    display: initial;
+  }
+  .progress-bar {
+    display: none;
+  }
+  .back-text {
+    display: none;
+  }
+  .back-button {
+    margin: 0 35% 0 -35%;
+  }
+  .bar-container {
+    justify-content: center;
+  }
 }
 
 a {
