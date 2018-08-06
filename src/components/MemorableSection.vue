@@ -3,8 +3,8 @@
     <h2 class="title">A memorable NAV address</h2>
     <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. Note: The system won't allow duplicate addresses.</p>
     <div class="address-container">
-      <div class="heading-one">Full NavCoin Wallet Address</div>
-      <div class="heading-two">Address converted using OpenAlias</div>
+      <div class="heading heading-one">Full NavCoin Wallet Address</div>
+      <div class="heading heading-two">Address converted using OpenAlias</div>
       <div class="row one">
         <div class="heading-one">Full NavCoin Wallet Address</div>
         <div class="address one">NYRqFrTMULcmK13rz1DAHqgf8PGSrfBduT </div>
@@ -32,7 +32,7 @@ export default {
 <style scoped>
 
 .template-container {
-  padding: 50px 0;
+  padding: 90px 0 120px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,14 +42,22 @@ export default {
 .title {
   display: inline-block;
   min-width: 140px;
-  font-size: 32px;
+  font-size: 45px;
 }
 
 .subtext {
   min-width: 200px;
-  max-width: 60vw;
+  max-width: 90vw;
   text-align: left;
-  margin-bottom: 35px;
+  margin-top:-5px;
+  margin-bottom: 60px;
+  line-height: 34px;
+  font-size:17px;
+
+}
+
+.heading{
+  font-size:20px;
 }
 
 @media (min-width: 1290px ) {
@@ -69,11 +77,13 @@ export default {
   padding-bottom: 5px;
 }
 .address-container {
+  font-size:17px;
   display: grid;
   grid-gap: 20px;
-  width: 70vw;
+  margin: 10px 0 0 0;
+  width: 60vw;
   grid-template-columns: minmax(340px, 3fr) minmax(90px, 1fr) 3fr;
-  grid-template-rows: 50px 50px 50px;
+  grid-template-rows: 10px 60px 60px;
   grid-template-areas:  "hd-one . hd-two"
                         "row-one row-one row-one"
                         "row-two row-two row-two";
@@ -83,6 +93,7 @@ export default {
 
 .heading-one {
   grid-area: hd-one;
+  font-size: 20px;
 }
 
 .heading-two {

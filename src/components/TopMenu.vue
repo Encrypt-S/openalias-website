@@ -49,7 +49,7 @@ export default {
   padding: 0;
   z-index: 99999;
   background: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 #logo {
   height: 30px;

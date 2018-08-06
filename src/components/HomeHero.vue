@@ -6,8 +6,8 @@
 
 <style scoped>
   .hero {
-    min-height: 400px;
-    padding: 80px 0;
+    min-height: 650px;
+    padding: 9% 0;
     background: linear-gradient(to right, #5eade3 0%,#c340b9 100%);
   }
 </style>

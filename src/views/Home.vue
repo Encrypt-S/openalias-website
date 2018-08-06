@@ -1,7 +1,7 @@
 <template>
   <div>
     <HomeHero>
-      <h2>Give your NavCoin address a name!</h2>
+      <h2 style="font-size:54px;">Give your NavCoin address a name!</h2>
       <CreateAlias />
     </HomeHero>
     <MemorableSection />
