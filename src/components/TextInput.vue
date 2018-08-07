@@ -86,7 +86,11 @@ input:not(:placeholder-shown) + .floating-placeholder {
 }
 
 .text-input:focus {
-  //box-shadow: rgba(38, 22, 51, 0.5) 10px 10px 31px;
   border: solid 2px #0289FE;
 }
+
+@media (max-width: 870px) {
+  
+}
+
 </style>

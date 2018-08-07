@@ -32,7 +32,7 @@ export default {
 <style scoped>
 
 .template-container {
-  padding: 90px 0 120px 0;
+  padding: 2% 0 80px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,25 +42,40 @@ export default {
 .title {
   display: inline-block;
   min-width: 140px;
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .subtext {
-  max-width: 60vw;
-  text-align: justify;
-  margin-bottom: 35px;
   min-width: 280px;
+  line-height: 34px;
+  max-width: 80vw;
+  margin: auto;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0% 0% 5% 0%;
+  text-align: left;
+}
+
+@media (min-width: 1290px ) {
+  .subtext {
+    max-width: 775px;
+    font-size:18px;
+    line-height:27px;
+    text-align: left;
+  }
+
+  .title{
+    display: inline-block;
+    min-width: 140px;
+    font-size: 45px;
+  }
 }
 
 .heading{
   font-size:20px;
 }
 
-@media (min-width: 1290px ) {
-  .subtext {
-    max-width: 775px;
-  }
-}
+
 
 .arrow {
   display: inline-flex;
@@ -85,15 +100,18 @@ export default {
                         "row-two row-two row-two";
   align-items: center;
   justify-items: center;
+  max-width: 930px;
+  width: 92vw;
 }
 
 .heading-one {
   grid-area: hd-one;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .heading-two {
-  grid-area: hd-two
+  grid-area: hd-two;
+  font-size: 18px;
 }
 
 .row {
@@ -114,9 +132,10 @@ export default {
 }
 
 .name {
+  font:raleway !important;
   color: #34d159;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 400;  
 }
 
 .row.one {

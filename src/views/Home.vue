@@ -1,7 +1,7 @@
 <template>
   <div>
     <HomeHero>
-      <h2 style="font-size:54px;">Give your NavCoin address a name!</h2>
+      <h2 class="top-title">Give your NavCoin address a name!</h2>
       <CreateAlias />
     </HomeHero>
     <MemorableSection />
@@ -17,9 +17,9 @@
           <span slot="title" class="title">Security</span>
           <span slot="subtext" class="subtext">NavCoin OpenAlias leverages DNSSEC to prevent MITM attacks on the alias.</span>
         </Icon>
-        <Icon src="/images/purple-telegram.png">
-          <span slot="title" class="title">Easier</span>
-          <span slot="subtext" class="subtext">You can transform long alphanumeric codes into an easily memorisable address.</span>
+        <Icon src="/images/purple-fast.png">
+          <span slot="title" class="title">Saves time</span>
+          <span slot="subtext" class="subtext">Quicker to remember a meaningful alias than a long randomised string.</span>
         </Icon>
       </template>
     </InfoSection>
@@ -91,4 +91,33 @@ h2 {
 .centerText {
   text-align: center;
 }
+
+.top-title{
+  font-size:56px;
+}
+
+@media (max-width: 600px) {
+  .top-title{
+    font-size:40px;
+    padding: 0 10px 0 10px;
+  }
+}
+
+.title{
+  font:raleway;
+  font-size: 21px;
+  font-weight: 300;
+  margin-top:2%;
+}
+
+.subtext{
+  width: 80vw;
+  max-width: 282px;
+  margin-top: 5%;
+  font-size:15px;
+  line-height: 25px;
+  font-weight: 300;
+}
+
+
 </style>

@@ -173,6 +173,12 @@ export default {
     align-items: center;
   }
   .input {
+    width: 500px;
+  }
+}
+
+@media (max-width:600px){
+  .input{
     width: 300px;
   }
 }
@@ -206,10 +212,15 @@ export default {
 
   .arrow {
     transform: rotate(90deg);
+    //opacity: 0;
+    margin: 0;
+    font-size:40px;
   }
 }
 
 /* Other */
+
+
 
 .alias-menu {
   border-bottom: 1px solid white;
@@ -225,6 +236,12 @@ export default {
   font-size: 22px;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
+}
+
+@media all and (max-width: 500px) {
+  .alias-box{
+    width: 180px;
+  }
 }
 
 .active-box {
@@ -244,13 +261,17 @@ export default {
   color: white;
   margin: auto;
   font-size: 20px;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 @media (max-width: 625px) {
   /* At this width we want to start shrinking. 80% of 625 = 500 */
   .intro-text {
     max-width: 80vw;
+    font-size:18px;
+    line-height:27px;
+    margin-top:-2%;
+    text-align: left;
   }
 }
 </style>

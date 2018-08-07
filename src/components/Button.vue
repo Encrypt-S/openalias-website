@@ -28,12 +28,13 @@ export default {
 
 <style scoped>
   .button {
+    font:roboto;
     color: white;
     background: #7D59B5;
-    border: 2px solid #C6B7FD;
+    border: 1px solid #C6B7FD;
     font-size: 1.1em;
-    border-radius: 25px;
-    padding: 10px 20px;
+    border-radius: 27px;
+    padding: 15px 23px;
     cursor: pointer;
     outline: none;
     min-width: 200px;
@@ -49,7 +50,8 @@ export default {
   }
 
   .button:disabled {
-    filter: contrast(40%);
+    filter: contrast(60%);
+    //opacity: 40;
     cursor: not-allowed;
   }
 

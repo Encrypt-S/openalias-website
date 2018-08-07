@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .template-container {
-  padding: 0;
+  padding: 2% 0 80px 0;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -36,19 +36,32 @@ export default {
 .title {
   display: inline-block;
   min-width: 140px;
-  font-size: 32px;
+  font-size: 40px;
 }
 
 .subtext {
-  max-width: 60vw;
-  text-align: justify;
-  margin-bottom: 35px;
   min-width: 280px;
+  line-height: 34px;
+  max-width: 80vw;
+  margin: auto;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0% 0% 5% 0%;
+  text-align: left;
 }
 
-@media (min-width: 1290px) {
+@media (min-width: 1290px ) {
   .subtext {
     max-width: 775px;
+    font-size:18px;
+    line-height:27px;
+    text-align: left;
+  }
+
+  .title{
+    display: inline-block;
+    min-width: 140px;
+    font-size: 45px;
   }
 }
 
