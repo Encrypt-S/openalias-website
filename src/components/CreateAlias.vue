@@ -179,7 +179,7 @@ export default {
 
 @media (max-width:600px){
   .input{
-    width: 300px;
+    width: 320px;
   }
 }
 
@@ -212,7 +212,6 @@ export default {
 
   .arrow {
     transform: rotate(90deg);
-    //opacity: 0;
     margin: 0;
     font-size:40px;
   }

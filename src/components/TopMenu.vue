@@ -52,7 +52,6 @@ export default {
   padding: 0;
   z-index: 99999;
   background: white;
-  //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 #logo {
   height: 30px;
@@ -145,7 +144,6 @@ export default {
     align-items: center;
     height: 80px;
     background-color: rgba(255, 255, 255, 1);
-    //box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
   .menu {
     width: 100%;
