@@ -46,7 +46,7 @@ export default {
   margin: auto;
   font-size: 20px;
   font-weight: 300;
-  margin: 0% 0% 5% 0%;
+  margin: 0% 0% 2% 0%;
   text-align: left;
 }
 
