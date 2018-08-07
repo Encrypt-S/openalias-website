@@ -52,7 +52,9 @@ export default {
   }
 
   .button:disabled {
-    filter: contrast(60%);
+    //filter: contrast(60%);
+    color: #C2C2C2;
+    background: #EAEAEA;
     cursor: not-allowed;
   }
 

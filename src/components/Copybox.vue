@@ -39,7 +39,7 @@
 <style scoped>
   .copybox {
     background: #fff;
-    box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.30);
+    box-shadow: 0px 11px 31px 0px #A190AE30;
     border-radius: 7px;
     margin-bottom: 20px;
     font-size: 1.1em;
@@ -51,8 +51,10 @@
   }
 
   .copy-icon {
-    height: 30px;
+    height: 20px;
+    margin: 10px 0 10px 0;
     cursor: pointer;
+    opacity: 60;
   }
 
   .copy-icon:hover {
@@ -63,5 +65,7 @@
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    font:raleway;
+    font-weight: 300;
   }
 </style>

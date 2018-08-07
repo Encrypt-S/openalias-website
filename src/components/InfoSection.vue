@@ -39,6 +39,13 @@ export default {
   font-size: 40px;
 }
 
+@media (max-width: 780px){
+  .title{
+    font-size: 30px;
+  }
+  
+}
+
 .subtext {
   min-width: 280px;
   line-height: 34px;

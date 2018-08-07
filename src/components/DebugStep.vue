@@ -49,7 +49,7 @@ img {
   color: #fff;
   justify-content: center;
   align-items: center;
-  box-shadow: #7E5AB5 0px 6px 12px;
+  box-shadow: #7E5AB538 0px 6px 12px;
 }
 
 .subtext {

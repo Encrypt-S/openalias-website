@@ -21,7 +21,7 @@ export default {
   justify-items: center;
   grid-template-columns: 35px 1fr;
   grid-template-areas: "number text";
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   width: 80vw;
   max-width: 800px;
 }
@@ -38,7 +38,7 @@ export default {
   font-size: 18px;
   color: #fff;
   background-color: #7D59B4;
-  box-shadow: #7E5AB5 0px 6px 12px;
+  box-shadow: #7E5AB538 0px 6px 12px;
 }
 
 .text {
@@ -53,6 +53,12 @@ export default {
 
 .text.small {
   font-size: 16px;
+}
+
+@media (max-width:780px){
+  .text.small {
+  font-size: 13px;
+}
 }
 
 </style>

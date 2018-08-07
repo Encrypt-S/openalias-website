@@ -31,7 +31,7 @@
             <img src="/images/d-step-next.svg" alt="3 dots" v-if="nodeData.currStep !== 3">
           </div>
           <div class="node-subtext" v-if="nodeData.currStep === 3">{{nodeData.subtext}}</div>
-          <div class="node-subtext" v-if="nodeData.currStep !== 3">Step {{nodeData.currStep}} of {{nodeData.stepTotal}}</div>
+          <div class="node-subtext" v-if="nodeData.currStep !== 3">Step {{nodeData.currStep + 1}} of {{nodeData.stepTotal}}</div>
         </div>
       </div>
     </div>
@@ -82,27 +82,28 @@
 }
 
 .node {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 20px;
-  min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 100px;
 }
 
 .node .icon {
-  height: 60px;
-  width: 60px;
+  height: 45px;
+  width: 45px;
   border-radius: 40px;
   background-color: var(--lime-green);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .bar {
-  background: var(--lime-green);
-  width: 80px;
-  height: 16px;
-  padding: 0 20px;
+    background: var(--lime-green);
+    width: 150px;
+    height: 3px;
+    margin-top: -18px;
+    margin-right: -50px;
+    margin-left: -40px;
 }
 
 .node-subtext, .node-subtext-bold {
@@ -117,7 +118,7 @@
 .back-button {
   font-size: 20px;
   align-self: center;
-  margin: -20px 5% 0 -5%;
+  margin: -20px 5% 0 -10%;
 }
 
 .mobile-view {

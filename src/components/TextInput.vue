@@ -81,8 +81,9 @@ input:not(:placeholder-shown) + .floating-placeholder {
   padding: 25px 10px 10px 20px;
   border: 0px;
   outline: none;
-  box-shadow: 0px 11px 31px 0px rgba(141, 76, 191, 0.507);
+  box-shadow: 0px 11px 31px 0px #A190AE30;
   justify-content: space-between;
+  height: 64px;
 }
 
 .text-input:focus {
