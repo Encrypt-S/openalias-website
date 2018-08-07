@@ -1,9 +1,9 @@
-# NAV Open Alias Frontend
+# NAV OpenAlias Frontend
 
-The frontend for [NAV Open Alias](https://http://openalias.nav.community/) built with Vue.
+The frontend for [NAV OpenAlias](https://http://openalias.nav.community/) built with Vue.
 
-Also see [NAV Open Alias API](https://github.com/Encrypt-S/openalias-api)
+Also see [NAV OpenAlias API](https://github.com/Encrypt-S/openalias-api)
 
 ## Forking
 
-Feel free to work and modify to run your own NAV open alias website. Released under MIT.
+Feel free to work and modify to run your own NAV OpenAlias website. Released under MIT.

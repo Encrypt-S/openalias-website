@@ -66,7 +66,7 @@
               <span slot="number" class="title number">2</span><span slot="text" class="text"> Then unlock your wallet with ‘walletpassphrase XXX 300’. XXX is your passphrase, and 300 refers to the amount of seconds it will be unlocked for.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="title number">3</span>  <span slot="text" class="text"> Then paste in the open alias registration command.</span>
+              <span slot="number" class="title number">3</span>  <span slot="text" class="text"> Then paste in the OpenAlias registration command.</span>
             </ListEntry>
             <ListEntry>
               <span slot="number" class="title number">4</span><span slot="text" class="text">  Type in ‘walletlock’ to lock your wallet again for staking.</span>

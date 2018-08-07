@@ -74,7 +74,6 @@ input:not(:placeholder-shown) + .floating-placeholder {
 .text-input {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
-  max-width: calc(100vw - 100px);
   min-width: 240px;
   width: 100%;
   border-radius: 7px;

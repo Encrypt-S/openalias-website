@@ -44,7 +44,7 @@
     </div>
     <div class="intro-text">
       <p v-if="!editAlias">
-        NAV Open Alias is a little like PayPal, which lets you send a payment to an email address. The difference is that Open Alias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.
+        NAV OpenAlias is a little like PayPal, which lets you send a payment to an email address. The difference is that OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.
       </p>
       <p v-if="editAlias">
         To update an existing alias, you will need access to the wallet that created the original alias.<br />
@@ -177,7 +177,7 @@ export default {
   }
 }
 
-@media (max-width:600px){
+@media (max-width:500px){
   .input{
     width: 320px;
   }
@@ -239,7 +239,7 @@ export default {
 
 @media all and (max-width: 500px) {
   .alias-box{
-    width: 180px;
+    width: 160px;
   }
 }
 
