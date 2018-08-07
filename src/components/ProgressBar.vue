@@ -70,7 +70,6 @@
 .progress-bar {
   max-width: 700px;
   display: grid;
-  /* grid-template-columns: 100px 1fr 100px; */
   grid-auto-flow: column;
   align-items: top;
   justify-items: center;
