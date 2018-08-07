@@ -2,7 +2,7 @@
   <div>
     <h1>Frequently Asked Questions</h1>
     <h3>Pick your wallet.</h3>
-    <ToggleSectionButton buttonOneText="NavCoin&nbsp;Core" buttonTwoText="NavPi">
+    <ToggleSectionButton buttonOneText="NavCoin Core" buttonTwoText="NavPi">
       <div slot="sectionOne">
         <InfoSection :containerStyle="infoSectionStyle">
           <template slot="title">How to open the debug window</template>

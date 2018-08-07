@@ -61,8 +61,8 @@ export default {
 
 .button {
   display: inline-block;
-  width: calc(50% - 82px);
-  padding: 12px 35px 12px 24px;
+  width: calc(50% - 50px);
+  padding: 12px 15px 12px 15px;
   border: 1px solid #7e5ab5;
   text-align: center;
   font-size: 13px;
