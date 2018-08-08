@@ -77,11 +77,11 @@ export default {
 }
 
 .button:hover {
-  filter: brightness(50%);
+  background:  #f0e8fd;
 }
 
 .button.active:hover {
-  filter: none;
+   background-color: #7e5ab5;
 }
 
 .button.one {

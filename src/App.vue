@@ -41,6 +41,7 @@ html, body {
 h1,h2,h3 {
   font-family: 'Raleway', 'Regular', Helvetica, Arial, sans-serif;
   color: #707070;
+  font-weight: 300;
 }
 
 h2 {

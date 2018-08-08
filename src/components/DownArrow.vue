@@ -31,8 +31,8 @@ img {
 }
 
 .text {
-  font-size: 20px;
-  color: #474747;
+  font-size: 15px;
+  color: #47474794;
 }
 
 </style>

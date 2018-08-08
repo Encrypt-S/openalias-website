@@ -4,11 +4,12 @@
       <ProgressBar :nodeData="progressBarData"/>
       <h1>Verify you own {{alias}}@nav.community</h1>
       <div class="input-container">
-        <ListEntry><span slot="number" class="number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
+        <ListEntry><span slot="number" class="title number">1</span><span slot="text" class="text small">Copy the message below</span></ListEntry>
         <Copybox>signmessage {{aliasCurrentAddress}} {{alias}}@nav.community</Copybox>
         <br /> <br />
+        <br /> <br />
         <!-- <div><Button @click="copyText()">{{copied ? "Copied" : "Copy"}}</Button></div> -->
-        <ListEntry><span slot="number" class="number">2</span><span slot="text" class="text small">Now open your NavCoin wallet, open console through Help -> Debug and pastes the message, then hit Enter on your keyboard. An response message (verification code) will be created, copy and paste it here</span></ListEntry>
+        <ListEntry><span slot="number" class="title number">2</span><span slot="text" class="text small">Now open your NavCoin wallet, open console through Help -> Debug and pastes the message, then hit Enter on your keyboard. An response message (verification code) will be created, copy and paste it here</span></ListEntry>
         <TextInput v-model="addressVerification" :inputEvent="verifySignature">
           <template slot="label">{{'enter response'}}</template>
           <template slot="errorLabel">
@@ -54,21 +55,21 @@
 
         <DownArrow text="Get an error?"/>
 
-        <InfoSection :containerStyle="infoSectionStyle">
+        <InfoSection :containerStyle="{ padding: '0 0 40px 0', 'background-color': '#f7f7f7'}">
           <template slot="title">Make sure your wallet is unlocked</template>
-          <span slot="text" class="subtext">If you’re staking your NAV or have encrypted your wallet, then the wallet will be locked. You will need to unlock your wallet to be able to register your address.</span>
+          <span slot="text" class="text small">If you’re staking your NAV or have encrypted your wallet, then the wallet will be locked. You will need to unlock your wallet to be able to register your address.</span>
           <template slot="children">
             <ListEntry>
-              <span slot="number" class="number">1</span><span slot="text" class="text"> Go to the debug window.</span>
+              <span slot="number" class="title number">1</span><span slot="text" class="text"> Go to the debug window.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="number">2</span><span slot="text" class="text"> Then unlock your wallet with ‘walletpassphrase XXX 300’. XXX is your passphrase, and 300 refers to the amount of seconds it will be unlocked for.</span>
+              <span slot="number" class="title number">2</span><span slot="text" class="text"> Then unlock your wallet with ‘walletpassphrase XXX 300’. XXX is your passphrase, and 300 refers to the amount of seconds it will be unlocked for.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="number">3</span>  <span slot="text" class="text"> Then paste in the open alias registration command.</span>
+              <span slot="number" class="title number">3</span>  <span slot="text" class="text"> Then paste in the OpenAlias registration command.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="number">4</span><span slot="text" class="text">  Type in ‘walletlock’ to lock your wallet again for staking.</span>
+              <span slot="number" class="title number">4</span><span slot="text" class="text">  Type in ‘walletlock’ to lock your wallet again for staking.</span>
             </ListEntry>
           </template>
         </InfoSection>
@@ -228,6 +229,7 @@ h1 {
 
 .need-help {
   margin: 30px 0 0 0;
+  font-size:13px;
 }
 
 .button {

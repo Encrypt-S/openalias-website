@@ -52,14 +52,14 @@ export default {
   padding: 0;
   z-index: 99999;
   background: white;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 #logo {
   height: 30px;
 }
 .logo-text {
   min-width: 110px;
-  font-size: 1.3em;
+  font-size: 23px;
+  font-weight: 300;
   color: rgba(196, 88, 200, 1);
   text-decoration: none;
 }
@@ -142,9 +142,8 @@ export default {
     justify-content: space-between;
     pointer-events: auto;
     align-items: center;
-    height: 100px;
+    height: 80px;
     background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   }
   .menu {
     width: 100%;
@@ -157,7 +156,7 @@ export default {
   .menu ul {
     flex-direction: column;
     font-size: 25px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
   }
   .menu ul li {
     margin: 3vh 0;

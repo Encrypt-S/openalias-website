@@ -48,36 +48,49 @@ export default {
 
 .floating-placeholder {
   color: #8e8e8e;
-  margin-bottom: -25px;
+  align-items: center;
+  margin-bottom: -20px;  
   padding-left: 15px;
   transform-origin: left bottom;
   transform: translate(0, 1.4rem) scale(1.3);
-  transition: all 0.2s;
+  transition: all 0.05s ease;
+  cursor: text;
+  font-size: 15px;
+  font-weight: 300;
 }
 
 .text-input:focus + .floating-placeholder {
-  transform: translate(0, 0) scale(1);
+  margin-bottom: -23px;
+  font-size: 13px;
+  transform: translate(2px, 0) scale(1);
 }
 
 input:not(:placeholder-shown) + .floating-placeholder {
-  transform: translate(0, 0) scale(1);
+  margin-bottom: -23px;
+  font-size: 13px;
+  transform: translate(2px, 0) scale(1);
 }
 
 .text-input {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: 1.2em;
-  max-width: calc(100vw - 100px);
   min-width: 240px;
   width: 100%;
   border-radius: 7px;
   padding: 25px 10px 10px 20px;
   border: 0px;
   outline: none;
-  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 11px 31px 0px #A190AE30;
   justify-content: space-between;
+  height: 64px;
 }
 
 .text-input:focus {
-  box-shadow: rgba(38, 22, 51, 0.5) 10px 10px 31px;
+  border: solid 2px #0289FE;
 }
+
+@media (max-width: 870px) {
+  
+}
+
 </style>

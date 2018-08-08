@@ -27,7 +27,9 @@
       </div>
 
 
-      <div class="arrow">→</div>
+      <div class="arrow">
+        <img src="/images/d-right-wt.svg" alt="right arrow" />
+      </div>
       <div class="input">
         <div class="emailMaskContainer">
           <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
@@ -42,8 +44,7 @@
     </div>
     <div class="intro-text">
       <p v-if="!editAlias">
-        NAV OpenAlias is a little like paypal. It gives you an easy to remember and share 'email style' address that
-        can be used to send you funds.
+        NAV OpenAlias is a little like PayPal, which lets you send a payment to an email address. The difference is that OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.
       </p>
       <p v-if="editAlias">
         To update an existing alias, you will need access to the wallet that created the original alias.<br />
@@ -164,7 +165,7 @@ export default {
 }
 
 .input {
-  width: 350px;
+  width: 400px;
 }
 
 @media (max-width: 870px) {
@@ -172,7 +173,13 @@ export default {
     align-items: center;
   }
   .input {
-    width: 300px;
+    width: 500px;
+  }
+}
+
+@media (max-width:500px){
+  .input{
+    width: 320px;
   }
 }
 
@@ -192,9 +199,10 @@ export default {
 }
 
 .arrow {
-  color: white;
-  font-size: 40px;
-  margin: 10px 20px;
+    width: 25px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    margin: 10px 12px;
 }
 
 @media all and (max-width: 870px) {
@@ -204,10 +212,14 @@ export default {
 
   .arrow {
     transform: rotate(90deg);
+    margin: 0;
+    font-size:40px;
   }
 }
 
 /* Other */
+
+
 
 .alias-menu {
   border-bottom: 1px solid white;
@@ -216,11 +228,19 @@ export default {
 }
 
 .alias-box {
-  width: 120px;
+  width: 250px;
   padding: 10px;
-  text-align: center;
+  font-weight: 400;
+  font-family: 'Raleway', 'Regular', Helvetica, Arial, sans-serif;
+  font-size: 22px;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
+}
+
+@media all and (max-width: 500px) {
+  .alias-box{
+    width: 160px;
+  }
 }
 
 .active-box {
@@ -235,15 +255,22 @@ export default {
 }
 
 .intro-text {
-  max-width: 500px;
+  line-height: 34px;
+  max-width: 973px;
   color: white;
   margin: auto;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 @media (max-width: 625px) {
   /* At this width we want to start shrinking. 80% of 625 = 500 */
   .intro-text {
     max-width: 80vw;
+    font-size:18px;
+    line-height:27px;
+    margin-top:-2%;
+    text-align: left;
   }
 }
 </style>

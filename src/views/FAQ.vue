@@ -13,11 +13,11 @@
               <span slot="text" class="subtext">Open your NavCoin wallet, open the console through Help&nbsp;->&nbsp;Debug Window</span>
             </DebugStep>
             <DebugStep src="/images/d-console2.png">
-              <span slot="title" class="title number">2</span>
+              <span slot="title" class="title title number">2</span>
               <span slot="text" class="subtext">Paste your command, then hit Enter key on your keyboard.</span>
             </DebugStep>
             <DebugStep src="/images/d-console3.png">
-              <span slot="title" class="title number">3</span>
+              <span slot="title" class="title title number">3</span>
               <span slot="text" class="subtext">Response (verification code) will be created, copy and paste it to the next step.</span>
             </DebugStep>
           </template>
@@ -30,16 +30,16 @@
           <span slot="text" class="subtext">If you’re staking your NAV or have encrypted your wallet, then the wallet will be locked. You will need to unlock your wallet to be able to register your address.</span>
           <template slot="children">
             <ListEntry>
-              <span slot="number" class="number">1</span><span slot="text" class="text"> Go to the debug window.</span>
+              <span slot="number" class="title number">1</span><span slot="text" class="text"> Go to the debug window.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="number">2</span><span slot="text" class="text"> Then unlock your wallet with ‘walletpassphrase XXX 300’. XXX is your passphrase, and 300 refers to the amount of seconds it will be unlocked for.</span>
+              <span slot="number" class="title number">2</span><span slot="text" class="text"> Then unlock your wallet with ‘walletpassphrase XXX 300’. XXX is your passphrase, and 300 refers to the amount of seconds it will be unlocked for.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="number">3</span>  <span slot="text" class="text"> Then paste in the open alias registration command.</span>
+              <span slot="number" class="title number">3</span>  <span slot="text" class="text"> Then paste in the OpenAlias registration command.</span>
             </ListEntry>
             <ListEntry>
-              <span slot="number" class="number">4</span><span slot="text" class="text">  Type in ‘walletlock’ to lock your wallet again for staking.</span>
+              <span slot="number" class="title number">4</span><span slot="text" class="text">  Type in ‘walletlock’ to lock your wallet again for staking.</span>
             </ListEntry>
           </template>
         </InfoSection>
