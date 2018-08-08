@@ -231,7 +231,7 @@ export default {
   width: 250px;
   padding: 10px;
   font-weight: 400;
-  font-family: raleway;
+  font-family: 'Raleway', 'Regular', Helvetica, Arial, sans-serif;
   font-size: 22px;
   color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
