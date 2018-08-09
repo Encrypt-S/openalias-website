@@ -10,12 +10,12 @@ Feel free to work and modify to run your own NAV OpenAlias website. Released und
 
 ## Get it to run locally
 
-`<addr>` git clone [this repo]
+`<git clone [this repo]>` 
 
-`<addr>` cd openalias-website
+`<cd openalias-website>` 
 
-`<addr>` npm install
+`<npm install>` 
 
-`<addr>` npm run serve
+`<npm run serve>` 
 
-Then in your browser visit localhost:8080
+Then in your browser visit `<localhost:8080>` 
