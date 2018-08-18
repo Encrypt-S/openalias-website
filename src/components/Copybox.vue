@@ -39,15 +39,21 @@
 <style scoped>
   .copybox {
     background: #fff;
-    box-shadow: 0px 11px 31px 0px #A190AE30;
+    box-shadow: rgba(161, 144, 174, 0.19);
     border-radius: 7px;
     margin-bottom: 20px;
-    font-size: 1.1em;
+    font-size: 18px;
     padding: 10px 20px;
     display: inline-flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
+  }
+
+  @media (max-width:420px) {
+    .copybox{
+      font-size:13px;
+    }
   }
 
   .copy-icon {
@@ -65,7 +71,7 @@
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    font:raleway;
+    font-family: 'Raleway', 'Regular', Helvetica, Arial, sans-serif;
     font-weight: 300;
   }
 </style>

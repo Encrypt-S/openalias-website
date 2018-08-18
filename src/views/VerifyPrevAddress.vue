@@ -9,7 +9,7 @@
         <br /> <br />
         <br /> <br />
         <!-- <div><Button @click="copyText()">{{copied ? "Copied" : "Copy"}}</Button></div> -->
-        <ListEntry><span slot="number" class="title number">2</span><span slot="text" class="text small">Now open your NavCoin wallet, open console through Help -> Debug and pastes the message, then hit Enter on your keyboard. An response message (verification code) will be created, copy and paste it here</span></ListEntry>
+        <ListEntry><span slot="number" class="title number">2</span><span slot="text" class="text small">Paste the response here. See below for detailed instructions</span></ListEntry>
         <TextInput v-model="addressVerification" :inputEvent="verifySignature">
           <template slot="label">{{'enter response'}}</template>
           <template slot="errorLabel">

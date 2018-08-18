@@ -57,8 +57,8 @@ export default {
 
 @media (max-width:780px){
   .text.small {
-  font-size: 13px;
-}
+    font-size: 13px;
+  }
 }
 
 </style>

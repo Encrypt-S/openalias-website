@@ -104,7 +104,7 @@ h2 {
 }
 
 .title{
-  font:raleway;
+  font-family: 'Raleway', 'Regular', Helvetica, Arial, sans-serif;
   font-size: 21px;
   font-weight: 300;
   margin-top:2%;

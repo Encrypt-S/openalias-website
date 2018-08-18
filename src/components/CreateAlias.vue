@@ -26,10 +26,10 @@
         </TextInput>
       </div>
 
-
       <div class="arrow">
         <img src="/images/d-right-wt.svg" alt="right arrow" />
       </div>
+
       <div class="input">
         <div class="emailMaskContainer">
           <span class="emailMask" v-if="alias"><span style="visibility: hidden">{{alias}}</span><span>@nav.community</span></span>
@@ -269,7 +269,6 @@ export default {
     max-width: 80vw;
     font-size:18px;
     line-height:27px;
-    margin-top:-2%;
     text-align: left;
   }
 }

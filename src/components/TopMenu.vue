@@ -88,7 +88,7 @@ export default {
 }
 .download {
   padding: 16px 18px;
-  border-radius: 7px;
+  border-radius: 57px;
   border: 1px solid #707070;
 }
 .menu-icon {
