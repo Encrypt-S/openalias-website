@@ -60,15 +60,15 @@ export default {
 }
 
 .text-input:focus + .floating-placeholder {
-  margin-bottom: -23px;
-  font-size: 13px;
-  transform: translate(2px, 0) scale(1);
+  //margin-bottom: -23px;
+  //font-size: 15px;
+  transform: translate(2px, 5px) scale(1);
 }
 
 input:not(:placeholder-shown) + .floating-placeholder {
-  margin-bottom: -23px;
-  font-size: 13px;
-  transform: translate(2px, 0) scale(1);
+  //margin-bottom: -23px;
+  //font-size: 15px;
+  transform: translate(2px, 5px) scale(1);
 }
 
 .text-input {
@@ -77,12 +77,14 @@ input:not(:placeholder-shown) + .floating-placeholder {
   min-width: 240px;
   width: 100%;
   border-radius: 7px;
+  border: solid 2px #ffffff;
   padding: 25px 10px 10px 20px;
   border: 0px;
   outline: none;
-  box-shadow: 0px 11px 31px 0px #A190AE30;
+  box-shadow: rgba(161, 144, 174, 0.19);
   justify-content: space-between;
   height: 64px;
+  transition: 0.2s all;
 }
 
 .text-input:focus {

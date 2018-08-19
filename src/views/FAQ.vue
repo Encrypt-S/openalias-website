@@ -13,11 +13,11 @@
               <span slot="text" class="subtext">Open your NavCoin wallet, open the console through Help&nbsp;->&nbsp;Debug Window</span>
             </DebugStep>
             <DebugStep src="/images/d-console2.png">
-              <span slot="title" class="title title number">2</span>
+              <span slot="title" class="title number">2</span>
               <span slot="text" class="subtext">Paste your command, then hit Enter key on your keyboard.</span>
             </DebugStep>
             <DebugStep src="/images/d-console3.png">
-              <span slot="title" class="title title number">3</span>
+              <span slot="title" class="title number">3</span>
               <span slot="text" class="subtext">Response (verification code) will be created, copy and paste it to the next step.</span>
             </DebugStep>
           </template>

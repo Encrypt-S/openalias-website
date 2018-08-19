@@ -81,20 +81,23 @@ export default {
 
 .button a {
   display: inline-block;
-  padding: 12px 40px;
+  padding: 17px 40px;
   margin-top: 75px;
   border-radius: 30px;
   background-color: #7e5ab5;
   color: #fff;
   font-size: 18px;
   text-decoration: none;
+  box-shadow: 0px 10px 30px #7e5ab56e;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .button:hover a {
-  background: #5f448a;
+  box-shadow: 0px 4px 18px #7e5ab5a6;
 }
 
 .button:active a {
-  background: #3f2f5e;
+  //background: #3f2f5e;
 }
 </style>
