@@ -20,7 +20,7 @@
 <style scoped>
   .label-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 15px 0 0 0;
     width: 100%;
