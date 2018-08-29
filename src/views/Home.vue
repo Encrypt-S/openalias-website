@@ -19,7 +19,7 @@
         </Icon>
         <Icon src="/images/purple-fast.png">
           <span slot="title" class="title">Saves time</span>
-          <span slot="subtext" class="subtext">Quicker to remember a meaningful alias than a long randomised string.</span>
+          <span slot="subtext" class="subtext">It's quicker to remember a meaningful alias than a long random-looking string.</span>
         </Icon>
       </template>
     </InfoSection>

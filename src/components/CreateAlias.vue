@@ -129,7 +129,7 @@ export default {
       }
 
       if (this.alias.length < 2) {
-        return (this.aliasError = "Must contain atleast 2 characters");
+        return (this.aliasError = "Must contain at least 2 characters");
       }
 
       if (this.alias.length > 25) {
@@ -191,6 +191,7 @@ export default {
   position: absolute;
   left: 0;
   top: 20px;
+  line-height: 1.9;
   padding-left: 20px;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   font-size: 1.2em;

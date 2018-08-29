@@ -1,21 +1,21 @@
 <template>
   <div class="template-container">
     <h2 class="title">A memorable NAV address</h2>
-    <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. Note: The system won't allow duplicate addresses.</p>
+    <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. An OpenAlias can be associated with one NavCoin address.</p>
     <div class="address-container">
-      <div class="heading heading-one">Full NavCoin Wallet Address</div>
-      <div class="heading heading-two">Address converted using OpenAlias</div>
+      <div class="heading heading-one">OpenAlias associated with Address</div>
+      <div class="heading heading-two">Full NavCoin Wallet Address</div>
       <div class="row one">
-        <div class="heading-one">Full NavCoin Wallet Address</div>
-        <div class="address one">NYRqFrTMULcmK13rz1DAHqgf8PGSrfBduT </div>
-        <div class="arrow one">→</div>
-        <div class="heading-two">Address converted using OpenAlias</div>
+        <div class="heading-one">OpenAlias associated with Address</div>
         <div class="name one"> miguel@nav.community</div>
+        <div class="arrow one">→</div>
+        <div class="heading-two">Full NavCoin Wallet Address</div>
+        <div class="address one">NYRqFrTMULcmK13rz1DAHqgf8PGSrfBduT </div>
       </div>
       <div class="row two">
-        <div class="address two">NTdsZrjjZbSUpF7VqkCeJ5xTm7Fu3b3AZn </div>
-        <div class="arrow two">→</div>
         <div class="name two"> saori@nav.community</div>
+        <div class="arrow two">→</div>
+        <div class="address two">NTdsZrjjZbSUpF7VqkCeJ5xTm7Fu3b3AZn </div>
       </div>
     </div>
   </div>
@@ -140,7 +140,7 @@ export default {
 
 .row.one {
   grid-area: row-one;
-  grid-template-areas:"addr-one arr-one name-one";
+  grid-template-areas:"name-one arr-one addr-one";
 }
 
 .row .heading-one, .row .heading-two {
@@ -162,7 +162,7 @@ export default {
 
 .row.two {
   grid-area: row-two;
-  grid-template-areas:"addr-two arr-two name-two";
+  grid-template-areas:"name-two arr-two addr-two";
 }
 
 .address.two {
@@ -217,7 +217,7 @@ export default {
     grid-gap: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, auto) 30px repeat(2, auto);
-    grid-template-areas:"hd-one" "addr-one" "arr-one" "hd-two" "name-one";
+    grid-template-areas:"hd-one" "name-one" "arr-one" "hd-two" "addr-one";
   }
 
   .row.two {
