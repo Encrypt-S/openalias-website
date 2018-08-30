@@ -78,31 +78,6 @@ export default {
     InfoSection,
     Icon,
     FooterFull
-  },
-  metaInfo: {
-    meta: [
-      // OpenGraph data
-      {property: 'og:title', content: 'NAV OpenAlias'},
-      {property: 'og:site_name', content: 'NAV OpenAlias'},
-      {property: 'og:type', content: 'website'},
-      {property: 'og:url', content: 'https://openalias.nav.community/'},
-      {property: 'og:image', content: 'https://openalias.nav.community/images/openalias.png'},
-      {property: 'og:description', content: 'NAV OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.'},
-
-      // Twitter card
-      {name: 'twitter:card', content: 'summary'},
-      {name: 'twitter:site', content: '@navcoin'},
-      {name: 'twitter:title', content: 'NAV OpenAlias'},
-      {name: 'twitter:description', content: 'NAV OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.'},
-      {name: 'twitter:creator', content: 'NavCoin Community'},
-      {name: 'twitter:image:src', content: 'https://openalias.nav.community/images/openalias.png'},
-
-      // Google / Schema.org:
-      {itemprop: 'name', content: 'NAV OpenAlias'},
-      {itemprop: 'description', content: 'NAV OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.'},
-      {itemprop: 'image', content: 'https://openalias.nav.community/images/openalias.png'}
-
-    ]
   }
 };
 </script>
