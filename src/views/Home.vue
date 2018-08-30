@@ -51,7 +51,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapState, mapMutations } from "vuex";
+import { mapMutations } from "vuex";
 
 import HomeHero from "../components/HomeHero";
 import CreateAlias from "../components/CreateAlias";
