@@ -1,7 +1,7 @@
 <template>
   <div class="template-container">
     <h2 class="title">A memorable NAV address</h2>
-    <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. An OpenAlias can be associated with one NavCoin address.</p>
+    <p class="subtext">Get the 34 character alphanumeric address from your wallet, and paste it into the field on the left above. Then create your own NavCoin Community OpenAlias address by typing your name on the right. You can create multiple aliases for a single wallet address.</p>
     <div class="address-container">
       <div class="heading heading-one">OpenAlias associated with Address</div>
       <div class="heading heading-two">Full NavCoin Wallet Address</div>
