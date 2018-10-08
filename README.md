@@ -3,7 +3,7 @@
 OpenAlias is a little like PayPal, which lets you send a payment to an email address. The difference is that OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.
 [create your Alias here](https://openalias.nav.community/#/)
 
-##About NAV
+## About NAV
 
 NavCoin is a decentralized cryptocurrency that uses peer-to-peer technology to operate with no central authority or banks; managing transactions and the issuing of NavCoin is carried out collectively by the network. NavCoin is open-source; its design is public, nobody owns or controls NavCoin and everyone can take part.
 
@@ -11,7 +11,7 @@ NavCoin has a range of sleek and intuitive wallets that allows you to easily man
 
 Get more details at [NAVCOIN Website](https://navcoin.org)
 
-##About Open Alias
+## About Open Alias
 
 OpenAlias seeks to provide a way to simplify aliasing amidst a rapidly shifting technology climate. Users are trying to cross the bridge to private and cryptographically secure infrastructure and systems.
 
