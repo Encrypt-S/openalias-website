@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/950c0806-69b7-4b38-b39e-e2514243a29f/deploy-status)](https://app.netlify.com/sites/nav-open-alias/deploys)
+
 # NAV OpenAlias Frontend
 
 OpenAlias is a little like PayPal, which lets you send a payment to an email address. The difference is that OpenAlias allows you to set an easy to remember ‘email style’ address to represent your full NavCoin address.
