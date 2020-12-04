@@ -16,7 +16,7 @@
       <ul id="menulinks" class="fadeIn-hidden">
         <li><a href="https://navcoin.org">NavCoin.org</a></li>
         <li><router-link to="/faq" @click.native="closeMenu">FAQ</router-link></li>
-        <li><a href="https://navcoin.org/navcoin-core/" class="download">Download&nbsp;Wallet</a></li>
+        <li><a href="https://navcoin.org/en/wallets/" class="download">Download&nbsp;Wallet</a></li>
       </ul>
     </div>
   </div>
